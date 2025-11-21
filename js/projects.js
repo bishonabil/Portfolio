@@ -49,16 +49,16 @@ const projects = [
         layout: 'left' // Options: 'left' or 'right' (for device mockup position)
     },
     {
-        id: 'saas',
-        title: 'Tour Control Dashboard',
-        category: 'SaaS Dashboard',
-        shortDescription: 'Real-time Analytics Suite',
-        fullDescription: 'Built a comprehensive admin dashboard using React and TypeScript. Designed RESTful API endpoints with Node.js and Express. Implemented real-time data visualization with Chart.js and WebSocket connections for live updates.',
-        url: 'https://control.saassuite.com',
-        image: 'https://picsum.photos/800/500?random=4',
-        imageTablet: 'https://picsum.photos/400/300?random=5',
-        imageMobile: 'https://picsum.photos/300/500?random=6',
-        technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
+        id: 'E-Commerce',
+        title: 'Jordan Harvest Website',
+        category: 'E-Commerce',
+        shortDescription: 'WooCommerce Store Development',
+        fullDescription: 'Jordan Harvest is a premium dates company rooted in centuries of agricultural heritage, offering high-quality Medjool, Barhi, and regional Middle Eastern varieties. For this project, I developed a full WooCommerce website that reflects their brand identity and supports scalable e-commerce operations. The build included custom product layouts, optimized structures for their catalog, and JavaScript enhancements to improve product-page interactions and user experience.',
+        url: '',
+        image: 'assets/images/jordandesktop.png',
+        imageTablet: 'assets/images/jordantablet.png',
+        imageMobile: 'assets/images/jordanmobile.png',
+        technologies: ['WordPress', 'WooCommerce', 'JavaScript', 'CSS'],
         gradientColor: 'cyan',
         layout: 'right'
     }
