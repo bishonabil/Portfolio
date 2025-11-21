@@ -35,16 +35,16 @@
  */
 const projects = [
     {
-        id: 'ecommerce',
-        title: 'E-Commerce Platform',
-        category: 'E-Commerce',
-        shortDescription: 'Custom WooCommerce Experience',
-        fullDescription: 'Custom WooCommerce integration with optimized PHP backend architecture. Implemented advanced JavaScript features for dynamic product filtering and real-time inventory management. Built responsive layouts with modern CSS techniques and performance optimizations.',
-        url: 'https://shop.example.com',
-        image: 'https://picsum.photos/800/500?random=1',
-        imageTablet: 'https://picsum.photos/400/300?random=2',
-        imageMobile: 'https://picsum.photos/300/500?random=3',
-        technologies: ['WordPress', 'PHP', 'CSS', 'JavaScript', 'WooCommerce'],
+        id: 'Web Development',
+        title: 'Cosmo5 Global Website',
+        category: 'Web Development',
+        shortDescription: 'Dynamic WordPress Conversion',
+        fullDescription: 'Cosmo5 is a global marketing group operating across 18 countries. I rebuilt their entire static PHP website into a fully dynamic WordPress system, enabling effortless content updates through a modular dashboard. The project included creating reusable templates, custom modules, and flexible page structures using PHP, JavaScript, CSS, and WordPress to deliver a scalable, future-proof site.',
+        url: 'https://cosmo5.com',
+        image: 'assets/images/cosmodesktop.png',
+        imageTablet: 'assets/images/cosmotablet.png',
+        imageMobile: 'assets/images/cosmomobile.png',
+        technologies: ['WordPress', 'PHP', 'CSS', 'JavaScript'],
         gradientColor: 'indigo', // Options: 'indigo' or 'cyan'
         layout: 'left' // Options: 'left' or 'right' (for device mockup position)
     },
@@ -94,13 +94,13 @@ function renderProjectCards() {
         const gradient = getGradientClasses(project.gradientColor);
         
         return `
-            <button type="button" data-project-id="${project.id}" class="relative overflow-hidden rounded-3xl text-left shadow-xl bg-gray-900 group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/60 hover:-translate-y-1 transition-all duration-300">
+            <button type="button" data-project-id="${project.id}" class="relative overflow-hidden rounded-3xl text-left shadow-xl bg-gray-900 group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/60 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                 <div class="absolute inset-0">
                     <img src="${project.image}" alt="${project.title} preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-br ${gradient.card} transition-opacity duration-500 group-hover:opacity-100"></div>
-                <div class="relative flex flex-col h-full p-6 sm:p-8 text-white space-y-6">
-                    <div class="space-y-3">
+                <div class="relative flex flex-col flex-1 h-full p-6 sm:p-8 text-white">
+                    <div class="space-y-3 mb-6">
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest ${gradient.badge}">
                             ${project.category}
                         </span>
@@ -111,7 +111,7 @@ function renderProjectCards() {
                             </h3>
                         </div>
                     </div>
-                    <div class="mt-auto flex items-center justify-between text-xs sm:text-sm text-white/70">
+                    <div class="mt-auto flex items-center justify-between text-xs sm:text-sm text-white/70 pt-4">
                         <span class="truncate pr-4">${project.url}</span>
                         <span class="inline-flex items-center gap-2 font-semibold text-white group-hover:gap-3 transition-all">
                             View
