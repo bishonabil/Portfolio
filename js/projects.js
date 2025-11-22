@@ -97,12 +97,12 @@ const projects = [
         shortDescription: 'Professional Law Firm Website',
         fullDescription: 'Tawakkul is a reputable law firm specializing in corporate law and dispute resolution. I built a fully responsive WordPress website using a refined, modern template customized to match the firm’s professional identity. The result is a clean, elegant, and reliable online presence that works seamlessly across all devices.',
         url: 'https://tawakollaw.com/',
-        image: 'assets/images/aklnedesktop.png',
-        imageTablet: 'assets/images/aklnetablet.png',
-        imageMobile: 'assets/images/aklnemobile.png',
+        image: 'assets/images/tawakoldesktop.png',
+        imageTablet: 'assets/images/tawakoltablet.png',
+        imageMobile: 'assets/images/tawakolmobile.png',
         technologies: ['WordPress', 'CSS'],
         gradientColor: 'cyan',
-        layout: 'right'
+        layout: 'left'
     }
 ];
 
