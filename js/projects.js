@@ -35,7 +35,7 @@
  */
 const projects = [
     {
-        id: 'Web Development',
+        id: 'Cosmo5',
         title: 'Cosmo5 Global Website',
         category: 'Web Development',
         shortDescription: 'Dynamic WordPress Conversion',
@@ -49,7 +49,7 @@ const projects = [
         layout: 'left' // Options: 'left' or 'right' (for device mockup position)
     },
     {
-        id: 'E-Commerce',
+        id: 'Jordan Harvest',
         title: 'Jordan Harvest Website',
         category: 'E-Commerce',
         shortDescription: 'WooCommerce Store Development',
@@ -63,7 +63,7 @@ const projects = [
         layout: 'right'
     },
     {
-        id: 'WordPress Development',
+        id: 'MFDP Law Firm',
         title: 'MFDP Law Firm Website',
         category: 'WordPress Development',
         shortDescription: 'Dynamic WordPress Platform',
@@ -77,7 +77,7 @@ const projects = [
         layout: 'left'
     },
     {
-        id: 'Landing Page',
+        id: 'Aklne App',
         title: 'Aklne App Website',
         category: 'Landing Page',
         shortDescription: 'Mobile App Showcase Website',
@@ -91,7 +91,7 @@ const projects = [
         layout: 'right'
     },
     {
-        id: 'WordPress Development',
+        id: 'Tawakkul Law Firm',
         title: 'tawakol Law Firm website',
         category: 'WordPress Development',
         shortDescription: 'Professional Law Firm Website',
