@@ -92,7 +92,7 @@ const projects = [
     },
     {
         id: 'Tawakkul Law Firm',
-        title: 'tawakol Law Firm website',
+        title: 'Tawakol Law Firm website',
         category: 'WordPress Development',
         shortDescription: 'Professional Law Firm Website',
         fullDescription: 'Tawakkul is a reputable law firm specializing in corporate law and dispute resolution. I built a fully responsive WordPress website using a refined, modern template customized to match the firm’s professional identity. The result is a clean, elegant, and reliable online presence that works seamlessly across all devices.',
