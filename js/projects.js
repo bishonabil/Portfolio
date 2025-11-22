@@ -61,6 +61,48 @@ const projects = [
         technologies: ['WordPress', 'WooCommerce', 'JavaScript', 'CSS'],
         gradientColor: 'cyan',
         layout: 'right'
+    },
+    {
+        id: 'WordPress Development',
+        title: 'MFDP Law Firm Website',
+        category: 'WordPress Development',
+        shortDescription: 'Dynamic WordPress Platform',
+        fullDescription: 'MFDP is a global-minded law firm offering expert legal support across complex deals, disputes, and diverse industries. For this project, I built a fully dynamic WordPress website featuring customizable lawyer and associate profiles, a flexible service-pages network powered by ACF fields, and a dedicated article post type with a clean, modern template. The entire site is structured for easy content updates while maintaining a polished, professional presentation aligned with the firm’s brand.',
+        url: 'https://mfdplegal.com/',
+        image: 'assets/images/mfdplawfirmdesktop.png',
+        imageTablet: 'assets/images/mfdptablet.png',
+        imageMobile: 'assets/images/mfdpmobile.png',
+        technologies: ['WordPress', 'CSS', 'JavaScript'],
+        gradientColor: 'indigo',
+        layout: 'left'
+    },
+    {
+        id: 'Landing Page',
+        title: 'Aklne App Website',
+        category: 'Landing Page',
+        shortDescription: 'Mobile App Showcase Website',
+        fullDescription: 'Aklne is a smart food recommendation app that helps users discover new recipes, restaurants, and markets with ease. For this project, I built a clean, modern one-page website designed to showcase the app’s features and drive downloads. The layout follows a user-centric UI approach, using the brand’s color palette and visual identity to create an eye-pleasing, engaging experience.',
+        url: 'https://aklne.com/',
+        image: 'assets/images/aklnedesktop.png',
+        imageTablet: 'assets/images/aklnetablet.png',
+        imageMobile: 'assets/images/aklnemobile.png',
+        technologies: ['WordPress', 'CSS', 'JavaScript'],
+        gradientColor: 'cyan',
+        layout: 'right'
+    },
+    {
+        id: 'WordPress Development',
+        title: 'tawakol Law Firm website',
+        category: 'WordPress Development',
+        shortDescription: 'Professional Law Firm Website',
+        fullDescription: 'Tawakkul is a reputable law firm specializing in corporate law and dispute resolution. I built a fully responsive WordPress website using a refined, modern template customized to match the firm’s professional identity. The result is a clean, elegant, and reliable online presence that works seamlessly across all devices.',
+        url: 'https://tawakollaw.com/',
+        image: 'assets/images/aklnedesktop.png',
+        imageTablet: 'assets/images/aklnetablet.png',
+        imageMobile: 'assets/images/aklnemobile.png',
+        technologies: ['WordPress', 'CSS'],
+        gradientColor: 'cyan',
+        layout: 'right'
     }
 ];
 
