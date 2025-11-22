@@ -69,7 +69,7 @@ const projects = [
         shortDescription: 'Dynamic WordPress Platform',
         fullDescription: 'MFDP is a global-minded law firm offering expert legal support across complex deals, disputes, and diverse industries. For this project, I built a fully dynamic WordPress website featuring customizable lawyer and associate profiles, a flexible service-pages network powered by ACF fields, and a dedicated article post type with a clean, modern template. The entire site is structured for easy content updates while maintaining a polished, professional presentation aligned with the firm’s brand.',
         url: 'https://mfdplegal.com/',
-        image: 'assets/images/mfdplawfirmdesktop.png',
+        image: 'assets/images/mfdpdesktop.png',
         imageTablet: 'assets/images/mfdptablet.png',
         imageMobile: 'assets/images/mfdpmobile.png',
         technologies: ['WordPress', 'CSS', 'JavaScript'],
