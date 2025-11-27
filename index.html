@@ -1,90 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishoy Nabil - Full-Stack Developer Portfolio</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content=" Bishoy Nabil - Full-Stack Developer. Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
-    <meta name="keywords" content="Full-Stack Developer, Web Developer, Portfolio, Bishoy Nabil, Frontend Developer, Backend Developer">
+    <meta name="description"
+        content="Bishoy Nabil - Full-Stack Developer. Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
+    <meta name="keywords"
+        content="Full-Stack Developer, Web Developer, Portfolio, Bishoy Nabil, Frontend Developer, Backend Developer">
     <meta name="author" content="Bishoy Nabil">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourwebsite.com/">
     <meta property="og:title" content="Bishoy Nabil - Full-Stack Developer Portfolio">
-    <meta property="og:description" content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
+    <meta property="og:description"
+        content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
     <meta property="og:image" content="https://yourwebsite.com/assets/images/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Bishoy Nabil - Full-Stack Developer Portfolio">
     <meta property="og:site_name" content="Bishoy Nabil Portfolio">
     <meta property="og:locale" content="en_US">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://yourwebsite.com/">
     <meta name="twitter:title" content="Bishoy Nabil - Full-Stack Developer Portfolio">
-    <meta name="twitter:description" content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
+    <meta name="twitter:description"
+        content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
     <meta name="twitter:image" content="https://yourwebsite.com/assets/images/og-image.jpg">
-    <meta name="twitter:image:alt" content="Bishoy Nabil - Full-Stack Developer Portfolio">
-    <meta name="twitter:creator" content="@yourtwitterhandle">
-    
-    <!-- Additional Meta Tags -->
-    <meta name="theme-color" content="#667eea">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://yourwebsite.com/">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gray: {
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-gradient-to-b from-gray-50 to-white min-h-screen flex flex-col">
-    
+
+<body class="bg-gray-950 text-white font-sans antialiased relative">
+
     <!-- Preloader -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
             <div class="preloader-spinner"></div>
-            <div class="preloader-text">Loading</div>
+            <span class="preloader-text">Loading...</span>
         </div>
     </div>
-    
-    <!-- Header Navigation -->
-    <header id="main-header" class="bg-white/80 backdrop-blur-lg shadow-md fixed top-0 left-0 right-0 z-50 border-b border-gray-100/50 transition-all duration-300">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-6 transition-all duration-300" id="header-nav">
-            <div class="flex items-center justify-center relative">
-                <!-- Navigation Links -->
-                <div class="flex items-center gap-4 sm:gap-6 md:gap-8">
-                    <a href="#projects" data-nav="projects" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-all duration-300 relative group text-sm sm:text-base">
-                        Projects
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full nav-underline"></span>
-                    </a>
-                    <a href="#about" data-nav="about" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-all duration-300 relative group text-sm sm:text-base">
-                        About
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full nav-underline"></span>
-                    </a>
-                    <a href="#contact" data-nav="contact" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-all duration-300 relative group text-sm sm:text-base">
-                        Contact
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 transition-all duration-300 group-hover:w-full nav-underline"></span>
+
+    <!-- Header -->
+    <header id="main-header"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <nav id="header-nav" class="flex items-center justify-between py-4 lg:py-5 transition-all duration-300">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-black tracking-tight text-white group">
+                    Bishoy<span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:from-indigo-300 group-hover:to-purple-300 transition-all duration-300">.Dev</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#hero-section"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-nav="hero-section">Home</a>
+                    <a href="#projects"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-nav="projects">Projects</a>
+                    <a href="#about"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-nav="about">About</a>
+                    <a href="#contact"
+                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
+                        data-nav="contact">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="#contact"
+                        class="inline-flex items-center justify-center px-6 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10">
+                        Let's Talk
                     </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-300 hover:text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-gray-950 border-t border-white/5 absolute top-full left-0 right-0 p-4 shadow-2xl">
+            <div class="flex flex-col space-y-4">
+                <a href="#hero-section" class="text-gray-300 hover:text-white font-medium transition-colors">Home</a>
+                <a href="#projects" class="text-gray-300 hover:text-white font-medium transition-colors">Projects</a>
+                <a href="#about" class="text-gray-300 hover:text-white font-medium transition-colors">About</a>
+                <a href="#contact" class="text-gray-300 hover:text-white font-medium transition-colors">Contact</a>
+                <a href="#contact"
+                    class="inline-flex items-center justify-center px-6 py-2.5 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700 transition-colors">
+                    Let's Talk
+                </a>
             </div>
-        </nav>
+        </div>
     </header>
-    <!-- Hero Banner Section -->
-    <section id="hero-section" class="relative bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-20 lg:py-32 overflow-hidden">
-        <!-- Grid Overlay Pattern -->
-        <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(rgba(102, 126, 234, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(102, 126, 234, 0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
-        
-        <!-- Particle/Stars Effect -->
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="particles-container">
+
+    <!-- Hero Section -->
+    <section id="hero-section" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 z-0">
+            <div id="glob-1"
+                class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse-slow">
+            </div>
+            <div id="glob-2"
+                class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse-slow"
+                style="animation-delay: 4s;"></div>
+
+            <!-- Particles Container -->
+            <div id="particles" class="particles-container opacity-30">
                 <div class="particle"></div>
                 <div class="particle"></div>
                 <div class="particle"></div>
@@ -102,177 +165,200 @@
                 <div class="particle"></div>
             </div>
         </div>
-        
-        <!-- Decorative background elements -->
-        <div class="absolute inset-0 overflow-hidden z-0">
-            <div id="glob-1" class="glob-gradient absolute -top-40 -right-40 w-80 h-80 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 transition-transform duration-700 ease-out"></div>
-            <div id="glob-2" class="glob-gradient absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 transition-transform duration-700 ease-out"></div>
-            <!-- Additional mesh gradient blob -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-blue-200/40 via-purple-200/30 to-indigo-200/40 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
-            <!-- Additional abstract shapes -->
-            <div class="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-indigo-200/30 to-purple-200/30 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-float"></div>
-            <div class="absolute bottom-32 right-32 w-48 h-48 bg-gradient-to-br from-purple-300/25 to-indigo-300/25 rounded-full mix-blend-multiply filter blur-xl opacity-25"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                    <!-- Left Section: Text Content -->
-                    <div class="w-full lg:w-1/2 text-center lg:text-left animate-fade-in">
-                        <div class="inline-block mb-6">
-                            <span class="px-4 py-2 bg-indigo-50/80 backdrop-blur-sm text-indigo-700 border border-indigo-200/60 rounded-full text-sm font-semibold">
-                                Available for Projects
-                            </span>
-                        </div>
-                        
-                        <!-- NAME BLOCK ADDED HERE --> 
-                        <h3 class="text-4xl font-semibold text-gray-900 leading-tight mb-6">
-                            <span>Hi!</span> I'm Bishoy
-                        </h3>
-                        <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
-                            <span class="hero-gradient-text">Full-Stack Developer</span>
-                        </h2>
-                        <p class="text-xl sm:text-2xl text-gray-700 leading-relaxed mb-10 max-w-3xl mx-auto lg:mx-0">
-                            Building high-performance, responsive, and scalable web experiences with clean code and modern UI/UX practices.
-                        </p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="#projects" class="px-8 py-4 gradient-indigo text-white rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                View Projects
-                            </a>
-                            <a href="#contact" class="px-8 py-4 bg-white text-indigo-600 border-2 border-indigo-600 rounded-full font-semibold hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 shadow-md">
-                                Get In Touch
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Section: Abstract Shapes -->
-                    <div class="w-full lg:w-1/2 relative flex items-center justify-center min-h-[400px] lg:min-h-[500px] hero-shapes-container">
-                        <div class="relative w-full h-full max-w-lg">
-                            <!-- Large circular shape -->
-                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-indigo-500/70 via-purple-500/60 to-indigo-600/70 rounded-full blur-lg animate-float hero-shape"></div>
-                            
-                            <!-- Medium abstract blob shape -->
-                            <div class="absolute top-1/3 right-1/4 w-48 h-48 lg:w-56 lg:h-56 bg-gradient-to-br from-purple-500/80 to-indigo-500/70 rounded-full filter blur-md opacity-90 hero-shape" style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; animation: float 8s ease-in-out infinite;"></div>
-                            
-                            <!-- Small abstract blob shape -->
-                            <div class="absolute bottom-1/4 left-1/3 w-32 h-32 lg:w-40 lg:h-40 bg-gradient-to-br from-indigo-500/75 to-purple-500/65 rounded-full filter blur-sm opacity-85 hero-shape" style="border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; animation: float 6s ease-in-out infinite reverse;"></div>
-                            
-                            <!-- Additional floating shapes -->
-                            <div class="absolute top-1/4 left-1/2 w-24 h-24 bg-gradient-to-br from-purple-500/70 to-indigo-500/60 rounded-full filter blur-sm opacity-75 hero-shape animate-float" style="animation-delay: -2s;"></div>
-                            <div class="absolute bottom-1/3 right-1/3 w-36 h-36 bg-gradient-to-br from-indigo-500/70 to-purple-500/60 rounded-full filter blur-md opacity-70 hero-shape" style="border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; animation: float 7s ease-in-out infinite; animation-delay: -1s;"></div>
-                                                    </div>
-                    </div>
-                </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div
+                class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-300 text-sm font-medium mb-8 animate-fade-in-up">
+                <span class="flex w-2 h-2 bg-indigo-500 rounded-full mr-2 animate-pulse"></span>
+                Available for Freelance Projects
             </div>
+
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight animate-fade-in-up"
+                style="animation-delay: 0.1s;">
+                Building Digital <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">Experiences</span>
+            </h1>
+
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+                style="animation-delay: 0.2s;">
+                I'm a Full-Stack Developer specializing in building exceptional digital experiences. Currently focused
+                on creating accessible, human-centered products.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
+                style="animation-delay: 0.3s;">
+                <a href="#projects"
+                    class="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:-translate-y-1">
+                    View My Work
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </a>
+                <a href="#contact"
+                    class="inline-flex items-center justify-center px-8 py-4 bg-white/5 text-white border border-white/10 rounded-full font-bold hover:bg-white/10 transition-all duration-300 hover:-translate-y-1">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#projects" class="text-gray-500 hover:text-white transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </a>
         </div>
     </section>
-    
     <!-- Main Container -->
-    <main class="flex-grow bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" id="projects">
-        
-        <!-- Projects Section Header -->
-        <div class="mb-16 lg:mb-20">
-            <div class="flex items-center gap-4 mb-4">
-                <span class="w-12 h-1 gradient-indigo rounded-full"></span>
-                <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Portfolio</span>
-            </div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
-                Featured <span class="gradient-text">Projects</span>
-            </h2>
-            <p class="text-base text-gray-600 max-w-2xl">
-                A collection of my recent work showcasing modern design and development practices
-            </p>
-        </div>
-        
-        <!-- Projects Grid Overview -->
-        <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Projects will be dynamically rendered here -->
-        </div>
-        
-        <!-- Project Detail Templates (used inside the modal) -->
-        <div id="project-templates-container">
-            <!-- Project templates will be dynamically rendered here -->
-        </div>
-        
-        </div>
-        
-        <!-- About Section -->
-        <section id="about" class="bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30 py-16 lg:py-24">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
-                <div class="max-w-5xl w-full">
-                    <div class="mb-12">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="w-12 h-1 gradient-indigo rounded-full"></span>
-                            <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">About</span>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
-                            About <span class="gradient-text">Me</span>
-                        </h2>
-                        <p class="text-base text-gray-600 max-w-2xl">
-                            Passionate developer dedicated to creating exceptional digital experiences
-                        </p>
-                    </div>
-                    
-                    <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-12 lg:p-16 border border-gray-100 hover-lift flex justify-center items-center mx-auto">
-                        <div class="space-y-8">
-                            <div class="grid lg:grid-cols-2 gap-8">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Who I Am</h3>
-                                    <p class="text-lg text-gray-700 leading-relaxed">
-                                        a Full-Stack & WordPress Web Developer who builds fast, clean, and reliable websites.
-                                        I focus on turning ideas into fully functional digital experiences with polished design, 
-                                        solid structure, and smooth performance.
-                                    </p>
-                                </div>
-                                <div>
-                                    <h3 class="text-2xl font-bold text-gray-900 mb-4">What I Do</h3>
-                                    <p class="text-lg text-gray-700 leading-relaxed">
-                                        I create complete web solutions — from front-end interfaces to back-end logic — with responsive design, 
-                                        optimized performance, and a strong focus on user experience. I also build and customize WordPress websites, 
-                                        ensuring they look professional and work perfectly across all devices.
-                                    </p>
-                                </div>
-                            </div>
-                            
-                            <!-- Skills Grid -->
-                            <div class="pt-8 border-t border-gray-200">
-                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Core Skills</h3>
-                                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                                    <div class="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all duration-300 hover:shadow-md">
-                                        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                            <i class="fab fa-wordpress-simple text-indigo-600 text-3xl" aria-hidden="true"></i>
-                                        </div>
-                                        <p class="font-semibold text-gray-900 mb-2">WordPress</p>
-                                        <p class="text-sm text-gray-600">Themes, plugins, and customization</p>
-                                    </div>
+    <main class="flex-grow relative z-10">
 
-                                    <div class="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all duration-300 hover:shadow-md">
-                                        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                            </svg>
-                                        </div>
-                                        <p class="font-semibold text-gray-900 mb-2">Frontend</p>
-                                        <p class="text-sm text-gray-600">HTML, CSS, JavaScript</p>
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 lg:py-32 relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Section Header -->
+                <div class="mb-16 lg:mb-24 text-center max-w-3xl mx-auto">
+                    <span
+                        class="text-indigo-500 font-bold tracking-wider uppercase text-sm mb-4 block animate-fade-in-up">Portfolio</span>
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 animate-fade-in-up"
+                        style="animation-delay: 0.1s;">
+                        Featured <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Projects</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 animate-fade-in-up" style="animation-delay: 0.2s;">
+                        A curated selection of my recent work, showcasing complex web applications and
+                        modern design
+                        implementations.
+                    </p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                    <!-- Projects will be dynamically rendered here -->
+                </div>
+
+                <!-- Project Detail Templates -->
+                <div id="project-templates-container"></div>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 lg:py-32 relative overflow-hidden bg-gray-900/50">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl">
+            </div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl">
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+
+                    <!-- About Text -->
+                    <div class="w-full lg:w-1/2">
+                        <span class="text-indigo-500 font-bold tracking-wider uppercase text-sm mb-4 block">About
+                            Me</span>
+                        <h2 class="text-4xl sm:text-5xl font-black text-white mb-8 leading-tight">
+                            Passionate about <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">clean
+                                code</span> & design.
+                        </h2>
+                        <div class="space-y-6 text-lg text-gray-400 leading-relaxed">
+                            <p>
+                                I'm a Full-Stack & WordPress Web Developer who builds fast, clean, and
+                                reliable
+                                websites. I focus on turning ideas into fully functional digital
+                                experiences with
+                                polished design, solid structure, and smooth performance.
+                            </p>
+                            <p>
+                                I create complete web solutions — from front-end interfaces to back-end
+                                logic — with
+                                responsive design, optimized performance, and a strong focus on user
+                                experience.
+                            </p>
+                        </div>
+
+                        <!-- Stats/Highlights -->
+                        <div class="grid grid-cols-2 gap-8 mt-12">
+                            <div>
+                                <h4 class="text-3xl font-bold text-white mb-1">5+</h4>
+                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">
+                                    Years
+                                    Experience
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-3xl font-bold text-white mb-1">50+</h4>
+                                <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">
+                                    Projects
+                                    Completed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Visuals -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="bg-gray-800/50 backdrop-blur-xl rounded-3xl p-8 border border-white/5 shadow-2xl">
+                            <h3 class="text-2xl font-bold text-white mb-8">Technical Arsenal</h3>
+
+                            <div class="space-y-8">
+                                <!-- Skill Group -->
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                                        Frontend</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/20">HTML5</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/20">CSS3</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/20">JavaScript
+                                            (ES6+)</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/20">Tailwind
+                                            CSS</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-indigo-300 rounded-lg text-sm font-medium border border-indigo-500/20">React</span>
                                     </div>
-                                    <div class="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all duration-300 hover:shadow-md">
-                                        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
-                                            </svg>
-                                        </div>
-                                        <p class="font-semibold text-gray-900 mb-2">Backend</p>
-                                        <p class="text-sm text-gray-600">PHP, Node.js, and API development</p>
+                                </div>
+
+                                <!-- Skill Group -->
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                                        Backend & CMS</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/20">WordPress</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/20">PHP</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/20">Node.js</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-purple-300 rounded-lg text-sm font-medium border border-purple-500/20">MySQL</span>
                                     </div>
-                                    <div class="text-center p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100 hover:border-indigo-300 transition-all duration-300 hover:shadow-md">
-                                        <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-lg flex items-center justify-center">
-                                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-                                            </svg>
-                                        </div>
-                                        <p class="font-semibold text-gray-900 mb-2">Database</p>
-                                        <p class="text-sm text-gray-600">MySQL, MongoDB, and data management</p>
+                                </div>
+
+                                <!-- Skill Group -->
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                                        Tools
+                                        & Others</h4>
+                                    <div class="flex flex-wrap gap-3">
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-500/20">Git</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-500/20">Figma</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-500/20">SEO</span>
+                                        <span
+                                            class="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg text-sm font-medium border border-gray-500/20">Performance
+                                            Optimization</span>
                                     </div>
                                 </div>
                             </div>
@@ -281,180 +367,107 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Testimonial Section - Featured: John Isaac -->
-        <!-- <section class="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 lg:py-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="max-w-4xl mx-auto">
-                    <div class="mb-8">
-                        <div class="flex items-center gap-4 mb-4">
-                            <span class="w-12 h-1 gradient-indigo rounded-full"></span>
-                            <span class="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Testimonial</span>
-                        </div>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
-                            Featured <span class="gradient-text">Collaboration</span>
-                        </h2>
-                        <p class="text-base text-gray-600">
-                            Working with exceptional talent
-                        </p>
-                    </div> -->
-                    
-                    <!-- <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-100 hover-lift relative overflow-hidden"> -->
-                        <!-- Decorative gradient accent -->
-                        <!-- <div class="absolute top-0 left-0 w-full h-1 gradient-indigo"></div> -->
-                        
-                        <!-- <div class="flex flex-col md:flex-row gap-6 items-center"> -->
-                            <!-- Profile Image/Avatar -->
-                            <!-- <div class="flex-shrink-0">
-                                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 p-0.5 shadow-lg">
-                                    <img src="https://i.pravatar.cc/150?img=12" alt="John Isaac" class="w-full h-full rounded-full object-cover">
-                                </div>
-                            </div>
-                             -->
-                            <!-- Testimonial Content -->
-                            <!-- <div class="flex-grow text-center md:text-left">
-                                <div class="mb-4">
-                                    <svg class="w-8 h-8 text-indigo-400 mx-auto md:mx-0 mb-3" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.996 2.151c-2.512.463-4.996 1.925-4.996 5.849v4.161h6v4h-6.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.504.463-4.996 1.925-4.996 5.849v4.161h6v4h-6.997z"/>
-                                    </svg>
-                                    <p class="text-lg sm:text-xl text-gray-700 leading-relaxed italic mb-4">
-                                        "An exceptional developer who brings creativity and technical excellence to every project. Working together has been an absolute pleasure."
-                                    </p>
-                                </div> -->
-                                
-                                <!-- <div class="border-t border-gray-200 pt-4">
-                                    <h3 class="text-xl font-bold text-gray-900 mb-1">John Isaac</h3>
-                                    <p class="text-base text-indigo-600 font-semibold mb-1">Creative Partner & Collaborator</p>
-                                    <p class="text-sm text-gray-600">Building amazing digital experiences together</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
     </main>
-    
+
     <!-- Project Detail Modal -->
-    <div id="project-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4 py-8 hidden" style="z-index: 60;">
+    <div id="project-modal"
+        class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center px-4 py-8 hidden"
+        style="z-index: 100;">
         <div class="relative w-full max-w-7xl max-h-[90vh]">
-            <div class="relative bg-white/95 rounded-3xl shadow-2xl border border-white/70 backdrop-blur-xl overflow-y-auto max-h-[90vh]">
+            <div
+                class="relative bg-gray-900 rounded-3xl shadow-2xl border border-white/10 overflow-y-auto max-h-[90vh] custom-scrollbar">
                 <button id="project-modal-close" type="button" tabindex="0"
-                    class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100/80 text-gray-600 hover:bg-gray-200 flex items-center justify-center shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/50 touch-manipulation z-50"
-                    aria-label="Close project details"
-                    onclick="(function(){try{document.getElementById('project-modal').classList.add('hidden');document.getElementById('project-modal-body').innerHTML='';document.body.classList.remove('overflow-hidden');}catch(e){}})()">
+                    class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300 z-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    aria-label="Close project details">
                     <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
                     </svg>
                 </button>
-                <div id="project-modal-body" class="p-6 sm:p-10 lg:p-12 space-y-10">
+                <div id="project-modal-body" class="p-0">
+                    <!-- Content injected via JS -->
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Footer -->
-    <footer id="contact" class="bg-gradient-to-br from-gray-900 via-indigo-900 to-purple-900 text-white py-16 lg:py-20 relative overflow-hidden">
-        <!-- Decorative background elements -->
-        <div class="absolute inset-0 overflow-hidden opacity-10">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
-        </div>
-        
+    <footer id="contact" class="bg-black py-20 border-t border-white/5 relative overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-12">
-                    <!-- Contact Info -->
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <span class="w-1 h-6 gradient-indigo rounded-full"></span>
-                            Get In Touch
-                        </h3>
-                        <div class="space-y-4 text-gray-300">
-                            <a href="mailto:bishonabil457@gmail.com" class="flex items-center gap-3 hover:text-white transition-colors group">
-                                <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <span>bishonabil457@gmail.com</span>
-                            </a>
-                            <a href="tel:+201065116196" class="flex items-center gap-3 hover:text-white transition-colors group">
-                                <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-indigo-500 transition-colors">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                    </svg>
-                                </div>
-                                <span>+20 1065116196</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Quick Links -->
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <span class="w-1 h-6 gradient-indigo rounded-full"></span>
-                            Quick Links
-                        </h3>
-                        <ul class="space-y-3">
-                            <li>
-                                <a href="#projects" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                                    <span class="w-0 group-hover:w-2 h-0.5 bg-indigo-500 transition-all duration-300"></span>
-                                    Projects
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#about" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                                    <span class="w-0 group-hover:w-2 h-0.5 bg-indigo-500 transition-all duration-300"></span>
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#contact" class="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                                    <span class="w-0 group-hover:w-2 h-0.5 bg-indigo-500 transition-all duration-300"></span>
-                                    Contact
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <!-- Social Links -->
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                            <span class="w-1 h-6 gradient-indigo rounded-full"></span>
-                            Connect
-                        </h3>
-                        <div class="flex gap-4">
-                            <a href="https://linkedin.com/" target="_blank" rel="noopener" class="w-12 h-12 bg-white/10 hover:bg-indigo-500 text-white rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:shadow-xl hover:rotate-3">
-                                <i class="fab fa-linkedin-in text-2xl" aria-hidden="true"></i>
-                            </a>
-                            <a href="https://wa.me/+201065116196" target="_blank" rel="noopener" class="w-12 h-12 bg-white/10 hover:bg-green-500 text-white rounded-xl flex items-center justify-center transition-all duration-300 transform hover:scale-125 hover:shadow-xl hover:rotate-3">
-                                <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i>
-                            </a>
-                        </div>
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12">
+
+                <!-- Brand & CTA -->
+                <div class="max-w-xl">
+                    <h2 class="text-4xl sm:text-5xl font-black text-white mb-6">
+                        Let's build something <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">extraordinary.</span>
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8">
+                        Have a project in mind? Let's discuss how we can bring your vision to life
+                        with cutting-edge
+                        technology and design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="mailto:bishonabil457@gmail.com"
+                            class="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-500/25">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            bishonabil457@gmail.com
+                        </a>
+                        <a href="tel:+201065116196"
+                            class="inline-flex items-center justify-center px-8 py-4 bg-white/5 text-white border border-white/10 rounded-full font-bold hover:bg-white/10 transition-all duration-300">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            +20 1065116196
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Copyright -->
-                <div class="border-t border-white/10 pt-8 text-center">
-                    <p class="text-gray-400">
-                        © 2024 Portfolio. All rights reserved.
-                    </p>
+
+                <!-- Social Links -->
+                <div class="flex gap-6">
+                    <a href="https://linkedin.com/" target="_blank" rel="noopener"
+                        class="w-14 h-14 bg-white/5 hover:bg-indigo-600 rounded-2xl flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </a>
+                    <a href="https://wa.me/+201065116196" target="_blank" rel="noopener"
+                        class="w-14 h-14 bg-white/5 hover:bg-green-500 rounded-2xl flex items-center justify-center text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    © 2024 Bishoy Nabil. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-sm text-gray-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/+201065116196" target="_blank" rel="noopener noreferrer" 
-       class="fixed bottom-6 right-6 w-16 h-16 gradient-indigo text-white rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 z-40 group">
-        <i class="fab fa-whatsapp text-3xl" aria-hidden="true"></i>
-        <span class="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></span>
+    <a href="https://wa.me/+201065116196" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-8 right-8 w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/40 transition-all duration-300 transform hover:scale-110 z-40 group">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span
+            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-gray-900 animate-pulse"></span>
     </a>
-    
+
     <!-- Projects Data -->
     <script src="js/projects.js"></script>
     <!-- Custom JavaScript -->
     <script src="js/script.js"></script>
 </body>
+
 </html>
