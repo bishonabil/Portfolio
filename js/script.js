@@ -263,3 +263,61 @@ window.addEventListener('keydown', (event) => {
 
     animateGlobs();
 })();
+
+// Particle Stars Cursor Follower (Hero Section)
+(function () {
+    const heroSection = document.getElementById('hero-section');
+    const particles = document.querySelectorAll('.particle');
+
+    if (!heroSection || particles.length === 0) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    const particleData = [];
+
+    // Initialize particle data with current positions and velocities
+    particles.forEach((particle, index) => {
+        particleData.push({
+            element: particle,
+            currentX: 0,
+            currentY: 0,
+            // Different movement speeds for each particle (creates depth effect)
+            speed: 0.02 + (index % 5) * 0.01,
+            // Some particles move in opposite direction for variety
+            direction: index % 3 === 0 ? -1 : 1
+        });
+    });
+
+    heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+    });
+
+    const animateParticles = () => {
+        const rect = heroSection.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        particleData.forEach((data) => {
+            // Calculate distance from center
+            const deltaX = (mouseX - centerX) * data.direction;
+            const deltaY = (mouseY - centerY) * data.direction;
+
+            // Target position based on mouse position
+            const targetX = deltaX * data.speed * 20; // Multiplier for movement range
+            const targetY = deltaY * data.speed * 20;
+
+            // Smooth interpolation to target position
+            data.currentX += (targetX - data.currentX) * 0.1;
+            data.currentY += (targetY - data.currentY) * 0.1;
+
+            // Apply transform
+            data.element.style.transform = `translate(${data.currentX}px, ${data.currentY}px)`;
+        });
+
+        requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+})();
