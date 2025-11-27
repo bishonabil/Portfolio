@@ -275,10 +275,14 @@ window.addEventListener('keydown', (event) => {
     let mouseY = 0;
     const particleData = [];
 
+    const containerNormal = document.querySelector('.particles-container');
+    const containerBlured = document.querySelector('.blured-particles-container');
+
     // Initialize particle data with current positions and velocities
     particles.forEach((particle, index) => {
         particleData.push({
             element: particle,
+            parent: particle.closest('.blured-particles-container') ? containerBlured : containerNormal,
             currentX: 0,
             currentY: 0,
             // Different movement speeds for each particle (creates depth effect)
@@ -294,10 +298,25 @@ window.addEventListener('keydown', (event) => {
         mouseY = e.clientY - rect.top;
     });
 
+    const getRotationRad = (element) => {
+        if (!element) return 0;
+        const style = window.getComputedStyle(element);
+        const matrix = style.transform || style.webkitTransform || style.mozTransform;
+        if (matrix === 'none' || !matrix) return 0;
+        const values = matrix.split('(')[1].split(')')[0].split(',');
+        const a = parseFloat(values[0]);
+        const b = parseFloat(values[1]);
+        return Math.atan2(b, a);
+    };
+
     const animateParticles = () => {
         const rect = heroSection.getBoundingClientRect();
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
+
+        // Get current rotation of containers to compensate
+        const rotNormal = getRotationRad(containerNormal);
+        const rotBlured = getRotationRad(containerBlured);
 
         particleData.forEach((data) => {
             // Calculate distance from center
@@ -312,12 +331,25 @@ window.addEventListener('keydown', (event) => {
             data.currentX += (targetX - data.currentX) * 0.1;
             data.currentY += (targetY - data.currentY) * 0.1;
 
+            // Determine rotation to compensate (we need to rotate the translation vector by -parentRotation)
+            const parentRot = (data.parent === containerBlured) ? rotBlured : rotNormal;
+
+            // Rotate point (x, y) by angle -theta:
+            // x' = x * cos(theta) + y * sin(theta)
+            // y' = -x * sin(theta) + y * cos(theta)
+            const cos = Math.cos(parentRot);
+            const sin = Math.sin(parentRot);
+
+            const localX = data.currentX * cos + data.currentY * sin;
+            const localY = -data.currentX * sin + data.currentY * cos;
+
             // Apply transform
-            data.element.style.transform = `translate(${data.currentX}px, ${data.currentY}px)`;
+            data.element.style.transform = `translate(${localX}px, ${localY}px)`;
         });
 
         requestAnimationFrame(animateParticles);
     };
 
     animateParticles();
-})();
+})
+    ();

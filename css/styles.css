@@ -336,21 +336,22 @@ body {
 /* Particle/Stars Effect */
 .particles-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
     z-index: 5;
     pointer-events: none;
+    animation: rotate-center 120s linear infinite;
 }
 
 .particle {
     position: absolute;
     width: 2px;
     height: 2px;
-    background: white;
     border-radius: 50%;
     opacity: 0.6;
-    animation: twinkle 3s ease-in-out infinite;
+    animation: twinkle 1.5s ease-in-out infinite;
     box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
 }
 
@@ -358,81 +359,313 @@ body {
     top: 10%;
     left: 20%;
     animation-delay: 0s;
+    background: white;
 }
 
 .particle:nth-child(2) {
     top: 20%;
     left: 80%;
     animation-delay: 0.5s;
+    background: #FFD700;
+    /* Yellowish */
 }
 
 .particle:nth-child(3) {
     top: 30%;
     left: 40%;
     animation-delay: 1s;
+    background: #FF6347;
+    /* Reddish */
 }
 
 .particle:nth-child(4) {
     top: 50%;
     left: 70%;
     animation-delay: 1.5s;
+    background: #87CEEB;
+    /* Bluish */
 }
 
 .particle:nth-child(5) {
     top: 60%;
     left: 15%;
     animation-delay: 2s;
+    background: white;
 }
 
 .particle:nth-child(6) {
     top: 70%;
     left: 55%;
     animation-delay: 0.3s;
+    background: #FFD700;
+    /* Yellowish */
 }
 
 .particle:nth-child(7) {
     top: 15%;
     left: 60%;
     animation-delay: 0.8s;
+    background: #FF6347;
+    /* Reddish */
 }
 
 .particle:nth-child(8) {
     top: 40%;
     left: 90%;
     animation-delay: 1.2s;
+    background: #87CEEB;
+    /* Bluish */
 }
 
 .particle:nth-child(9) {
     top: 80%;
     left: 30%;
     animation-delay: 1.7s;
+    background: white;
 }
 
 .particle:nth-child(10) {
     top: 25%;
     left: 10%;
     animation-delay: 2.2s;
+    background: #FFD700;
+    /* Yellowish */
 }
 
 .particle:nth-child(11) {
     top: 45%;
     left: 50%;
     animation-delay: 0.6s;
+    background: #FF6347;
+    /* Reddish */
 }
 
 .particle:nth-child(12) {
     top: 65%;
     left: 85%;
     animation-delay: 1.4s;
+    background: #87CEEB;
+    /* Bluish */
 }
 
 .particle:nth-child(13) {
     top: 35%;
     left: 25%;
     animation-delay: 1.9s;
+    background: white;
 }
 
-.particle:nth-child(14) {}
+.particle:nth-child(14) {
+    top: 75%;
+    left: 75%;
+    animation-delay: 2.7s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(15) {
+    top: 15%;
+    left: 60%;
+    animation-delay: 0.9s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(16) {
+    top: 5%;
+    left: 90%;
+    animation-delay: 2.5s;
+    background: #87CEEB;
+    /* Bluish */
+}
+
+.particle:nth-child(17) {
+    top: 85%;
+    left: 15%;
+    animation-delay: 1.1s;
+    background: white;
+}
+
+.particle:nth-child(18) {
+    top: 55%;
+    left: 5%;
+    animation-delay: 0.3s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(19) {
+    top: 95%;
+    left: 40%;
+    animation-delay: 1.7s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(20) {
+    top: 5%;
+    left: 30%;
+    animation-delay: 2.1s;
+    background: #87CEEB;
+    /* Bluish */
+}
+}
+
+.particle:nth-child(21) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0.8s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(22) {
+    top: 70%;
+    left: 80%;
+    animation-delay: 1.9s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(23) {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0.5s;
+    background: white;
+}
+
+.particle:nth-child(24) {
+    top: 90%;
+    left: 60%;
+    animation-delay: 2.3s;
+    background: #87CEEB;
+    /* Bluish */
+}
+
+.particle:nth-child(25) {
+    top: 50%;
+    left: 5%;
+    animation-delay: 1.2s;
+    background: #9ACD32;
+    /* Greenish */
+}
+
+.particle:nth-child(26) {
+    top: 15%;
+    left: 75%;
+    animation-delay: 0.7s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(27) {
+    top: 80%;
+    left: 30%;
+    animation-delay: 2.8s;
+    background: white;
+}
+
+.particle:nth-child(28) {
+    top: 25%;
+    left: 50%;
+    animation-delay: 1.4s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(29) {
+    top: 60%;
+    left: 90%;
+    animation-delay: 0.9s;
+    background: #87CEEB;
+    /* Bluish */
+}
+
+.particle:nth-child(30) {
+    top: 40%;
+    left: 15%;
+    animation-delay: 2.6s;
+    background: #9ACD32;
+    /* Greenish */
+}
+
+.particle:nth-child(31) {
+    top: 5%;
+    left: 45%;
+    animation-delay: 0.2s;
+    background: white;
+}
+
+.particle:nth-child(32) {
+    top: 95%;
+    left: 25%;
+    animation-delay: 1.6s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(33) {
+    top: 35%;
+    left: 85%;
+    animation-delay: 2.9s;
+    background: #87CEEB;
+    /* Bluish */
+}
+
+.particle:nth-child(34) {
+    top: 75%;
+    left: 10%;
+    animation-delay: 0.4s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(35) {
+    top: 20%;
+    left: 65%;
+    animation-delay: 2.0s;
+    background: #9ACD32;
+    /* Greenish */
+}
+
+.particle:nth-child(36) {
+    top: 88%;
+    left: 55%;
+    animation-delay: 1.0s;
+    background: white;
+}
+
+.particle:nth-child(37) {
+    top: 12%;
+    left: 35%;
+    animation-delay: 2.4s;
+    background: #FF6347;
+    /* Reddish */
+}
+
+.particle:nth-child(38) {
+    top: 65%;
+    left: 70%;
+    animation-delay: 0.6s;
+    background: #87CEEB;
+    /* Bluish */
+}
+
+.particle:nth-child(39) {
+    top: 55%;
+    left: 25%;
+    animation-delay: 1.8s;
+    background: #FFD700;
+    /* Yellowish */
+}
+
+.particle:nth-child(40) {
+    top: 45%;
+    left: 95%;
+    animation-delay: 3.0s;
+    background: #9ACD32;
+    /* Greenish */
+}
 
 .device-tablet {
     width: 50%;
@@ -555,16 +788,19 @@ body {
 }
 
 /* Particle/Stars Effect */
-.particles-container {
+.blured-particles-container {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    width: 95%;
+    height: 70%;
+    top: 15%;
+    left: 2.5%;
     z-index: 5;
     pointer-events: none;
+    filter: blur(2px);
+    animation: rotate-center 160s linear infinite;
 }
 
-.particle {
+.blured-particle {
     position: absolute;
     width: 2px;
     height: 2px;
@@ -687,4 +923,14 @@ body {
 .whatsapp-black:hover {
     color: #25D366 !important;
     opacity: 1;
+}
+
+@keyframes rotate-center {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
