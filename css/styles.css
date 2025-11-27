@@ -489,9 +489,24 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    .w-full.lg\:w-1\/2.flex.justify-center.items-center.lg\:min-h-\[500px\] {
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+    }
+
+    .device-mobile {
+        bottom: -40px;
+    }
+
+    .device-tablet {
+        bottom: -40px;
+    }
+
     .devices-container {
         transform: scale(0.8);
     }
+
 }
 
 /* Gradient Text Utilities */
@@ -517,6 +532,18 @@ body {
     #hero-section {
         padding-top: 100px;
         padding-bottom: 100px;
+    }
+
+    .device-mobile {
+        bottom: -80px;
+    }
+
+    .device-tablet {
+        bottom: -80px;
+    }
+
+    .w-full.lg\:w-1\/2.flex.justify-center.items-center.lg\:min-h-\[500px\] {
+        padding-bottom: 3rem;
     }
 }
 

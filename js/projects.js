@@ -28,7 +28,7 @@ const projects = [
         imageMobile: 'assets/images/webp/makerfairecairomobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS', 'WooCommerce'],
         gradientColor: 'cyan',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Jordan Harvest',
@@ -56,7 +56,7 @@ const projects = [
         imageMobile: 'assets/images/webp/mfdpmobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS', 'JavaScript'],
         gradientColor: 'indigo',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Aklne App',
@@ -84,7 +84,7 @@ const projects = [
         imageMobile: 'assets/images/webp/tawakolmobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS'],
         gradientColor: 'indigo',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Total Spine & Wellness',
