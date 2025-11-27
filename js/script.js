@@ -204,65 +204,7 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-// Glob Cursor Follower (Hero Section)
-(function () {
-    const heroSection = document.getElementById('hero-section');
-    const glob1 = document.getElementById('glob-1');
-    const glob2 = document.getElementById('glob-2');
-
-    if (!heroSection || !glob1 || !glob2) return;
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let glob1X = 0;
-    let glob1Y = 0;
-    let glob2X = 0;
-    let glob2Y = 0;
-
-    heroSection.addEventListener('mousemove', (e) => {
-        const rect = heroSection.getBoundingClientRect();
-        mouseX = e.clientX - rect.left;
-        mouseY = e.clientY - rect.top;
-    });
-
-    const animateGlobs = () => {
-        // Smooth follow with delay
-        const ease = 0.05;
-
-        // Glob 1 follows mouse
-        glob1X += (mouseX - glob1X) * ease;
-        glob1Y += (mouseY - glob1Y) * ease;
-
-        // Glob 2 follows mouse with more delay and offset
-        glob2X += (mouseX - glob2X) * (ease * 0.5);
-        glob2Y += (mouseY - glob2Y) * (ease * 0.5);
-
-        // Apply transforms (centering the blobs)
-        // Note: The CSS animation 'pulse-slow' handles the scaling/opacity
-        // We just update position here.
-        // Since globs are absolute positioned, we can use translate.
-        // But wait, the globs are initially positioned with top/left/bottom/right in CSS.
-        // Let's use transform translate relative to their initial position?
-        // Actually, simpler to just move them slightly based on mouse position relative to center
-
-        const rect = heroSection.getBoundingClientRect();
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const moveX1 = (mouseX - centerX) * 0.1;
-        const moveY1 = (mouseY - centerY) * 0.1;
-
-        const moveX2 = (mouseX - centerX) * -0.1; // Invert movement for glob 2
-        const moveY2 = (mouseY - centerY) * -0.1;
-
-        glob1.style.transform = `translate(${moveX1}px, ${moveY1}px)`;
-        glob2.style.transform = `translate(${moveX2}px, ${moveY2}px)`;
-
-        requestAnimationFrame(animateGlobs);
-    };
-
-    animateGlobs();
-})();
+// Globs are now static with CSS animations only
 
 // Particle Stars Cursor Follower (Hero Section)
 (function () {
