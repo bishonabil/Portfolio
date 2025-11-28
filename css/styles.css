@@ -181,13 +181,13 @@ body {
 
 /* Hero Section Scroll Indicator - Horizontally Centered */
 #hero-section .animate-bounce {
-    left: 50%;
+    left: 49%;
     transform: translateX(-50%);
 }
 
 @media (max-width: 640px) {
     #hero-section .animate-bounce {
-        left: 50%;
+        left: 47%;
         transform: translateX(-50%);
     }
 }
