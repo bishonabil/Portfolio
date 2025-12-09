@@ -1,37 +1,5 @@
 /**
  * Projects Data Configuration
- * 
- * To add a new project, simply add a new object to the projects array below.
- * 
- * Required fields:
- * - id: Unique identifier (lowercase, no spaces, e.g., 'my-project')
- * - title: Project title
- * - category: Project category (e.g., 'Web App', 'Mobile App', 'E-Commerce')
- * - shortDescription: Brief description shown on the project card
- * - fullDescription: Detailed description shown in the modal
- * - url: Project URL
- * - image: Main image URL (desktop/laptop view)
- * - imageTablet: Tablet view image URL
- * - imageMobile: Mobile view image URL
- * - technologies: Array of technology names
- * - gradientColor: 'indigo' or 'cyan' or 'red' (determines color scheme)
- * - layout: 'left' or 'right' (device mockup position in modal)
- * 
- * Example:
- * {
- *     id: 'my-project',
- *     title: 'My Awesome Project',
- *     category: 'Web App',
- *     shortDescription: 'A modern web application',
- *     fullDescription: 'Detailed description of the project...',
- *     url: 'https://example.com',
- *     image: 'assets/images/project-desktop.jpg',
- *     imageTablet: 'assets/images/project-tablet.jpg',
- *     imageMobile: 'assets/images/project-mobile.jpg',
- *     technologies: ['React', 'Node.js', 'MongoDB'],
- *     gradientColor: 'indigo',
- *     layout: 'left'
- * }
  */
 const projects = [
     {
@@ -45,8 +13,8 @@ const projects = [
         imageTablet: 'assets/images/webp/cosmotablet.webp',
         imageMobile: 'assets/images/webp/cosmomobile.webp',
         technologies: ['WordPress', 'PHP', 'CSS', 'JavaScript'],
-        gradientColor: 'indigo', // Options: 'indigo' or 'cyan'
-        layout: 'left' // Options: 'left' or 'right' (for device mockup position)
+        gradientColor: 'indigo',
+        layout: 'left'
     },
     {
         id: 'MakerfaireCairo2025',
@@ -60,7 +28,7 @@ const projects = [
         imageMobile: 'assets/images/webp/makerfairecairomobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS', 'WooCommerce'],
         gradientColor: 'cyan',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Jordan Harvest',
@@ -88,7 +56,7 @@ const projects = [
         imageMobile: 'assets/images/webp/mfdpmobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS', 'JavaScript'],
         gradientColor: 'indigo',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Aklne App',
@@ -116,7 +84,7 @@ const projects = [
         imageMobile: 'assets/images/webp/tawakolmobile.webp',
         technologies: ['WordPress', 'Elementor', 'CSS'],
         gradientColor: 'indigo',
-        layout: 'right'
+        layout: 'left'
     },
     {
         id: 'Total Spine & Wellness',
@@ -134,22 +102,22 @@ const projects = [
     }
 ];
 
-// Helper function to get gradient classes based on color
+// Helper function to get gradient classes based on color - UPDATED FOR DARK THEME
 function getGradientClasses(color) {
     const gradients = {
         indigo: {
-            card: 'from-indigo-500/20 via-gray-900/70 to-gray-950/90',
-            badge: 'bg-white/20 backdrop-blur',
-            badgeModal: 'bg-indigo-100 text-indigo-700',
-            tech: 'text-indigo-700 border-indigo-100',
-            link: 'text-indigo-600'
+            card: 'from-indigo-600/20 via-gray-900/40 to-gray-900/80',
+            badge: 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20',
+            badgeModal: 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20',
+            tech: 'bg-gray-800 text-indigo-300 border-indigo-500/20',
+            link: 'text-indigo-400 hover:text-indigo-300'
         },
         cyan: {
-            card: 'from-cyan-400/30 via-slate-900/70 to-slate-950/90',
-            badge: 'bg-white/20 backdrop-blur',
-            badgeModal: 'bg-cyan-100 text-cyan-700',
-            tech: 'text-cyan-700 border-cyan-100',
-            link: 'text-cyan-600'
+            card: 'from-cyan-600/20 via-gray-900/40 to-gray-900/80',
+            badge: 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20',
+            badgeModal: 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20',
+            tech: 'bg-gray-800 text-cyan-300 border-cyan-500/20',
+            link: 'text-cyan-400 hover:text-cyan-300'
         }
     };
     return gradients[color] || gradients.indigo;
@@ -160,35 +128,49 @@ function renderProjectCards() {
     const projectsGrid = document.getElementById('projects-grid');
     if (!projectsGrid) return;
 
-    projectsGrid.innerHTML = projects.map(project => {
+    projectsGrid.innerHTML = projects.map((project, index) => {
         const gradient = getGradientClasses(project.gradientColor);
-        
+        // Added animation delay based on index
+        const delay = index * 100;
+
         return `
-            <button type="button" data-project-id="${project.id}" class="relative overflow-hidden rounded-3xl text-left shadow-xl bg-gray-900 group focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-500/60 hover:-translate-y-1 transition-all duration-300 flex flex-col cursor-pointer">
-                <div class="absolute inset-0">
-                    <img src="${project.image}" alt="${project.title} preview" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <button type="button" 
+                data-project-id="${project.id}" 
+                class="group relative w-full text-left rounded-3xl overflow-hidden bg-gray-900 border border-white/5 hover:border-indigo-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 animate-fade-in-up"
+                style="animation-delay: ${delay}ms">
+                
+                <!-- Image Container -->
+                <div class="w-full overflow-hidden relative" style="aspect-ratio: 16/8;">
+                    <div class="absolute inset-0 bg-gray-900/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <img src="${project.image}" alt="${project.title} preview" 
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out">
+                    
+                    <!-- Overlay Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500 z-20"></div>
                 </div>
-                <div class="project-overlay absolute inset-0 bg-gradient-to-br ${gradient.card} transition-opacity duration-500"></div>
-                <div class="project-content relative flex flex-col flex-1 h-full p-6 sm:p-8 text-white">
-                    <div class="space-y-3 mb-6">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest ${gradient.badge}">
+
+                <!-- Content -->
+                <div class="absolute bottom-0 left-0 right-0 p-6 z-30">
+                    <div class="space-y-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide ${gradient.badge} backdrop-blur-md">
                             ${project.category}
                         </span>
+                        
                         <div>
-                            <p class="text-sm text-white/70">${project.shortDescription}</p>
-                            <h3 class="text-2xl font-black mt-1 leading-tight">
+                            <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
                                 ${project.title}
                             </h3>
+                            <p class="text-sm text-gray-400 mt-1 line-clamp-2 group-hover:text-gray-300 transition-colors">
+                                ${project.shortDescription}
+                            </p>
                         </div>
-                    </div>
-                    <div class="mt-auto flex items-center justify-between text-xs sm:text-sm text-white/70 pt-4">
-                        <span class="truncate pr-4">${project.url}</span>
-                        <span class="inline-flex items-center gap-2 font-semibold text-white group-hover:gap-3 transition-all">
-                            View
+
+                        <div class="pt-4 flex items-center gap-2 text-sm font-medium text-white/0 group-hover:text-white/100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100">
+                            <span>View Details</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H7"></path>
                             </svg>
-                        </span>
+                        </div>
                     </div>
                 </div>
             </button>
@@ -204,13 +186,15 @@ function renderProjectTemplates() {
     templatesContainer.innerHTML = projects.map(project => {
         const gradient = getGradientClasses(project.gradientColor);
         const layoutClass = project.layout === 'right' ? 'flex-col-reverse lg:flex-row-reverse' : 'flex-col lg:flex-row';
-        
+
         return `
             <template id="project-${project.id}-template">
-                <section class="relative rounded-3xl p-6 sm:p-10 lg:p-12">
-                    <div class="flex ${layoutClass} gap-10 lg:gap-14 items-center relative z-10">
-                        <div class="w-full lg:w-1/2 flex justify-center items-center lg:min-h-[440px]">
-                            <div class="devices-container">
+                <section class="relative rounded-3xl p-6 sm:p-10 lg:p-12 bg-gray-900">
+                    <div class="flex ${layoutClass} gap-12 lg:gap-16 items-center relative z-10">
+                        
+                        <!-- Device Mockups -->
+                        <div class="w-full lg:w-1/2 flex justify-center items-center lg:min-h-[500px]">
+                            <div class="devices-container transform scale-90 lg:scale-100 transition-transform duration-500 hover:scale-105">
                                 <div class="device-laptop">
                                     <div class="device-laptop-screen" style="background-image: url('${project.image}');"></div>
                                 </div>
@@ -222,39 +206,46 @@ function renderProjectTemplates() {
                                 </div>
                             </div>
                         </div>
-                        <div class="w-full lg:w-1/2 space-y-6">
-                            <div class="space-y-3">
-                                <span class="inline-flex items-center px-4 py-1.5 rounded-full ${gradient.badgeModal} text-xs font-semibold uppercase tracking-widest">
+
+                        <!-- Content -->
+                        <div class="w-full lg:w-1/2 space-y-8">
+                            <div class="space-y-4">
+                                <span class="inline-flex items-center px-4 py-1.5 rounded-full ${gradient.badgeModal} text-xs font-bold uppercase tracking-widest">
                                     ${project.category}
                                 </span>
-                                <h2 class="text-4xl sm:text-5xl font-black text-gray-900 leading-tight">
+                                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
                                     ${project.title}
                                 </h2>
-                                <p class="text-base text-gray-500 font-semibold">${project.shortDescription}</p>
+                                <p class="text-lg text-indigo-400 font-medium">${project.shortDescription}</p>
                             </div>
-                            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                                ${project.fullDescription}
-                            </p>
-                            <div class="flex flex-wrap gap-3">
-                                ${project.technologies.map(tech => {
-                                    const borderClass = gradient.tech.includes('indigo') ? 'border-indigo-100' : 'border-cyan-100';
-                                    return `
-                                    <span class="px-4 py-2 bg-white ${gradient.tech} rounded-full text-sm font-semibold border ${borderClass} shadow-sm">
-                                        ${tech}
-                                    </span>
-                                `;
-                                }).join('')}
+                            
+                            <div class="prose prose-invert max-w-none">
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    ${project.fullDescription}
+                                </p>
                             </div>
-                            <div class="flex flex-wrap items-center gap-6 pt-2">
-                                <a href="${project.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 ${gradient.link} font-semibold">
-                                    Visit Project
+
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Technologies</h4>
+                                <div class="flex flex-wrap gap-3">
+                                    ${project.technologies.map(tech => `
+                                        <span class="px-4 py-2 ${gradient.tech} rounded-lg text-sm font-medium border shadow-sm">
+                                            ${tech}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <div class="pt-6 border-t border-white/10 flex flex-wrap items-center gap-6">
+                                ${project.url ? `
+                                <a href="${project.url}" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:-translate-y-1">
+                                    Visit Live Site
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H5"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                     </svg>
                                 </a>
-                                <span class="text-sm text-gray-500">
-                                    ${project.url}
-                                </span>
+                                ` : ''}
                             </div>
                         </div>
                     </div>
@@ -269,4 +260,3 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProjectCards();
     renderProjectTemplates();
 });
-
