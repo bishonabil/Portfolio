@@ -45,6 +45,20 @@ const projects = [
         layout: 'left'
     },
     {
+        id: 'Freightologist Inc.',
+        title: 'Freightologist Inc. Website',
+        category: 'Lead Generation',
+        shortDescription: 'Lead Generation WordPress Platform',
+        fullDescription: 'Freightologist Inc. is a U.S.-based logistics and dry van transportation company focused on shippers and professional drivers. I developed a modern WordPress website using a drag-and-drop workflow to efficiently deliver a conversion-driven experience. The site includes separate lead funnels for shippers and drivers, custom forms compliant with RingCentral SMS and communication policies, and clear, persuasive copywriting tailored for logistics lead generation. Visual assets were enhanced using AI-generated content to support a strong, professional brand presence.',
+        url: 'https://freightologistinc.com/',
+        image: 'assets/images/webp/freightologist-desktop.webp',
+        imageTablet: 'assets/images/webp/freightologist-tablet.webp',
+        imageMobile: 'assets/images/webp/freightologist-mobile.webp',
+        technologies: ['WordPress', 'Elementor', 'CSS'],
+        gradientColor: 'indigo',
+        layout: 'left'
+    },
+    {
         id: 'MFDP Law Firm',
         title: 'MFDP Law Firm Website',
         category: 'WordPress Development',
