@@ -116,15 +116,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
+
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+            mobileMenu.classList.add('hidden');
+        }
+
+        if (targetId === '#') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            history.pushState(null, null, ' '); // remove hash
+            return;
+        }
+
         const target = document.querySelector(targetId);
 
         if (target) {
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu) {
-                mobileMenu.classList.add('hidden');
-            }
-
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
