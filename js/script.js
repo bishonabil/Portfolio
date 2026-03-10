@@ -138,18 +138,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Project Modal Logic
 const projectModal = document.getElementById('project-modal');
+const projectModalContainer = projectModal ? projectModal.querySelector('.rounded-3xl') : null;
 const projectModalBody = document.getElementById('project-modal-body');
 const projectModalClose = document.getElementById('project-modal-close');
+
+const TRANSITION_DURATION = 300;
+let modalTimeout = null;
+let isClosing = false;
 
 const openProjectModal = (projectId) => {
     if (!projectModal || !projectModalBody) return;
     const template = document.getElementById(`project-${projectId}-template`);
     if (!template) return;
 
+    // 1. PREVENT RACE CONDITION: Clear any pending close actions
+    if (modalTimeout) {
+        clearTimeout(modalTimeout);
+        modalTimeout = null;
+    }
+    isClosing = false;
+
+    // 2. Inject HTML
     projectModalBody.innerHTML = '';
     projectModalBody.appendChild(template.content.cloneNode(true));
-    projectModal.classList.remove('hidden');
+
+    // 3. SHOW MODAL: Safely alter classes
+    projectModal.classList.remove('hidden', 'pointer-events-none');
     document.body.classList.add('overflow-hidden');
+
+    // Force reflow
+    void projectModal.offsetWidth;
+
+    // Trigger animations
+    if (projectModal.classList.contains('opacity-0')) {
+        projectModal.classList.replace('opacity-0', 'opacity-100');
+    } else {
+        projectModal.classList.add('opacity-100');
+    }
+
+    if (projectModalContainer) {
+        projectModalContainer.classList.remove('scale-95');
+        projectModalContainer.classList.add('scale-100');
+    }
 
     // Animate content in
     const content = projectModalBody.firstElementChild;
@@ -167,12 +197,30 @@ const openProjectModal = (projectId) => {
 
 const closeProjectModal = () => {
     if (!projectModal || !projectModalBody) return;
+    if (isClosing) return;
+    isClosing = true;
 
-    projectModal.classList.add('hidden');
-    setTimeout(() => {
-        projectModalBody.innerHTML = '';
-        document.body.classList.remove('overflow-hidden');
-    }, 300);
+    // 1. Fade out and block interactions
+    if (projectModal.classList.contains('opacity-100')) {
+        projectModal.classList.replace('opacity-100', 'opacity-0');
+    } else {
+        projectModal.classList.add('opacity-0');
+    }
+    projectModal.classList.add('pointer-events-none');
+
+    if (projectModalContainer) {
+        projectModalContainer.classList.replace('scale-100', 'scale-95');
+    }
+
+    // 2. DELAY CLEANUP
+    modalTimeout = setTimeout(() => {
+        if (isClosing) {
+            projectModal.classList.add('hidden');
+            projectModalBody.innerHTML = '';
+            document.body.classList.remove('overflow-hidden');
+            isClosing = false;
+        }
+    }, TRANSITION_DURATION);
 };
 
 // Event Delegation for Project Cards

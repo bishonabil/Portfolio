@@ -402,11 +402,11 @@
 
     <!-- Project Detail Modal -->
     <div id="project-modal"
-        class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center px-4 py-8 hidden"
+        class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center px-4 py-8 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
         style="z-index: 100;">
-        <div class="relative w-full max-w-7xl max-h-[90vh]">
+        <div class="relative w-full max-w-7xl max-h-[90vh] flex justify-center items-center">
             <div
-                class="relative bg-gray-900 rounded-3xl shadow-2xl border border-white/10 overflow-y-auto max-h-[90vh] custom-scrollbar">
+                class="relative w-full bg-gray-900 rounded-3xl shadow-2xl border border-white/10 overflow-y-auto max-h-[90vh] min-h-[300px] custom-scrollbar transition-transform duration-300 scale-95">
                 <button id="project-modal-close" type="button" tabindex="0"
                     class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-300 z-50 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     aria-label="Close project details">
@@ -415,7 +415,7 @@
                         </path>
                     </svg>
                 </button>
-                <div id="project-modal-body" class="p-0">
+                <div id="project-modal-body" class="p-0 h-full w-full">
                     <!-- Content injected via JS -->
                 </div>
             </div>
