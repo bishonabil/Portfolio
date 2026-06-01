@@ -121,16 +121,16 @@ function getGradientClasses(color) {
     const gradients = {
         indigo: {
             card: 'from-indigo-600/20 via-gray-900/40 to-gray-900/80',
-            badge: 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20',
-            badgeModal: 'bg-indigo-500/10 text-indigo-300 border border-indigo-500/20',
-            tech: 'bg-gray-800 text-indigo-300 border-indigo-500/20',
+            badge: 'bg-transparent border border-white/20 text-gray-300',
+            badgeModal: 'bg-transparent border border-white/20 text-gray-300',
+            tech: 'bg-transparent border border-white/20 text-gray-300',
             link: 'text-indigo-400 hover:text-indigo-300'
         },
         cyan: {
             card: 'from-cyan-600/20 via-gray-900/40 to-gray-900/80',
-            badge: 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20',
-            badgeModal: 'bg-cyan-500/10 text-cyan-300 border border-cyan-500/20',
-            tech: 'bg-gray-800 text-cyan-300 border-cyan-500/20',
+            badge: 'bg-transparent border border-white/20 text-gray-300',
+            badgeModal: 'bg-transparent border border-white/20 text-gray-300',
+            tech: 'bg-transparent border border-white/20 text-gray-300',
             link: 'text-cyan-400 hover:text-cyan-300'
         }
     };
@@ -150,7 +150,7 @@ function renderProjectCards() {
         return `
             <button type="button" 
                 data-project-id="${project.id}" 
-                class="group relative w-full text-left rounded-3xl overflow-hidden bg-gray-900 border border-white/5 hover:border-indigo-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-500/10 animate-fade-in-up"
+                class="group relative w-full text-left rounded-3xl overflow-hidden bg-white/5 border border-white/10 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] animate-fade-in-up"
                 style="animation-delay: ${delay}ms">
                 
                 <!-- Image Container -->
@@ -171,10 +171,10 @@ function renderProjectCards() {
                         </span>
                         
                         <div>
-                            <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                            <h3 class="text-xl font-bold text-white transition-colors duration-300">
                                 ${project.title}
                             </h3>
-                            <p class="text-sm text-gray-400 mt-1 line-clamp-2 group-hover:text-gray-300 transition-colors">
+                            <p class="text-sm text-gray-400 mt-1 line-clamp-2 transition-colors">
                                 ${project.shortDescription}
                             </p>
                         </div>
@@ -203,7 +203,7 @@ function renderProjectTemplates() {
 
         return `
             <template id="project-${project.id}-template">
-                <section class="relative rounded-3xl p-6 sm:p-10 lg:p-12 bg-gray-900">
+                <section class="relative rounded-3xl p-6 sm:p-10 lg:p-12 bg-transparent">
                     <div class="flex ${layoutClass} gap-12 lg:gap-16 items-center relative z-10">
                         
                         <!-- Device Mockups -->
@@ -230,11 +230,11 @@ function renderProjectTemplates() {
                                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
                                     ${project.title}
                                 </h2>
-                                <p class="text-lg text-indigo-400 font-medium">${project.shortDescription}</p>
+                                <p class="text-lg text-blue-400 font-medium">${project.shortDescription}</p>
                             </div>
                             
                             <div class="prose prose-invert max-w-none">
-                                <p class="text-gray-300 text-lg leading-relaxed">
+                                <p class="text-gray-400 text-lg leading-relaxed">
                                     ${project.fullDescription}
                                 </p>
                             </div>
@@ -243,7 +243,7 @@ function renderProjectTemplates() {
                                 <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Technologies</h4>
                                 <div class="flex flex-wrap gap-3">
                                     ${project.technologies.map(tech => `
-                                        <span class="px-4 py-2 ${gradient.tech} rounded-lg text-sm font-medium border shadow-sm">
+                                        <span class="px-4 py-2 ${gradient.tech} rounded-lg text-sm font-medium shadow-sm">
                                             ${tech}
                                         </span>
                                     `).join('')}
@@ -253,7 +253,7 @@ function renderProjectTemplates() {
                             <div class="pt-6 border-t border-white/10 flex flex-wrap items-center gap-6">
                                 ${project.url ? `
                                 <a href="${project.url}" target="_blank" rel="noopener noreferrer" 
-                                   class="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:-translate-y-1">
+                                   class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:shadow-[0_0_45px_rgba(59,130,246,0.8)]">
                                     Visit Live Site
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
