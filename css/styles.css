@@ -406,6 +406,17 @@ body {
     will-change: background-position;
 }
 
+@media (max-width: 768px) {
+    .grid-wall-right {
+        width: 180vw;
+    }
+
+    .grid-wall-left {
+        width: 0vw;
+    }
+}
+
+
 @keyframes flow-left-wall {
     from {
         background-position: 0px 0px;
