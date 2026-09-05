@@ -1,455 +1,602 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishoy Nabil - Full-Stack Developer Portfolio</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Bishoy Nabil - Full-Stack Developer. Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
-    <meta name="keywords"
-        content="Full-Stack Developer, Web Developer, Portfolio, Bishoy Nabil, Frontend Developer, Backend Developer">
-    <meta name="author" content="Bishoy Nabil">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bishonabil.github.io/Portfolio/">
-    <meta property="og:title" content="Bishoy Nabil - Full-Stack Developer Portfolio">
-    <meta property="og:description"
-        content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
-    <meta property="og:image" content="https://bishonabil.github.io/Portfolio/assets/images/meta-port.png">
-    <meta property="og:site_name" content="Bishoy Nabil Portfolio">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://bishonabil.github.io/Portfolio/">
-    <meta name="twitter:title" content="Bishoy Nabil - Full-Stack Developer Portfolio">
-    <meta name="twitter:description"
-        content="Crafting modern web experiences with clean code and innovative solutions. Specialized in responsive design and performance optimization.">
-    <meta name="twitter:image" content="https://bishonabil.github.io/Portfolio/assets/images/meta-port.png">
-
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://bishonabil.github.io/Portfolio/assets/images/logo.png">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        gray: {
-                            950: '#020617',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bishoy Nabil — CMS Developer & Full-Stack Engineer</title>
+  <meta name="description" content="Portfolio of Bishoy Nabil, a CMS developer and full-stack web engineer specializing in scalable digital experiences. Available for freelance projects and full-time opportunities." />
+  <meta name="keywords" content="Bishoy Nabil, CMS developer, full-stack developer, web developer portfolio, WordPress developer, headless CMS, React developer" />
+  <meta name="author" content="Bishoy Nabil" />
+  <meta property="og:title" content="Bishoy Nabil — CMS Developer & Full-Stack Engineer" />
+  <meta property="og:description" content="CMS specialist and full-stack developer building performant, scalable digital products." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="bg-gray-950 text-white font-sans antialiased relative">
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-    <!-- Preloader -->
-    <div id="preloader" class="preloader">
-        <div class="preloader-content">
-            <div class="preloader-spinner"></div>
-            <span class="preloader-text">Loading...</span>
-        </div>
+  <!-- ─── NAVBAR ─────────────────────────────────────────────────── -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Bishoy Nabil home">BN<span>.</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="#projects" id="nav-projects">Work</a></li>
+      <li><a href="#skills"   id="nav-skills">Skills</a></li>
+      <li><a href="#about"    id="nav-about">About</a></li>
+      <li><a href="#contact"  id="nav-contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-time" id="navTime" aria-label="Current time">00:00</div>
+      <a href="#contact" class="nav-available" aria-label="Contact Bishoy">
+        <span class="nav-avail-dot" aria-hidden="true"></span>
+        Available
+      </a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation">
+    <a href="#projects" class="mobile-nav-link">Work</a>
+    <a href="#skills"   class="mobile-nav-link">Skills</a>
+    <a href="#about"    class="mobile-nav-link">About</a>
+    <a href="#contact"  class="mobile-nav-link">Contact</a>
+  </div>
+
+  <!-- ─── HERO ───────────────────────────────────────────────────── -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+
+    <!-- ── Decorative scribbles ── -->
+    <div class="hero-scribbles" aria-hidden="true">
+      <!-- 5-pointed star outline, bottom-left -->
+      <svg class="scribble scribble--star-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+      </svg>
+      <!-- Circle outline, mid-right -->
+      <svg class="scribble scribble--circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+      </svg>
+      <!-- Diagonal slash, left side -->
+      <svg class="scribble scribble--slash" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="0" y1="8" x2="24" y2="0"/>
+      </svg>
+      <!-- 4-pointed sparkle, top-right area -->
+      <svg class="scribble scribble--sparkle" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z"/>
+      </svg>
+      <!-- Small filled square, upper-left zone -->
+      <svg class="scribble scribble--square" viewBox="0 0 10 10" fill="currentColor">
+        <rect x="0" y="0" width="10" height="10"/>
+      </svg>
+      <!-- Tiny ring, lower-right -->
+      <svg class="scribble scribble--ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="8"/>
+      </svg>
+      <!-- Wavy squiggle, right column area -->
+      <svg class="scribble scribble--wave" viewBox="0 0 60 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M0 6 Q10 0 20 6 Q30 12 40 6 Q50 0 60 6"/>
+      </svg>
     </div>
 
-    <!-- Header -->
-    <header id="main-header"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-950/0 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <nav id="header-nav" class="flex items-center justify-between py-4 lg:py-5 transition-all duration-300">
-                <!-- Logo -->
-                <a href="#" class="text-2xl font-black tracking-tight text-white group">
-                    Bishoy<span class="text-white transition-all duration-300">.Dev</span>
-                </a>
-
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-8">
-                    <a href="#hero-section"
-                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                        data-nav="hero-section">Home</a>
-                    <a href="#projects"
-                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                        data-nav="projects">Projects</a>
-                    <a href="#about"
-                        class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors"
-                        data-nav="about">About</a>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="hidden lg:block">
-                    <a href="#contact"
-                        class="inline-flex items-center justify-center px-6 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/10">
-                        Let's Talk
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden p-2 text-gray-300 hover:text-white focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </nav>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden lg:hidden bg-[#0a0a0a]/85 backdrop-blur-md border-b border-white/5 absolute top-full left-0 right-0 px-6 py-5 shadow-2xl">
-            <div class="flex flex-col space-y-1">
-                <a href="#hero-section"
-                    class="text-gray-300 hover:text-white font-medium transition-all duration-200 px-3 py-3 rounded-xl hover:bg-white/5">
-                    Home
-                </a>
-                <a href="#projects"
-                    class="text-gray-300 hover:text-white font-medium transition-all duration-200 px-3 py-3 rounded-xl hover:bg-white/5">
-                    Projects
-                </a>
-                <a href="#about"
-                    class="text-gray-300 hover:text-white font-medium transition-all duration-200 px-3 py-3 rounded-xl hover:bg-white/5">
-                    About
-                </a>
-                <div class="pt-3 pb-1">
-                    <a href="#contact"
-                        class="inline-flex w-full items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-full font-semibold transition-all duration-300 hover:bg-blue-500 shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] hover:scale-[1.02]">
-                        Let's Talk
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="hero-section" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Effects removed as requested -->
-        <div class="grid-wall grid-wall-left"></div>
-        <div class="grid-wall grid-wall-right"></div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div
-                class="inline-flex items-center px-3 py-1 rounded-full border border-white/10 text-gray-300 text-sm font-medium mb-8 animate-fade-in-up">
-                <span class="flex w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                Available for Projects
-            </div>
-
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tight animate-fade-in-up"
-                style="animation-delay: 0.1s;">
-                Full-Stack <br>
-                <span class="text-white">Web
-                    Developer</span>
-            </h1>
-
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
-                style="animation-delay: 0.2s;">
-                Blending clean design with practical user experience to build websites that look modern, feel
-                intuitive,
-                and work flawlessly.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
-                style="animation-delay: 0.3s;">
-                <a href="#projects"
-                    class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-full font-bold transition-all duration-300 shadow-[0_0_80px_15px_rgba(59,130,246,0.4)] hover:shadow-[0_0_100px_20px_rgba(59,130,246,0.6)] hover:scale-105">
-                    View My Work
-                </a>
-                <a href="#contact"
-                    class="inline-flex items-center justify-center px-8 py-4 bg-white/5 text-gray-300 border border-white/10 rounded-full font-bold hover:bg-white/10 transition-all duration-300">
-                    Contact Me
-                </a>
-            </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-30">
-            <a href="#projects" class="text-gray-500 hover:text-white transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-            </a>
-        </div>
-
-        <!-- Section Blending Gradient -->
-        <div
-            class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#050505] pointer-events-none z-20">
-        </div>
-    </section>
-    <!-- Main Container -->
-    <main class="flex-grow relative z-10">
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 lg:py-32 relative bg-[#050505]">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-
-                <!-- Section Header -->
-                <div class="mb-16 lg:mb-24 text-center max-w-3xl mx-auto">
-                    <span
-                        class="text-blue-500 font-bold tracking-wider uppercase text-sm mb-4 block animate-fade-in-up">Portfolio</span>
-                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 animate-fade-in-up"
-                        style="animation-delay: 0.1s;">
-                        Featured <span class="text-white">Projects</span>
-                    </h2>
-                    <p class="text-lg text-gray-400 animate-fade-in-up" style="animation-delay: 0.2s;">
-                        A curated selection of my recent work, showcasing complex web applications and
-                        modern design
-                        implementations.
-                    </p>
-                </div>
-
-                <!-- Projects Grid -->
-                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-                    <!-- Projects will be dynamically rendered here -->
-                </div>
-
-                <!-- Project Detail Templates -->
-                <div id="project-templates-container"></div>
-
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-24 lg:py-32 relative overflow-hidden bg-[#050505]">
-
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-
-                    <!-- About Text -->
-                    <div class="w-full lg:w-1/2">
-                        <span class="text-blue-500 font-bold tracking-wider uppercase text-sm mb-4 block">About
-                            Me</span>
-                        <h2 class="text-4xl sm:text-5xl font-black text-white mb-8 leading-tight">
-                            Passionate about <br>
-                            <span class="text-white">clean code</span> & design.
-                        </h2>
-                        <div class="space-y-6 text-lg text-gray-400 leading-relaxed">
-                            <p>
-                                Full-Stack & WordPress Web Developer who builds fast, clean, and
-                                reliable
-                                websites. I focus on turning ideas into fully functional digital
-                                experiences with
-                                polished design, solid structure, and smooth performance.
-                            </p>
-                            <p>
-                                I create complete web solutions — from front-end interfaces to back-end
-                                logic — with
-                                responsive design, optimized performance, and a strong focus on user
-                                experience.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Skills Visuals -->
-                    <div class="w-full lg:w-1/2">
-                        <div
-                            class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
-                            <!-- Schematic Grid Background -->
-                            <div class="absolute inset-0 z-0 pointer-events-none"
-                                style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 30px 30px; mask-image: radial-gradient(circle at center, black 10%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 10%, transparent 80%);">
-                            </div>
-
-                            <div class="relative z-10">
-                                <h3 class="text-2xl font-bold text-white mb-8">Core Skills</h3>
-
-                                <div class="space-y-8">
-                                    <!-- Skill Group -->
-                                    <div>
-                                        <h4
-                                            class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                                            <span
-                                                class="w-2 h-2 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.8)]"></span>
-                                            WordPress
-                                        </h4>
-                                        <div class="flex flex-wrap gap-3">
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-teal-500/50 hover:text-teal-200 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] hover:-translate-y-0.5">Elementor</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-teal-500/50 hover:text-teal-200 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] hover:-translate-y-0.5">WooCommerce</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-teal-500/50 hover:text-teal-200 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] hover:-translate-y-0.5">Hosting
-                                                & Deployment</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-teal-500/50 hover:text-teal-200 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)] hover:-translate-y-0.5">Plugins</span>
-
-                                        </div>
-                                    </div>
-
-                                    <!-- Skill Group -->
-                                    <div>
-                                        <h4
-                                            class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                                            <span
-                                                class="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
-                                            Frontend
-                                        </h4>
-                                        <div class="flex flex-wrap gap-3">
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5">HTML</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5">CSS</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5">Tailwind
-                                                CSS</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5">JavaScript</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-blue-500/50 hover:text-blue-200 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5">UI/UX
-                                                Basics</span>
-
-                                        </div>
-                                    </div>
-
-                                    <!-- Skill Group -->
-                                    <div>
-                                        <h4
-                                            class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                                            <span
-                                                class="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]"></span>
-                                            Backend
-                                        </h4>
-                                        <div class="flex flex-wrap gap-3">
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:-translate-y-0.5">PHP</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:-translate-y-0.5">API
-                                                development</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:-translate-y-0.5">Node.js</span>
-                                            <span
-                                                class="px-4 py-2 rounded-lg text-sm font-medium bg-transparent border border-white/20 text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-200 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:-translate-y-0.5">MySQL</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Project Detail Modal -->
-    <div id="project-modal"
-        class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center px-4 py-8 hidden opacity-0 transition-opacity duration-300 pointer-events-none"
-        style="z-index: 100;">
-        <div class="relative w-full max-w-7xl max-h-[90vh] flex justify-center items-center">
-            <div
-                class="relative w-full bg-[#0a0a0a] rounded-3xl shadow-2xl border border-white/10 overflow-y-auto max-h-[90vh] min-h-[300px] custom-scrollbar transition-transform duration-300 scale-95">
-                <button id="project-modal-close" type="button" tabindex="0"
-                    class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white text-gray-400 flex items-center justify-center transition-all duration-300 z-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    aria-label="Close project details">
-                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
-                <div id="project-modal-body" class="p-0 h-full w-full">
-                    <!-- Content injected via JS -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer id="contact" class="bg-[#050505] py-20 border-t border-white/5 relative overflow-hidden">
-        <!-- Anchor Light -->
-        <div class="absolute inset-0 z-0 pointer-events-none"
-            style="background: radial-gradient(circle at 50% 120%, rgba(20, 160, 160, 0.15) 0%, transparent 60%);">
-        </div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12">
-
-                <!-- Brand & CTA -->
-                <div class="max-w-xl">
-                    <h2 class="text-4xl sm:text-5xl font-black text-white mb-6">
-                        Let's build something <br>
-                        <span class="text-blue-500">extraordinary.</span>
-                    </h2>
-                    <p class="text-gray-400 text-lg mb-8">
-                        Have a project in mind? Let's discuss how we can bring your vision to life with cutting-edge
-                        technology and design.
-
-
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="mailto:bishonabil457@gmail.com"
-                            class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white rounded-full font-bold transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:shadow-[0_0_45px_rgba(59,130,246,0.8)]">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            bishonabil457@gmail.com
-                        </a>
-                        <a href="tel:+201065116196"
-                            class="inline-flex items-center justify-center px-8 py-4 bg-white/5 border border-white/10 text-gray-300 rounded-full font-bold transition-all duration-300 hover:bg-white/10 hover:border-blue-500/50 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                </path>
-                            </svg>
-                            +20 1065116196
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Social Links -->
-                <div class="flex gap-6">
-                    <a href="https://www.linkedin.com/in/bishoy-nabil-1aa474320/" target="_blank" rel="noopener"
-                        class="w-14 h-14 bg-white/5 border border-white/10 text-gray-300 rounded-2xl flex items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-blue-500/50 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-1">
-                        <i class="fab fa-linkedin-in text-2xl"></i>
-                    </a>
-                    <a href="https://wa.me/+201065116196" target="_blank" rel="noopener"
-                        class="w-14 h-14 bg-white/5 border border-white/10 text-gray-300 rounded-2xl flex items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-blue-500/50 hover:text-white hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:-translate-y-1">
-                        <i class="fab fa-whatsapp text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div
-                class="border-t border-white/5 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">
-                    © 2026 Bishoy Nabil. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/+201065116196" target="_blank" rel="noopener noreferrer"
-        class="fixed bottom-8 right-8 w-16 h-16 bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center p-3 shadow-lg transition-all duration-300 transform hover:scale-110 hover:border-[#25D366]/50 hover:bg-[#25D366]/10 hover:shadow-[0_0_25px_rgba(37,211,102,0.4)] z-40 group">
-        <i class="fab fa-whatsapp text-white text-3xl"></i>
-        <span
-            class="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border border-[#050505] shadow-[0_0_10px_rgba(239,68,68,0.8)] animate-pulse"></span>
+    <!-- Floating "Hire Me" pill -->
+    <a href="#contact" class="hero-hire-pill" aria-label="Contact Bishoy">
+      HIRE ME ↗
     </a>
 
-    <!-- Projects Data -->
-    <script src="js/projects.js"></script>
-    <!-- Custom JavaScript -->
-    <script src="js/script.js"></script>
-</body>
+    <div class="hero-inner">
 
+      <!-- ── LEFT COLUMN ── -->
+      <div class="hero-col hero-col--left">
+
+        <!-- Status badge -->
+        <div class="hero-status reveal">
+          <span class="hero-dot" aria-hidden="true"></span>
+          CMS Developer &bull; Open to Work
+        </div>
+
+        <!-- Name: BISHOY solid white / NABIL yellow with dark stroke -->
+        <h1 class="hero-name reveal reveal-delay-1">
+          BISHOY
+          <span class="stroke-text">NABIL</span>
+        </h1>
+
+        <!-- Description with inline keyword marks -->
+        <p class="hero-desc reveal reveal-delay-2">
+          I build <mark class="hero-mark">CMS-driven</mark> web experiences
+          &mdash; from <mark class="hero-mark--outline">headless architectures</mark>
+          to full-stack delivery. Obsessive about craft.
+        </p>
+
+      </div><!-- /hero-col--left -->
+
+      <!-- ── RIGHT COLUMN ── 3D model will be placed here (center) -->
+      <div class="hero-col hero-col--right">
+
+        <!-- Reserved for 3D model — do not fill this space -->
+        <div id="hero-3d-model" style="width: 100%; height: 100%; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; cursor: pointer;"></div>
+
+        <!-- Social buttons pinned to bottom of this column -->
+        <div class="hero-socials reveal reveal-delay-3">
+          <a href="https://github.com/bishoynabil" target="_blank" rel="noopener noreferrer" class="hero-social-btn" id="hero-github">GITHUB ↗</a>
+          <a href="https://linkedin.com/in/bishoynabil" target="_blank" rel="noopener noreferrer" class="hero-social-btn" id="hero-linkedin">LINKEDIN ↗</a>
+          <a href="mailto:bishoy@example.com" class="hero-social-btn" id="hero-email">EMAIL ↗</a>
+        </div>
+
+      </div><!-- /hero-col--right -->
+
+      <!-- ── STATS ROW — spans full width at the bottom ── -->
+      <div class="hero-stats reveal reveal-delay-4">
+        <div class="hero-stat-card">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Projects Shipped</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="stat-num">CMS</div>
+          <div class="stat-label">Specialist</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="stat-num">Open</div>
+          <div class="stat-label">to Freelance</div>
+        </div>
+      </div>
+
+    </div><!-- /hero-inner -->
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ─── MARQUEE ────────────────────────────────────────────────── -->
+  <div class="marquee-strip" aria-hidden="true" role="presentation">
+    <div class="marquee-track">
+      <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
+      <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
+    </div>
+  </div>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
+  <section id="projects" class="section" aria-label="Projects">
+    <div class="projects-header">
+      <div>
+        <div class="section-label reveal">
+          <span>02</span><span>Selected Work</span>
+        </div>
+        <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
+      </div>
+      <div class="projects-count reveal reveal-delay-2" aria-hidden="true">04</div>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Featured Project -->
+      <article class="project-card featured reveal" id="project-headless-cms" aria-label="Project: Headless CMS Platform">
+        <div>
+          <div class="project-num">01 / 04</div>
+          <div class="project-type">
+            <span class="tag tag--accent">Featured</span>
+            <span class="tag" style="margin-left:8px">CMS</span>
+          </div>
+          <h3 class="project-title">Headless CMS<br/>Publishing Platform</h3>
+          <p class="project-desc">
+            Architected a fully headless WordPress backend serving a React/Next.js frontend for a digital news outlet. Decoupled the editorial workflow from presentation, enabling sub-second page loads and a modern editorial experience with custom Gutenberg blocks, REST API extensions, and a real-time preview bridge.
+          </p>
+          <div class="project-tech">
+            <span class="tag">WordPress</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">GraphQL</span>
+            <span class="tag">REST API</span>
+            <span class="tag">Gutenberg</span>
+          </div>
+        </div>
+        <div>
+          <!-- Visual placeholder -->
+          <div style="border: 2px solid #2a2a2a; background: #111; padding: 1.8rem; height: 100%; min-height: 220px; display:flex; flex-direction:column; justify-content:space-between;">
+            <div style="display:flex; gap:8px;">
+              <div style="width:10px;height:10px;background:#FF3C3C;border-radius:50%;"></div>
+              <div style="width:10px;height:10px;background:#FFE500;border-radius:50%;"></div>
+              <div style="width:10px;height:10px;background:#00FFAB;border-radius:50%;"></div>
+            </div>
+            <div>
+              <div style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:#444; margin-bottom:10px;">// headless-bridge.js</div>
+              <div style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:#555; line-height:1.6;">
+                <span style="color:#00FFAB">const</span> preview = <span style="color:#FFE500">await</span><br/>
+                &nbsp;&nbsp;wp.getPreview(<span style="color:#FF3C3C">'draft'</span>)<br/>
+                <span style="color:#00FFAB">return</span> revalidate(preview)
+              </div>
+            </div>
+            <div style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#333; letter-spacing:0.1em; text-transform:uppercase;">Live site placeholder</div>
+          </div>
+          <div class="project-footer" style="margin-top:1rem;">
+            <div style="font-family:'Courier Prime',monospace; font-size:0.7rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Case study in progress</div>
+            <a href="#contact" class="project-link" aria-label="Request project details">
+              Request Details
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card reveal reveal-delay-1" id="project-ecom" aria-label="Project: E-Commerce Full Stack">
+        <div class="project-num">02 / 04</div>
+        <div class="project-type">
+          <span class="tag">Full-Stack</span>
+          <span class="tag tag--accent" style="margin-left:8px">E-Commerce</span>
+        </div>
+        <h3 class="project-title">Multi-Vendor E-Commerce Engine</h3>
+        <p class="project-desc">
+          Built a multi-vendor marketplace from scratch — custom storefront, vendor dashboard, order management, and Stripe payment flows. WooCommerce extensions handled inventory rules; a custom Node.js service managed real-time stock sync across warehouses.
+        </p>
+        <div class="project-tech">
+          <span class="tag">WooCommerce</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">Stripe</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">PHP</span>
+        </div>
+        <div class="project-footer">
+          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">NDA — details on request</span>
+          <a href="#contact" class="project-link" aria-label="Request project details">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card reveal reveal-delay-2" id="project-saas" aria-label="Project: SaaS Dashboard">
+        <div class="project-num">03 / 04</div>
+        <div class="project-type">
+          <span class="tag">Full-Stack</span>
+          <span class="tag" style="margin-left:8px; border-color:var(--clr-accent-3); color:var(--clr-accent-3);">SaaS</span>
+        </div>
+        <h3 class="project-title">Client Analytics &amp; Reporting Dashboard</h3>
+        <p class="project-desc">
+          Designed and built an internal analytics dashboard for a digital agency tracking SEO, ad spend, and content performance across 40+ client sites. React frontend consuming a custom-built WordPress REST API layer with role-based access, PDF report generation, and scheduled data pulls.
+        </p>
+        <div class="project-tech">
+          <span class="tag">React</span>
+          <span class="tag">WordPress REST</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Puppeteer</span>
+        </div>
+        <div class="project-footer">
+          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Internal tool</span>
+          <a href="#contact" class="project-link" aria-label="Request project details">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card reveal reveal-delay-3" id="project-plugin" aria-label="Project: WordPress Plugin">
+        <div class="project-num">04 / 04</div>
+        <div class="project-type">
+          <span class="tag">WordPress</span>
+          <span class="tag tag--filled" style="margin-left:8px">Plugin</span>
+        </div>
+        <h3 class="project-title">Advanced Custom Workflow Plugin</h3>
+        <p class="project-desc">
+          A bespoke editorial workflow plugin for a media company, replacing a third-party subscription. Custom post states, reviewer assignment, comment threading inside Gutenberg, deadline tracking, and Slack integration for status change notifications. Zero external dependencies.
+        </p>
+        <div class="project-tech">
+          <span class="tag">PHP</span>
+          <span class="tag">Gutenberg</span>
+          <span class="tag">Slack API</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">REST API</span>
+        </div>
+        <div class="project-footer">
+          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Client delivery</span>
+          <a href="#contact" class="project-link" aria-label="Request project details">
+            Learn More
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ────────────────────────────────────────────────── -->
+  <section id="skills" class="section" aria-label="Skills">
+    <div class="section-label reveal">
+      <span>03</span><span>Toolkit</span>
+    </div>
+    <h2 class="section-heading reveal reveal-delay-1" style="margin-bottom:3rem;">SKILLS</h2>
+
+    <div class="skills-grid reveal reveal-delay-2">
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/>
+            </svg>
+          </div>
+          <span class="skill-group-name">CMS</span>
+        </div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">WordPress / ACF</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:95%" data-level="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Headless WP</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:90%" data-level="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Gutenberg Blocks</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:88%" data-level="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">WooCommerce</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:82%" data-level="82"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Sanity / Contentful</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:72%" data-level="72"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <span class="skill-group-name">Frontend</span>
+        </div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">JavaScript / ES2024</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:92%" data-level="92"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React / Next.js</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:85%" data-level="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">HTML / CSS / SASS</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:95%" data-level="95"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">TypeScript</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:75%" data-level="75"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">GraphQL</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:78%" data-level="78"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+            </svg>
+          </div>
+          <span class="skill-group-name">Backend</span>
+        </div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">PHP / Laravel</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:88%" data-level="88"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Node.js / Express</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:80%" data-level="80"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">MySQL / PostgreSQL</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:82%" data-level="82"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">REST API Design</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:90%" data-level="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Docker / Linux</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="--skill-level:65%" data-level="65"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section id="about" class="section" aria-label="About Bishoy Nabil">
+    <div class="about-grid">
+      <div>
+        <div class="about-image-wrap reveal">
+          <div class="about-image-placeholder" role="img" aria-label="Bishoy Nabil — photo coming soon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <p>Photo — Add yours here</p>
+          </div>
+          <div class="about-image-frame" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="section-label reveal">
+          <span>04</span><span>The Human</span>
+        </div>
+        <h2 class="section-heading reveal reveal-delay-1">ABOUT<br/>ME</h2>
+
+        <p class="about-text reveal reveal-delay-2">
+          I'm <strong>Bishoy Nabil</strong>, a web developer based in Egypt with a focus on CMS architecture and full-stack delivery. I started building for the web out of pure obsession with how things work under the surface, and that curiosity still drives every project I take on.
+        </p>
+        <p class="about-text reveal reveal-delay-2">
+          My specialization is <strong>CMS development</strong> — primarily WordPress ecosystems, headless setups, and custom plugin engineering — but I'm equally comfortable handling the full chain from database schema through to polished frontend. I've delivered projects for media companies, e-commerce brands, agencies, and startups.
+        </p>
+        <p class="about-text reveal reveal-delay-3">
+          I care about <strong>craft</strong>. Code should be readable, systems should be maintainable, and the end result should work: reliably, at scale, without excuses.
+        </p>
+
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="about-stat">
+            <div class="about-stat-num">4+</div>
+            <div class="about-stat-label">Years experience</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">20+</div>
+            <div class="about-stat-label">Projects shipped</div>
+          </div>
+          <div class="about-stat">
+            <div class="about-stat-num">∞</div>
+            <div class="about-stat-label">Coffee consumed</div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-4">
+          <a href="#contact" class="btn btn--primary" id="about-cta">Let's Work Together
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+  <section id="contact" class="section" aria-label="Contact Bishoy Nabil">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label reveal">
+          <span>05</span><span>Contact</span>
+        </div>
+        <h2 class="section-heading reveal reveal-delay-1">LET'S<br/>BUILD<br/>TOGETHER</h2>
+        <p class="reveal reveal-delay-2">
+          Have a project in mind, a role to fill, or just want to talk shop? I'm open to freelance projects, full-time opportunities, and interesting conversations.
+        </p>
+
+        <div class="contact-links reveal reveal-delay-3">
+          <a href="mailto:bishoy@example.com" class="contact-link-item" id="contact-email" aria-label="Email Bishoy">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            bishoy@example.com
+          </a>
+          <a href="https://github.com/bishoynabil" target="_blank" rel="noopener noreferrer" class="contact-link-item" id="contact-github" aria-label="Bishoy on GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            github.com/bishoynabil
+          </a>
+          <a href="https://linkedin.com/in/bishoynabil" target="_blank" rel="noopener noreferrer" class="contact-link-item" id="contact-linkedin" aria-label="Bishoy on LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+            linkedin.com/in/bishoynabil
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal reveal-delay-2" id="contactForm" novalidate aria-label="Contact form">
+        <div class="form-group">
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label for="contact-email-input">Email Address</label>
+          <input type="email" id="contact-email-input" name="email" placeholder="jane@company.com" autocomplete="email" required />
+        </div>
+        <div class="form-group">
+          <label for="contact-subject">Subject</label>
+          <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry / Job opportunity" />
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project, timeline, and budget…" required></textarea>
+        </div>
+        <div class="form-submit-row">
+          <span class="form-note">I typically reply within 24h</span>
+          <button type="submit" class="btn btn--primary" id="contact-submit">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M14.5 1.5L7 9M14.5 1.5H10M14.5 1.5V6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 3H2.5C1.7 3 1 3.7 1 4.5v9c0 .8.7 1.5 1.5 1.5h9c.8 0 1.5-.7 1.5-1.5V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <div id="form-feedback" role="alert" aria-live="polite" style="display:none; font-family:'Courier Prime',monospace; font-size:0.82rem; padding:12px 16px; border:2px solid; margin-top:0.5rem;"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="footer-logo">BN<span>.</span></div>
+    <p class="footer-copy">© 2024 Bishoy Nabil — Designed &amp; built with obsessive care</p>
+    <div class="footer-socials">
+      <a href="https://github.com/bishoynabil" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+      </a>
+      <a href="https://linkedin.com/in/bishoynabil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="3d-model.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>
