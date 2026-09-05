@@ -69,7 +69,7 @@
     // 👉 TWEAK THIS to change the model's default orientation/rotation (in degrees)!
     // Y = left/right turn, X = tilt up/down, Z = roll side-to-side
     const defaultRotationX = 0;   // e.g. 10 to tilt up slightly
-    const defaultRotationY = -90; // e.g. 45 to turn right 45°, -45 to turn left
+    const defaultRotationY = -110; // e.g. 45 to turn right 45°, -45 to turn left
     const defaultRotationZ = 0;   // e.g. 15 to tilt sideways
 
     baseGroup.rotation.x = THREE.MathUtils.degToRad(defaultRotationX);
@@ -118,16 +118,110 @@
     targetRotationX = mouseY * 0.25;
   });
 
-  // Click to play animation
+  // ── Greeting Counter ─────────────────────────────────────────────
+  const popup = document.getElementById('snail-greeting-popup');
+  const countEl = document.getElementById('greetingCount');
+  const labelEl = popup ? popup.querySelector('.greeting-label') : null;
+  let popupTimer = null;
+
+  const COOLDOWN_KEY = 'snail_cooldown_until';
+  const SESSION_KEY = 'snail_session_greetings';
+  const COOLDOWN_MS = 60 * 1000; // 1 minute
+  const GREET_LIMIT = 10;
+
+  function getMonthKey() {
+    const now = new Date();
+    return `snail_greetings_${now.getFullYear()}_${now.getMonth()}`;
+  }
+
+  function getCount() {
+    return parseInt(localStorage.getItem(getMonthKey()) || '0', 10);
+  }
+
+  function getSessionGreetings() {
+    return parseInt(sessionStorage.getItem(SESSION_KEY) || '0', 10);
+  }
+
+  function setSessionGreetings(n) {
+    sessionStorage.setItem(SESSION_KEY, n);
+  }
+
+  function isCoolingDown() {
+    const until = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0', 10);
+    return Date.now() < until;
+  }
+
+  function getCooldownSecondsLeft() {
+    const until = parseInt(localStorage.getItem(COOLDOWN_KEY) || '0', 10);
+    return Math.max(0, Math.ceil((until - Date.now()) / 1000));
+  }
+
+  function startCooldown() {
+    localStorage.setItem(COOLDOWN_KEY, Date.now() + COOLDOWN_MS);
+    setSessionGreetings(0);
+  }
+
+  function incrementCount() {
+    const key = getMonthKey();
+    const next = getCount() + 1;
+    localStorage.setItem(key, next);
+    return next;
+  }
+
+  function showNormalPopup(count) {
+    if (!popup || !countEl || !labelEl) return;
+
+    // Restore normal state
+    popup.classList.remove('is-tired');
+    labelEl.textContent = 'Greeted this month';
+    countEl.textContent = count;
+
+    // Simple flash animation
+    countEl.classList.remove('bump');
+    void countEl.offsetWidth;
+    countEl.classList.add('bump');
+    setTimeout(() => countEl.classList.remove('bump'), 300);
+
+    popup.classList.add('is-visible');
+    clearTimeout(popupTimer);
+    popupTimer = setTimeout(() => popup.classList.remove('is-visible'), 3000);
+  }
+
+  function showTiredPopup() {
+    if (!popup || !labelEl) return;
+
+    popup.classList.add('is-visible', 'is-tired');
+    labelEl.textContent = 'Snail is tired — come back later 💤';
+
+    clearTimeout(popupTimer);
+    popupTimer = setTimeout(() => {
+      popup.classList.remove('is-visible');
+    }, 4000);
+  }
+
+  // Seed the count on load
+  if (countEl) countEl.textContent = getCount();
+
+  // Click to play animation + greeting counter
   container.addEventListener('click', () => {
+    if (isCoolingDown()) {
+      // Still in cooldown — show tired message, block animation
+      showTiredPopup();
+      return;
+    }
+
     playAnimation();
 
-    // Optional: add a small reactive scale bump to confirm click
-    if (modelGroup) {
-      modelGroup.scale.set(1.05, 1.05, 1.05);
-      setTimeout(() => {
-        modelGroup.scale.set(1, 1, 1);
-      }, 150);
+    const sessionCount = getSessionGreetings() + 1;
+    setSessionGreetings(sessionCount);
+    const newCount = incrementCount();
+
+    if (sessionCount >= GREET_LIMIT) {
+      // Hit the limit — start cooldown, show tired message
+      startCooldown();
+      showTiredPopup();
+    } else {
+      showNormalPopup(newCount);
     }
   });
 

@@ -41,6 +41,22 @@
       ring.style.width = ringW + 'px';
       ring.style.height = ringH + 'px';
     }
+
+    // Parallax effect for scribbles (very subtle, ghost-like drift)
+    const scribbles = document.querySelectorAll('.scribble');
+    if (scribbles.length > 0) {
+      const normX = (mouseX / window.innerWidth) * 2 - 1;
+      const normY = (mouseY / window.innerHeight) * 2 - 1;
+
+      scribbles.forEach((scribble, index) => {
+        const intensity = 2 + (index * 0.8); // whisper-level depth layers
+        const moveX = normX * intensity;
+        const moveY = normY * intensity;
+        scribble.style.setProperty('--tx', `${moveX}px`);
+        scribble.style.setProperty('--ty', `${moveY}px`);
+      });
+    }
+
     rafId = requestAnimationFrame(animateCursor);
   }
 

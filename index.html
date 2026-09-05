@@ -120,7 +120,16 @@
       <div class="hero-col hero-col--right">
 
         <!-- Reserved for 3D model — do not fill this space -->
-        <div id="hero-3d-model" style="width: 100%; height: 100%; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; cursor: pointer;"></div>
+        <div id="hero-3d-model" style="width: 100%; height: 100%; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+          <!-- Greeting counter popup -->
+          <div id="snail-greeting-popup" class="snail-greeting-popup" aria-live="polite" aria-label="Greeting counter">
+            <span class="greeting-wave" aria-hidden="true">👋</span>
+            <div class="greeting-text">
+              <span class="greeting-label">Greeted this month</span>
+              <span class="greeting-count" id="greetingCount">0</span>
+            </div>
+          </div>
+        </div>
 
         <!-- Social buttons pinned to bottom of this column -->
         <div class="hero-socials reveal reveal-delay-3">
