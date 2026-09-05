@@ -192,157 +192,223 @@
   </div>
 
   <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
-  <section id="projects" class="section" aria-label="Projects">
-    <div class="projects-header">
-      <div>
-        <div class="section-label reveal">
-          <span>02</span><span>Selected Work</span>
-        </div>
-        <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
+  <section id="projects" class="section projects-section" aria-label="Projects">
+    <div class="projects-section-header">
+      <div class="section-label reveal">
+        <span>02</span><span>Selected Work</span>
       </div>
-      <div class="projects-count reveal reveal-delay-2" aria-hidden="true">04</div>
+      <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
     </div>
 
-    <div class="projects-grid">
+    <!-- Sticky progress indicator -->
+    <div class="projects-progress" aria-hidden="true" id="projectsProgress">
+      <span class="progress-current" id="progressCurrent">01</span>
+      <span class="progress-sep"> / </span>
+      <span class="progress-total">04</span>
+    </div>
 
-      <!-- Featured Project -->
-      <article class="project-card featured reveal" id="project-headless-cms" aria-label="Project: Headless CMS Platform">
-        <div>
-          <div class="project-num">01 / 04</div>
-          <div class="project-type">
-            <span class="tag tag--accent">Featured</span>
-            <span class="tag" style="margin-left:8px">CMS</span>
+    <!-- Stacked scrollable cards -->
+    <div class="projects-stack" id="projectsStack">
+
+      <!-- Card 01 -->
+      <article class="pcard" id="pcard-1" data-index="1" aria-label="Project: Headless CMS Publishing Platform" style="--card-accent:#00FFAB;">
+        <div class="pcard-header">
+          <div class="pcard-num">
+            <span class="pcard-num-box">01</span>
+            <h3 class="pcard-title">Headless CMS Publishing Platform</h3>
           </div>
-          <h3 class="project-title">Headless CMS<br/>Publishing Platform</h3>
-          <p class="project-desc">
-            Architected a fully headless WordPress backend serving a React/Next.js frontend for a digital news outlet. Decoupled the editorial workflow from presentation, enabling sub-second page loads and a modern editorial experience with custom Gutenberg blocks, REST API extensions, and a real-time preview bridge.
-          </p>
-          <div class="project-tech">
-            <span class="tag">WordPress</span>
-            <span class="tag">Next.js</span>
-            <span class="tag">GraphQL</span>
-            <span class="tag">REST API</span>
-            <span class="tag">Gutenberg</span>
-          </div>
+          <span class="pcard-tagline">The backbone</span>
         </div>
-        <div>
-          <!-- Visual placeholder -->
-          <div style="border: 2px solid #2a2a2a; background: #111; padding: 1.8rem; height: 100%; min-height: 220px; display:flex; flex-direction:column; justify-content:space-between;">
-            <div style="display:flex; gap:8px;">
-              <div style="width:10px;height:10px;background:#FF3C3C;border-radius:50%;"></div>
-              <div style="width:10px;height:10px;background:#FFE500;border-radius:50%;"></div>
-              <div style="width:10px;height:10px;background:#00FFAB;border-radius:50%;"></div>
+        <div class="pcard-body">
+          <div class="pcard-left">
+            <p class="pcard-desc">
+              Architected a fully headless WordPress backend serving a React/Next.js frontend for a digital news outlet. Decoupled the editorial workflow from presentation, enabling sub-second page loads with custom Gutenberg blocks, REST API extensions, and a real-time preview bridge.
+            </p>
+            <div class="pcard-tech">
+              <span class="ptag">WordPress</span>
+              <span class="ptag">Next.js</span>
+              <span class="ptag">GraphQL</span>
+              <span class="ptag ptag--hl">REST API</span>
+              <span class="ptag">Gutenberg</span>
             </div>
-            <div>
-              <div style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:#444; margin-bottom:10px;">// headless-bridge.js</div>
-              <div style="font-family:'Courier Prime',monospace; font-size:0.75rem; color:#555; line-height:1.6;">
-                <span style="color:#00FFAB">const</span> preview = <span style="color:#FFE500">await</span><br/>
-                &nbsp;&nbsp;wp.getPreview(<span style="color:#FF3C3C">'draft'</span>)<br/>
-                <span style="color:#00FFAB">return</span> revalidate(preview)
+            <div class="pcard-actions">
+              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-1-details">Request Details ↗</a>
+            </div>
+          </div>
+          <div class="pcard-right">
+            <div class="pcard-frame">
+              <div class="pcard-frame-chrome">
+                <span class="pframe-dot" style="background:#FF5F57"></span>
+                <span class="pframe-dot" style="background:#FEBC2E"></span>
+                <span class="pframe-dot" style="background:#28C840"></span>
+                <span class="pframe-url">cms-platform.io</span>
+              </div>
+              <div class="pcard-frame-content">
+                <img src="assets/project-cms.jpg" alt="Headless CMS Platform screenshot" loading="lazy" />
               </div>
             </div>
-            <div style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#333; letter-spacing:0.1em; text-transform:uppercase;">Live site placeholder</div>
-          </div>
-          <div class="project-footer" style="margin-top:1rem;">
-            <div style="font-family:'Courier Prime',monospace; font-size:0.7rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Case study in progress</div>
-            <a href="#contact" class="project-link" aria-label="Request project details">
-              Request Details
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
           </div>
         </div>
       </article>
 
-      <!-- Project 2 -->
-      <article class="project-card reveal reveal-delay-1" id="project-ecom" aria-label="Project: E-Commerce Full Stack">
-        <div class="project-num">02 / 04</div>
-        <div class="project-type">
-          <span class="tag">Full-Stack</span>
-          <span class="tag tag--accent" style="margin-left:8px">E-Commerce</span>
+      <!-- Card 02 -->
+      <article class="pcard" id="pcard-2" data-index="2" aria-label="Project: Multi-Vendor E-Commerce Engine" style="--card-accent:#B57BFF;">
+        <div class="pcard-header">
+          <div class="pcard-num">
+            <span class="pcard-num-box">02</span>
+            <h3 class="pcard-title">Multi-Vendor E-Commerce Engine</h3>
+          </div>
+          <span class="pcard-tagline">The revenue machine</span>
         </div>
-        <h3 class="project-title">Multi-Vendor E-Commerce Engine</h3>
-        <p class="project-desc">
-          Built a multi-vendor marketplace from scratch — custom storefront, vendor dashboard, order management, and Stripe payment flows. WooCommerce extensions handled inventory rules; a custom Node.js service managed real-time stock sync across warehouses.
-        </p>
-        <div class="project-tech">
-          <span class="tag">WooCommerce</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Stripe</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">PHP</span>
-        </div>
-        <div class="project-footer">
-          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">NDA — details on request</span>
-          <a href="#contact" class="project-link" aria-label="Request project details">
-            Learn More
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project-card reveal reveal-delay-2" id="project-saas" aria-label="Project: SaaS Dashboard">
-        <div class="project-num">03 / 04</div>
-        <div class="project-type">
-          <span class="tag">Full-Stack</span>
-          <span class="tag" style="margin-left:8px; border-color:var(--clr-accent-3); color:var(--clr-accent-3);">SaaS</span>
-        </div>
-        <h3 class="project-title">Client Analytics &amp; Reporting Dashboard</h3>
-        <p class="project-desc">
-          Designed and built an internal analytics dashboard for a digital agency tracking SEO, ad spend, and content performance across 40+ client sites. React frontend consuming a custom-built WordPress REST API layer with role-based access, PDF report generation, and scheduled data pulls.
-        </p>
-        <div class="project-tech">
-          <span class="tag">React</span>
-          <span class="tag">WordPress REST</span>
-          <span class="tag">Chart.js</span>
-          <span class="tag">PHP</span>
-          <span class="tag">Puppeteer</span>
-        </div>
-        <div class="project-footer">
-          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Internal tool</span>
-          <a href="#contact" class="project-link" aria-label="Request project details">
-            Learn More
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+        <div class="pcard-body">
+          <div class="pcard-left">
+            <p class="pcard-desc">
+              Built a multi-vendor marketplace from scratch — custom storefront, vendor dashboard, order management, and Stripe payment flows. WooCommerce extensions handled inventory rules; a Node.js service managed real-time stock sync across warehouses.
+            </p>
+            <div class="pcard-tech">
+              <span class="ptag">WooCommerce</span>
+              <span class="ptag">Node.js</span>
+              <span class="ptag ptag--hl">Stripe</span>
+              <span class="ptag">MySQL</span>
+              <span class="ptag">PHP</span>
+            </div>
+            <div class="pcard-actions">
+              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-2-details">NDA — Ask Me ↗</a>
+            </div>
+          </div>
+          <div class="pcard-right">
+            <div class="pcard-frame">
+              <div class="pcard-frame-chrome">
+                <span class="pframe-dot" style="background:#FF5F57"></span>
+                <span class="pframe-dot" style="background:#FEBC2E"></span>
+                <span class="pframe-dot" style="background:#28C840"></span>
+                <span class="pframe-url">marketplace.io</span>
+              </div>
+              <div class="pcard-frame-content">
+                <img src="assets/project-ecom.jpg" alt="E-Commerce marketplace screenshot" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
-      <!-- Project 4 -->
-      <article class="project-card reveal reveal-delay-3" id="project-plugin" aria-label="Project: WordPress Plugin">
-        <div class="project-num">04 / 04</div>
-        <div class="project-type">
-          <span class="tag">WordPress</span>
-          <span class="tag tag--filled" style="margin-left:8px">Plugin</span>
+      <!-- Card 03 -->
+      <article class="pcard" id="pcard-3" data-index="3" aria-label="Project: Client Analytics Dashboard" style="--card-accent:#00FFAB;">
+        <div class="pcard-header">
+          <div class="pcard-num">
+            <span class="pcard-num-box">03</span>
+            <h3 class="pcard-title">Client Analytics &amp; Reporting Dashboard</h3>
+          </div>
+          <span class="pcard-tagline">The numbers nerds love</span>
         </div>
-        <h3 class="project-title">Advanced Custom Workflow Plugin</h3>
-        <p class="project-desc">
-          A bespoke editorial workflow plugin for a media company, replacing a third-party subscription. Custom post states, reviewer assignment, comment threading inside Gutenberg, deadline tracking, and Slack integration for status change notifications. Zero external dependencies.
-        </p>
-        <div class="project-tech">
-          <span class="tag">PHP</span>
-          <span class="tag">Gutenberg</span>
-          <span class="tag">Slack API</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">REST API</span>
-        </div>
-        <div class="project-footer">
-          <span style="font-family:'Courier Prime',monospace; font-size:0.68rem; color:#444; text-transform:uppercase; letter-spacing:0.1em;">Client delivery</span>
-          <a href="#contact" class="project-link" aria-label="Request project details">
-            Learn More
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+        <div class="pcard-body">
+          <div class="pcard-left">
+            <p class="pcard-desc">
+              Internal analytics dashboard for a digital agency tracking SEO, ad spend, and content performance across 40+ client sites. React frontend on a custom WordPress REST API layer with role-based access, PDF report generation, and scheduled data pulls.
+            </p>
+            <div class="pcard-tech">
+              <span class="ptag">React</span>
+              <span class="ptag ptag--hl">WordPress REST</span>
+              <span class="ptag">Chart.js</span>
+              <span class="ptag">PHP</span>
+              <span class="ptag">Puppeteer</span>
+            </div>
+            <div class="pcard-actions">
+              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-3-details">Internal Tool — Ask ↗</a>
+            </div>
+          </div>
+          <div class="pcard-right">
+            <div class="pcard-frame">
+              <div class="pcard-frame-chrome">
+                <span class="pframe-dot" style="background:#FF5F57"></span>
+                <span class="pframe-dot" style="background:#FEBC2E"></span>
+                <span class="pframe-dot" style="background:#28C840"></span>
+                <span class="pframe-url">admin.analyticsdashboard.io</span>
+              </div>
+              <div class="pcard-frame-content">
+                <img src="assets/project-dashboard.jpg" alt="Analytics dashboard screenshot" loading="lazy" />
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 
-    </div>
+      <!-- Card 04 -->
+      <article class="pcard" id="pcard-4" data-index="4" aria-label="Project: Advanced Custom Workflow Plugin" style="--card-accent:#FFE500;">
+        <div class="pcard-header">
+          <div class="pcard-num">
+            <span class="pcard-num-box">04</span>
+            <h3 class="pcard-title">Advanced Custom Workflow Plugin</h3>
+          </div>
+          <span class="pcard-tagline">Zero dependencies</span>
+        </div>
+        <div class="pcard-body">
+          <div class="pcard-left">
+            <p class="pcard-desc">
+              A bespoke editorial workflow plugin for a media company, replacing a third-party subscription. Custom post states, reviewer assignment, comment threading inside Gutenberg, deadline tracking, and Slack integration for status-change notifications.
+            </p>
+            <div class="pcard-tech">
+              <span class="ptag">PHP</span>
+              <span class="ptag ptag--hl">Gutenberg</span>
+              <span class="ptag">Slack API</span>
+              <span class="ptag">JavaScript</span>
+              <span class="ptag">REST API</span>
+            </div>
+            <div class="pcard-actions">
+              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-4-details">Client Delivery — Ask ↗</a>
+            </div>
+          </div>
+          <div class="pcard-right">
+            <div class="pcard-frame">
+              <div class="pcard-frame-chrome">
+                <span class="pframe-dot" style="background:#FF5F57"></span>
+                <span class="pframe-dot" style="background:#FEBC2E"></span>
+                <span class="pframe-dot" style="background:#28C840"></span>
+                <span class="pframe-url">admin.editorial-workflow.io</span>
+              </div>
+              <div class="pcard-frame-content pcard-frame-content--svg">
+                <!-- Illustrated placeholder for plugin -->
+                <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;background:#111;">
+                  <!-- Kanban columns -->
+                  <rect x="20" y="20" width="130" height="240" rx="6" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+                  <rect x="170" y="20" width="130" height="240" rx="6" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+                  <rect x="320" y="20" width="140" height="240" rx="6" fill="#1a1a1a" stroke="#333" stroke-width="1.5"/>
+                  <!-- Column headers -->
+                  <text x="35" y="42" font-family="monospace" font-size="10" fill="#555" letter-spacing="1">DRAFT</text>
+                  <text x="185" y="42" font-family="monospace" font-size="10" fill="#FEBC2E" letter-spacing="1">REVIEW</text>
+                  <text x="335" y="42" font-family="monospace" font-size="10" fill="#28C840" letter-spacing="1">APPROVED</text>
+                  <!-- Draft cards -->
+                  <rect x="30" y="55" width="110" height="52" rx="4" fill="#242424" stroke="#333"/>
+                  <rect x="30" y="116" width="110" height="52" rx="4" fill="#242424" stroke="#333"/>
+                  <rect x="30" y="177" width="110" height="52" rx="4" fill="#242424" stroke="#333"/>
+                  <!-- Review cards -->
+                  <rect x="180" y="55" width="110" height="52" rx="4" fill="#242414" stroke="#FEBC2E" stroke-width="1.2"/>
+                  <rect x="180" y="116" width="110" height="52" rx="4" fill="#242414" stroke="#FEBC2E" stroke-width="1.2"/>
+                  <!-- Approved cards -->
+                  <rect x="330" y="55" width="120" height="52" rx="4" fill="#142414" stroke="#28C840" stroke-width="1.2"/>
+                  <!-- Card text lines -->
+                  <rect x="38" y="66" width="70" height="6" rx="2" fill="#444"/>
+                  <rect x="38" y="78" width="50" height="5" rx="2" fill="#333"/>
+                  <rect x="38" y="127" width="65" height="6" rx="2" fill="#444"/>
+                  <rect x="38" y="139" width="45" height="5" rx="2" fill="#333"/>
+                  <rect x="38" y="188" width="60" height="6" rx="2" fill="#444"/>
+                  <rect x="188" y="66" width="70" height="6" rx="2" fill="#666"/>
+                  <rect x="188" y="78" width="50" height="5" rx="2" fill="#555"/>
+                  <rect x="188" y="127" width="65" height="6" rx="2" fill="#666"/>
+                  <rect x="188" y="139" width="45" height="5" rx="2" fill="#555"/>
+                  <rect x="338" y="66" width="70" height="6" rx="2" fill="#28C840" opacity="0.7"/>
+                  <rect x="338" y="78" width="50" height="5" rx="2" fill="#28C840" opacity="0.4"/>
+                  <!-- Slack icon area -->
+                  <circle cx="440" cy="240" r="18" fill="#4A154B" stroke="#611f69"/>
+                  <text x="440" y="245" font-family="monospace" font-size="11" fill="#fff" text-anchor="middle">S</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /projects-stack -->
   </section>
 
   <!-- ─── SKILLS ────────────────────────────────────────────────── -->

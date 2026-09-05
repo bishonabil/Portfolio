@@ -64,7 +64,7 @@
     document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
     animateCursor();
 
-    const hoverTargets = 'a, button, .project-card, input, textarea, .skill-group, .about-stat, h1, h2, h3, h4, img, .hero-stat-card';
+    const hoverTargets = 'a, button, .pcard, input, textarea, .skill-group, .about-stat, h1, h2, h3, h4, img, .hero-stat-card';
     document.addEventListener('mouseover', e => {
       const target = e.target.closest(hoverTargets);
       if (target) {
@@ -239,6 +239,27 @@
     feedback.style.color = type === 'success' ? 'var(--clr-accent-3)' : 'var(--clr-accent-2)';
     feedback.style.borderColor = type === 'success' ? 'var(--clr-accent-3)' : 'var(--clr-accent-2)';
     setTimeout(() => { feedback.style.display = 'none'; }, 6000);
+  }
+
+  /* ── Project card scroll progress tracker ──────────────────────── */
+  const progressCurrent = document.getElementById('progressCurrent');
+  const pcards = document.querySelectorAll('.pcard');
+
+  if (progressCurrent && pcards.length) {
+    function updateProjectProgress() {
+      const threshold = window.innerHeight * 0.5;
+      let active = 1;
+      pcards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top <= threshold) {
+          active = index + 1;
+        }
+      });
+      progressCurrent.textContent = active.toString().padStart(2, '0');
+    }
+
+    window.addEventListener('scroll', updateProjectProgress, { passive: true });
+    updateProjectProgress();
   }
 
   /* ── Cleanup on page unload ───────────────────────────────────── */

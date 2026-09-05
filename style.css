@@ -596,6 +596,7 @@ img {
 /* Tired state overrides */
 .snail-greeting-popup.is-tired .greeting-label {
   color: var(--clr-accent);
+  font-size: 0.6rem;
 }
 
 .greeting-count {
@@ -623,6 +624,403 @@ img {
 /* Tired message — show in label, hide numeric count */
 .snail-greeting-popup.is-tired .greeting-count {
   display: none;
+}
+
+/* ── Snail XP Floater ── */
+.snail-xp-floater {
+  position: absolute;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--clr-accent);
+  font-weight: 700;
+  z-index: 5;
+  /* Add a thick outline so it's readable over the 3D model */
+  text-shadow:
+    -2px -2px 0 var(--clr-bg),
+    2px -2px 0 var(--clr-bg),
+    -2px 2px 0 var(--clr-bg),
+    2px 2px 0 var(--clr-bg),
+    0px 3px 0 var(--clr-bg);
+  animation: floatUpXp 1.5s ease-out forwards;
+}
+
+@keyframes floatUpXp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translate(-50%, calc(-50% - 20px)) scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 80px)) scale(1);
+  }
+}
+
+/* ─── Projects Stack ─────────────────────────────────────────────── */
+
+.projects-section {
+  padding: 6rem 0 0;
+  position: relative;
+}
+
+.projects-section-header {
+  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  margin-bottom: 3rem;
+}
+
+/* Sticky floating progress counter */
+.projects-progress {
+  position: sticky;
+  top: 90px;
+  z-index: 40;
+  float: right;
+  margin-right: clamp(1.5rem, 5vw, 5rem);
+  margin-bottom: -3rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--clr-bg);
+  border: 2px solid var(--clr-border);
+  padding: 4px 12px;
+  box-shadow: 3px 3px 0 var(--clr-border);
+  pointer-events: none;
+  user-select: none;
+}
+
+.progress-current {
+  color: var(--clr-accent);
+  font-size: 1rem;
+  font-family: var(--font-display);
+}
+
+.progress-sep {
+  color: var(--clr-text-dim);
+  margin: 0 1px;
+}
+
+.progress-total {
+  color: var(--clr-text-dim);
+}
+
+/* Stack container */
+.projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  clear: both;
+}
+
+/* Individual project card */
+.pcard {
+  position: sticky;
+  top: 80px;
+  border: var(--border-thick);
+  background: var(--clr-bg-2);
+  box-shadow: 6px 6px 0px var(--card-accent, var(--clr-border));
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Each card gets progressively more z-index so lower ones sit on top */
+.pcard:nth-child(1) {
+  z-index: 10;
+  top: 80px;
+  margin-bottom: 80px;
+}
+
+.pcard:nth-child(2) {
+  z-index: 11;
+  top: 90px;
+  margin-bottom: 80px;
+}
+
+.pcard:nth-child(3) {
+  z-index: 12;
+  top: 100px;
+  margin-bottom: 80px;
+}
+
+.pcard:nth-child(4) {
+  z-index: 13;
+  top: 110px;
+  margin-bottom: 80px;
+}
+
+.pcard:hover {
+  box-shadow: 10px 10px 0px var(--card-accent, var(--clr-border));
+}
+
+/* Card header bar */
+.pcard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-bottom: var(--border-thin);
+  background: var(--clr-surface);
+  gap: 1rem;
+}
+
+.pcard-num {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pcard-num-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 28px;
+  background: var(--clr-accent);
+  border: 2px solid var(--clr-accent);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+
+.pcard-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  letter-spacing: 0.04em;
+  color: var(--clr-text);
+  line-height: 1;
+  width: auto;
+}
+
+.pcard-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-text-dim);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Card body: left desc + right frame */
+.pcard-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+.pcard-left {
+  padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  border-right: var(--border-thin);
+}
+
+.pcard-desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--clr-text-dim);
+  line-height: 1.7;
+}
+
+/* Tech tag pills inside the card */
+.pcard-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ptag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border: 2px solid var(--clr-border);
+  color: var(--clr-text-dim);
+  background: transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ptag--hl {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
+}
+
+.pcard:hover .ptag--hl {
+  background: rgba(255, 229, 0, 0.08);
+}
+
+/* Action buttons */
+.pcard-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.pcard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 20px;
+  border: 2px solid var(--clr-border);
+  color: var(--clr-text);
+  background: transparent;
+  box-shadow: 3px 3px 0px var(--clr-border);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  white-space: nowrap;
+}
+
+.pcard-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--clr-border);
+}
+
+.pcard-btn--primary {
+  background: var(--clr-accent);
+  border-color: var(--clr-accent);
+  color: #000;
+  box-shadow: var(--shadow-brutal-accent);
+}
+
+.pcard-btn--primary:hover {
+  box-shadow: 8px 8px 0px var(--clr-accent);
+}
+
+/* Right side: browser-frame mockup */
+.pcard-right {
+  padding: clamp(1.4rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pcard-frame {
+  width: 100%;
+  max-width: 480px;
+  border: 2px solid #2a2a2a;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px var(--clr-accent);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.pcard:hover .pcard-frame {
+  box-shadow: 8px 8px 0px var(--clr-accent);
+  transform: translate(-2px, -2px);
+}
+
+/* Browser chrome row */
+.pcard-frame-chrome {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #1a1a1a;
+  border-bottom: 1.5px solid #2a2a2a;
+}
+
+.pframe-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pframe-url {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #555;
+  letter-spacing: 0.05em;
+  margin-left: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The project image/illustration area */
+.pcard-frame-content {
+  background: #111;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pcard-frame-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pcard:hover .pcard-frame-content img {
+  transform: scale(1.03);
+}
+
+.pcard-frame-content--svg {
+  aspect-ratio: 480 / 280;
+}
+
+/* ── Responsive: collapse 2-col to 1-col on small screens ── */
+@media (max-width: 768px) {
+  .pcard-body {
+    grid-template-columns: 1fr;
+  }
+
+  .snail-greeting-popup {
+    position: absolute;
+    top: 2%;
+    left: 3%;
+  }
+
+  .pcard-left {
+    border-right: none;
+    border-bottom: 2px solid #222;
+  }
+
+  .pcard-header {
+    flex-wrap: wrap;
+  }
+
+  .pcard-tagline {
+    display: none;
+  }
+
+  .pcard:nth-child(1),
+  .pcard:nth-child(2),
+  .pcard:nth-child(3),
+  .pcard:nth-child(4) {
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .projects-progress {
+    display: none;
+  }
 }
 
 /* ── Status pill (replaces eyebrow) ── */

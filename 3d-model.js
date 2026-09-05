@@ -41,7 +41,7 @@
 
   // ── Load Model ───────────────────────────────────────────────────
   const loader = new THREE.GLTFLoader();
-  loader.load('Assets/Boxy%20Snail.glb', (gltf) => {
+  loader.load('Assets/Boxy%20Snail%20V1.2.glb', (gltf) => {
     const model = gltf.scene;
 
     // Automatically scale and center the model
@@ -58,7 +58,8 @@
     // Center the model's geometry relative to its bounding box center
     // 1. Create a group that offsets the raw model to (0,0,0) center
     const centeredGroup = new THREE.Group();
-    model.position.set(-center.x, -center.y, -center.z);
+    // Use the model's native origin instead of the bounding box center
+    model.position.set(0, 0, 0);
     centeredGroup.add(model);
 
     // 2. Base Rotation & Scale Group (holds default rotation around exact center)
@@ -69,7 +70,7 @@
     // 👉 TWEAK THIS to change the model's default orientation/rotation (in degrees)!
     // Y = left/right turn, X = tilt up/down, Z = roll side-to-side
     const defaultRotationX = 0;   // e.g. 10 to tilt up slightly
-    const defaultRotationY = -110; // e.g. 45 to turn right 45°, -45 to turn left
+    const defaultRotationY = -100; // e.g. 45 to turn right 45°, -45 to turn left
     const defaultRotationZ = 0;   // e.g. 15 to tilt sideways
 
     baseGroup.rotation.x = THREE.MathUtils.degToRad(defaultRotationX);
@@ -202,6 +203,26 @@
   // Seed the count on load
   if (countEl) countEl.textContent = getCount();
 
+  function spawnXP() {
+    const xp = document.createElement('div');
+    xp.className = 'snail-xp-floater';
+    xp.textContent = '+1';
+
+    // Randomize position slightly around the center
+    const offsetX = (Math.random() - 0.5) * 60; // -30px to 30px
+    const offsetY = (Math.random() - 0.5) * 40; // -20px to 20px
+
+    xp.style.left = `calc(50% + ${offsetX}px)`;
+    xp.style.top = `calc(50% + ${offsetY}px)`;
+
+    container.appendChild(xp);
+
+    // Remove after animation completes
+    setTimeout(() => {
+      if (xp.parentNode) xp.parentNode.removeChild(xp);
+    }, 1500);
+  }
+
   // Click to play animation + greeting counter
   container.addEventListener('click', () => {
     if (isCoolingDown()) {
@@ -211,6 +232,7 @@
     }
 
     playAnimation();
+    spawnXP();
 
     const sessionCount = getSessionGreetings() + 1;
     setSessionGreetings(sessionCount);
