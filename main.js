@@ -64,7 +64,7 @@
     document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
     animateCursor();
 
-    const hoverTargets = 'a, button, .pcard, input, textarea, .skill-group, .about-stat, h1, h2, h3, h4, img, .hero-stat-card';
+    const hoverTargets = 'a, button, .pcard, .sskill-card, input, textarea, .skill-group, .about-stat, h1, h2, h3, h4, img, .hero-stat-card';
     document.addEventListener('mouseover', e => {
       const target = e.target.closest(hoverTargets);
       if (target) {
@@ -156,22 +156,67 @@
 
   reveals.forEach(el => revealObserver.observe(el));
 
-  /* ── Skill bars animate on enter ──────────────────────────────── */
+  /* ── Skill bars animate on enter (Ultra-Reliable Multi-Trigger) ── */
+  const skillsSection = document.getElementById('skills');
+  const skillsGrid = document.querySelector('.skills-grid');
   const skillBars = document.querySelectorAll('.skill-bar');
 
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Drive transform via CSS custom property for layout-thrash-free animation
-        const level = parseFloat(entry.target.dataset.level || 100) / 100;
-        entry.target.style.setProperty('--skill-scale', level);
-        entry.target.classList.add('in-view');
-        skillObserver.unobserve(entry.target);
-      }
+  function activateAllSkillBars() {
+    skillBars.forEach(bar => {
+      const level = parseFloat(bar.dataset.level || 100) / 100;
+      bar.style.setProperty('--skill-scale', level);
+      bar.classList.add('in-view');
     });
-  }, { threshold: 0.3 });
+    if (skillsSection) skillsSection.classList.add('is-visible');
+    if (skillsGrid) skillsGrid.classList.add('visible');
+  }
 
-  skillBars.forEach(bar => skillObserver.observe(bar));
+  if ('IntersectionObserver' in window) {
+    // 1. Broad observer on the entire skills section & grid with lookahead margin
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activateAllSkillBars();
+          sectionObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '120px 0px 120px 0px' });
+
+    if (skillsSection) sectionObserver.observe(skillsSection);
+    if (skillsGrid) sectionObserver.observe(skillsGrid);
+
+    // 2. Individual bar observer with zero threshold as backup
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const level = parseFloat(entry.target.dataset.level || 100) / 100;
+          entry.target.style.setProperty('--skill-scale', level);
+          entry.target.classList.add('in-view');
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '60px 0px 60px 0px' });
+
+    skillBars.forEach(bar => skillObserver.observe(bar));
+  } else {
+    activateAllSkillBars();
+  }
+
+  // 3. Viewport proximity check for instant loads, refreshes & fast scrolling
+  function checkSkillsInView() {
+    if (!skillsSection) return;
+    const rect = skillsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 120 && rect.bottom > -80) {
+      activateAllSkillBars();
+    }
+  }
+
+  checkSkillsInView();
+  window.addEventListener('scroll', checkSkillsInView, { passive: true });
+  window.addEventListener('hashchange', checkSkillsInView);
+  window.addEventListener('load', checkSkillsInView);
+  setTimeout(checkSkillsInView, 150);
+  setTimeout(checkSkillsInView, 500);
 
   /* ── Smooth scroll for anchor links ───────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -181,6 +226,7 @@
       if (!target) return;
       e.preventDefault();
       closeMobileNav();
+      if (id === 'skills') activateAllSkillBars();
       const navH = navbar ? navbar.offsetHeight : 64;
       const top = target.getBoundingClientRect().top + window.scrollY - navH;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -219,17 +265,45 @@
         return;
       }
 
-      // Simulate send (replace with your backend / Formspree / EmailJS)
+      // Real Formspree submission via AJAX (seamless, no page redirect)
       const submitBtn = form.querySelector('#contact-submit');
+      const originalBtnText = submitBtn.innerHTML;
       submitBtn.textContent = 'Sending…';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        showFeedback('Message sent! I\'ll get back to you within 24h.', 'success');
-        form.reset();
-        submitBtn.textContent = 'Send Message';
+      const formData = new FormData(form);
+
+      fetch(form.action || 'https://formspree.io/f/xljewdzw', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          showFeedback('Message received! I will get back to you within 24h.', 'success');
+          form.reset();
+        } else {
+          response.json().then(data => {
+            if (data && data.errors) {
+              const errMsgs = data.errors.map(err => err.message).join(', ');
+              showFeedback(`Submission error: ${errMsgs}`, 'error');
+            } else {
+              showFeedback('Oops! There was a problem sending your message. Please try emailing me directly.', 'error');
+            }
+          }).catch(() => {
+            showFeedback('Oops! There was a problem sending your message.', 'error');
+          });
+        }
+      })
+      .catch(error => {
+        showFeedback('Network error. Please check your connection or reach out on WhatsApp / Email.', 'error');
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
-      }, 1400);
+      });
     });
   }
 
@@ -260,6 +334,116 @@
 
     window.addEventListener('scroll', updateProjectProgress, { passive: true });
     updateProjectProgress();
+  }
+
+  /* ── Side-Skills Swiss Knife Interaction Engine ──────────────── */
+  const sideSkills = document.getElementById('sideSkills');
+  if (sideSkills) {
+    sideSkills.setAttribute('data-js-ready', 'true');
+    const cards = Array.from(sideSkills.querySelectorAll('.sskill-card'));
+    let activeIndex = -1;
+    let isLocked = false;
+    let leaveTimer = null;
+
+    function setActiveBlade(index) {
+      if (index === activeIndex) return;
+      activeIndex = index;
+
+      cards.forEach((card, i) => {
+        const isActive = (i === activeIndex);
+        const isPrev = (activeIndex !== -1 && i < activeIndex);
+        const isNext = (activeIndex !== -1 && i > activeIndex);
+
+        card.classList.toggle('is-active', isActive);
+        card.classList.toggle('is-pushed-prev', isPrev);
+        card.classList.toggle('is-pushed-next', isNext);
+        card.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+
+      sideSkills.dataset.active = activeIndex.toString();
+    }
+
+    cards.forEach((card, idx) => {
+      // Enter card immediately: activate and cancel any leave timer
+      const activate = () => {
+        if (!isLocked) {
+          clearTimeout(leaveTimer);
+          setActiveBlade(idx);
+        }
+      };
+
+      card.addEventListener('pointerenter', activate);
+      card.addEventListener('mouseenter', activate);
+
+      // Click toggles lock state for reading inspection
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeIndex === idx && isLocked) {
+          isLocked = false;
+          setActiveBlade(-1);
+        } else {
+          isLocked = true;
+          setActiveBlade(idx);
+        }
+      });
+
+      // Keyboard navigation
+      card.addEventListener('focus', () => {
+        if (!isLocked) setActiveBlade(idx);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          isLocked = !isLocked;
+          setActiveBlade(idx);
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prev = (idx - 1 + cards.length) % cards.length;
+          cards[prev].focus();
+        } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+          e.preventDefault();
+          const next = (idx + 1) % cards.length;
+          cards[next].focus();
+        } else if (e.key === 'Escape') {
+          isLocked = false;
+          setActiveBlade(-1);
+          card.blur();
+        }
+      });
+    });
+
+    // When pointer leaves the widget, wait 240ms buffer before closing.
+    // If pointer enters another blade during this grace window, timer is cancelled.
+    const handleWidgetLeave = () => {
+      if (!isLocked) {
+        clearTimeout(leaveTimer);
+        leaveTimer = setTimeout(() => {
+          if (isLocked) return;
+          const isStillHovered = sideSkills.matches(':hover') || cards.some(c => c.matches(':hover'));
+          if (!isStillHovered) {
+            setActiveBlade(-1);
+          }
+        }, 240);
+      }
+    };
+
+    const handleWidgetEnter = () => {
+      clearTimeout(leaveTimer);
+    };
+
+    sideSkills.addEventListener('mouseleave', handleWidgetLeave);
+    sideSkills.addEventListener('pointerleave', handleWidgetLeave);
+    sideSkills.addEventListener('mouseenter', handleWidgetEnter);
+    sideSkills.addEventListener('pointerenter', handleWidgetEnter);
+
+    // Clicking anywhere outside unlocks and resets
+    document.addEventListener('click', (e) => {
+      if (isLocked && !sideSkills.contains(e.target)) {
+        isLocked = false;
+        setActiveBlade(-1);
+      }
+    });
   }
 
   /* ── Cleanup on page unload ───────────────────────────────────── */

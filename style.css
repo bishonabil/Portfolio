@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap');
 
 /* ─── Reset & Base ─────────────────────────────────────────────── */
 *,
@@ -736,25 +736,25 @@ img {
 /* Each card gets progressively more z-index so lower ones sit on top */
 .pcard:nth-child(1) {
   z-index: 10;
-  top: 80px;
+  top: 160px;
   margin-bottom: 80px;
 }
 
 .pcard:nth-child(2) {
   z-index: 11;
-  top: 90px;
+  top: 170px;
   margin-bottom: 80px;
 }
 
 .pcard:nth-child(3) {
   z-index: 12;
-  top: 100px;
+  top: 180px;
   margin-bottom: 80px;
 }
 
 .pcard:nth-child(4) {
   z-index: 13;
-  top: 110px;
+  top: 190px;
   margin-bottom: 80px;
 }
 
@@ -982,6 +982,91 @@ img {
 
 .pcard-frame-content--svg {
   aspect-ratio: 480 / 280;
+}
+
+/* ── Card 04: Angled Neo-Brutalist Construction Tape Strip (No Words) ── */
+#pcard-4 .pcard-left {
+  position: relative;
+  overflow: hidden;
+}
+
+.brutal-tape-overlay-strip {
+  position: relative;
+  width: calc(100% + 3.5rem);
+  margin-left: -1.75rem;
+  height: 38px;
+  background: repeating-linear-gradient(-45deg,
+      var(--clr-accent) 0,
+      var(--clr-accent) 18px,
+      #000000 18px,
+      #000000 36px);
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  box-shadow: 0 6px 0px rgba(0, 0, 0, 0.9), 4px 4px 0px var(--clr-accent);
+  transform: rotate(-3deg) scale(1.04);
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  pointer-events: none;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#pcard-4:hover .brutal-tape-overlay-strip {
+  transform: rotate(-1.5deg) scale(1.06);
+}
+
+/* Frame Canvas Neo-Brutalist adjustments */
+.brutal-pcard-frame {
+  box-shadow: 6px 6px 0px var(--clr-accent) !important;
+  border: 2.5px solid #ffffff !important;
+}
+
+.brutal-frame-canvas {
+  background: #111111;
+  overflow: hidden;
+  position: relative;
+}
+
+.brutal-crane-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Mechanical Swing Animation for the Crane Suspended Block */
+.crane-cable-rig {
+  transform-origin: 240px 0px;
+  animation: craneCableSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes craneCableSway {
+  0% {
+    transform: rotate(-3.5deg);
+  }
+
+  100% {
+    transform: rotate(3.5deg);
+  }
+}
+
+.brutal-swing-module {
+  transform-origin: 240px 135px;
+  animation: brutalModuleCounterSway 4s ease-in-out infinite alternate;
+}
+
+@keyframes brutalModuleCounterSway {
+  0% {
+    transform: rotate(1.5deg);
+  }
+
+  100% {
+    transform: rotate(-1.5deg);
+  }
+}
+
+/* Interactive hover on the card tilts the crane slightly */
+.pcard:hover .crane-cable-rig {
+  animation-duration: 2.2s;
 }
 
 /* ── Responsive: collapse 2-col to 1-col on small screens ── */
@@ -1578,6 +1663,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 3px 0;
+  transition: color 0.2s ease;
+}
+
+.skill-item:hover .skill-name {
+  color: var(--clr-text);
 }
 
 .skill-name {
@@ -1585,14 +1676,17 @@ img {
   font-size: 0.9rem;
   color: var(--clr-text-dim);
   letter-spacing: 0.05em;
+  transition: color 0.2s ease;
 }
 
 .skill-bar-wrap {
   width: 80px;
-  height: 4px;
-  background: #2a2a2a;
+  height: 6px;
+  background: #1e1e1e;
+  border: 1px solid #333;
   position: relative;
   overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .skill-bar {
@@ -1604,11 +1698,25 @@ img {
   width: 100%;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
+  transition-delay: calc(var(--bar-i, 0) * 0.04s);
 }
 
-.skill-bar.in-view {
+/* Bulletproof multi-trigger:
+   1. Individual bar marked .in-view
+   2. Parent .skills-grid marked .visible (from scroll reveal)
+   3. Parent #skills marked .is-visible
+   4. Direct URL anchor navigation (#skills:target) */
+.skill-bar.in-view,
+.skills-grid.visible .skill-bar,
+#skills.is-visible .skill-bar,
+#skills:target .skill-bar {
   transform: scaleX(var(--skill-scale, 1));
+}
+
+.skill-item:hover .skill-bar {
+  filter: brightness(1.2);
+  box-shadow: 0 0 6px rgba(255, 229, 0, 0.5);
 }
 
 /* ─── ABOUT ─────────────────────────────────────────────────────── */
@@ -1629,30 +1737,161 @@ img {
   max-width: 420px;
 }
 
-.about-image-placeholder {
+.about-image-container {
   width: 100%;
   height: 100%;
-  background: var(--clr-surface);
+  background: #0d0d0d;
   border: var(--border-thick);
+  position: relative;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  color: var(--clr-text-dim);
-  padding: 2rem;
+  box-shadow: 6px 6px 0px var(--clr-accent);
 }
 
-.about-image-placeholder svg {
-  opacity: 0.3;
+.about-contract-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  /* Slightly darkened with full vibrant color preserved */
+  filter: brightness(86%) contrast(110%);
 }
 
-.about-image-placeholder p {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.4;
+/* Static TV scanline / CRT phosphor line effect in full color */
+.about-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.45) 100%),
+    repeating-linear-gradient(0deg,
+      rgba(0, 0, 0, 0.35) 0px,
+      rgba(0, 0, 0, 0.35) 2px,
+      transparent 2px,
+      transparent 4px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Scribble Hand-Drawn Annotations ── */
+.scribble-annotation {
+  position: absolute;
+  z-index: 25;
+  pointer-events: none;
+  user-select: none;
+}
+
+.scribble-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ff2222;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  display: block;
+  text-shadow: 0 0 1px rgba(255, 34, 34, 0.4);
+}
+
+.scribble-arrow {
+  display: block;
+}
+
+/* ── Snail "Greet me" Scribble Callout ── */
+.snail-greet-scribble {
+  position: absolute;
+  bottom: 24px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+  transform: rotate(-3deg);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.snail-scribble-text {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ff2222;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  line-height: 1;
+  text-shadow: 0 0 1px rgba(255, 34, 34, 0.4);
+}
+
+.snail-scribble-arrow {
+  width: 38px;
+  height: 32px;
+  display: block;
+  flex-shrink: 0;
+  transform: rotate(-5deg);
+}
+
+#hero-3d-model:hover .snail-greet-scribble {
+  transform: rotate(0deg) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .snail-greet-scribble {
+    bottom: 8px;
+    right: 12px;
+  }
+}
+
+/* "canon even flower" scribble at top */
+.scribble-flower {
+  top: -68px;
+  left: 36%;
+  transform: rotate(-4deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.scribble-arrow-flower {
+  width: 44px;
+  height: 44px;
+  margin-top: -4px;
+  margin-left: -12px;
+  transform: rotate(6deg);
+}
+
+/* "my swiss knife" scribble placed clearly to the right outside the blades arc */
+.scribble-knife {
+  bottom: 260px;
+  right: -290px;
+  transform: rotate(2deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.scribble-arrow-knife {
+  width: 52px;
+  height: 52px;
+  margin-top: 4px;
+  margin-right: 14px;
+}
+
+@media (max-width: 1200px) {
+  .scribble-knife {
+    right: -190px;
+    bottom: 250px;
+  }
+}
+
+@media (max-width: 900px) {
+  .scribble-knife {
+    right: -80px;
+    bottom: 260px;
+  }
 }
 
 .about-image-frame {
@@ -1714,6 +1953,327 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+/* ─── SIDE-SKILLS SWISS KNIFE ───────────────────────────────────── */
+
+/*
+  Swiss knife mechanic (Mirrored & De-janked):
+  - .side-skills is anchored at the bottom-right corner of .about-image-wrap (the rivet).
+  - Each blade is a wide horizontal strip (260px × 52px) with transform-origin: 22px 50%
+    (centered around the rivet hole on its left edge).
+  - Mirrored geometry: The blades fan OUTSIDE the photo frame into Quadrant I (x > 0, y < 0).
+  - Fan resting angles:
+      Blade 0 (Video Editing - Red):  -78deg (near vertical along outer right border)
+      Blade 1 (Canva - Teal):          -52deg
+      Blade 2 (Voice Over - Orange):   -26deg
+      Blade 3 (AI 3D - Purple):          0deg (horizontal, pointing right)
+  - Zero-jank interaction:
+      Hit tracking is handled smoothly via radial sectors in JavaScript, preventing
+      the high-frequency hover oscillation bug.
+      Active blade pushes outward: translateX(30px) and deepens its shadow.
+      Neighboring blades push aside (-10deg / +10deg) to give the active blade full stage.
+*/
+
+.side-skills {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  width: 0;
+  height: 0;
+  z-index: 35;
+  overflow: visible;
+  transform: scale(1.1);
+  transform-origin: 0 0;
+}
+
+.side-skills-fan {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+/* Metallic rivet bolt centered at (0, 0) */
+.side-skills-rivet {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: -11px;
+  top: -11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 50%, #64748b 90%, #334155 100%);
+  border: 2.5px solid #000;
+  box-shadow: 2px 2px 0 #000;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.side-skills-rivet::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e293b;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 1px #000;
+}
+
+/* Individual Blade */
+.sskill-card {
+  position: absolute;
+  left: -22px;
+  top: -26px;
+  width: 320px;
+  height: 52px;
+  border-radius: 26px 8px 8px 26px;
+  transform-origin: 22px 50%;
+  transform: rotate(var(--rot)) translateX(0);
+  background: var(--clr);
+  border: 2.5px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 36px;
+  gap: 10px;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+  user-select: none;
+  touch-action: manipulation;
+  overflow: visible;
+  outline: none;
+}
+
+/* Expanded hit-area buffer to prevent gaps between cards when cursor moves */
+.sskill-card::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  left: -8px;
+  right: -8px;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* Ensure all child elements do not swallow pointer events so target is always the card */
+.sskill-card * {
+  pointer-events: none;
+}
+
+/* Focus indicator for keyboard users */
+.sskill-card:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Pivot hole visual ring */
+.sskill-hole {
+  position: absolute;
+  left: 14px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Default z-index stacking: bottom blade highest so handles are accessible */
+.sskill-card:nth-child(1) {
+  z-index: 1;
+}
+
+.sskill-card:nth-child(2) {
+  z-index: 2;
+}
+
+.sskill-card:nth-child(3) {
+  z-index: 3;
+}
+
+.sskill-card:nth-child(4) {
+  z-index: 4;
+}
+
+/* ── Icon ── */
+.sskill-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  transition: transform 0.25s ease;
+}
+
+.sskill-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ── Text block ── */
+.sskill-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sskill-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #000;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.sskill-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.72);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+/* ── Active & Pushed States (Zero angular jump = Zero stutter) ── */
+.sskill-card.is-active {
+  box-shadow: 8px 8px 0 #000 !important;
+  z-index: 30 !important;
+  filter: brightness(1.05);
+}
+
+.sskill-card.is-active .sskill-icon {
+  transform: scale(1.18);
+}
+
+.sskill-card.is-active .sskill-note {
+  color: #000;
+  font-weight: 700;
+}
+
+/* Card 0 (Video Editing) active: stays at -63deg and slides out 36px, siblings push down */
+.side-skills[data-active="0"] .sskill-card:nth-child(1) {
+  transform: rotate(-63deg) translateX(36px) scale(1.02) !important;
+}
+
+.side-skills[data-active="0"] .sskill-card:nth-child(2) {
+  transform: rotate(-34deg) translateX(0);
+}
+
+.side-skills[data-active="0"] .sskill-card:nth-child(3) {
+  transform: rotate(-14deg) translateX(0);
+}
+
+.side-skills[data-active="0"] .sskill-card:nth-child(4) {
+  transform: rotate(6deg) translateX(0);
+}
+
+/* Card 1 (Canva) active: stays at -42deg and slides out 36px, Card 0 pushes up, Cards 2-3 push down */
+.side-skills[data-active="1"] .sskill-card:nth-child(1) {
+  transform: rotate(-71deg) translateX(0);
+}
+
+.side-skills[data-active="1"] .sskill-card:nth-child(2) {
+  transform: rotate(-42deg) translateX(36px) scale(1.02) !important;
+}
+
+.side-skills[data-active="1"] .sskill-card:nth-child(3) {
+  transform: rotate(-14deg) translateX(0);
+}
+
+.side-skills[data-active="1"] .sskill-card:nth-child(4) {
+  transform: rotate(6deg) translateX(0);
+}
+
+/* Card 2 (Voice Over) active: stays at -21deg and slides out 36px, Cards 0-1 push up, Card 3 pushes down */
+.side-skills[data-active="2"] .sskill-card:nth-child(1) {
+  transform: rotate(-71deg) translateX(0);
+}
+
+.side-skills[data-active="2"] .sskill-card:nth-child(2) {
+  transform: rotate(-50deg) translateX(0);
+}
+
+.side-skills[data-active="2"] .sskill-card:nth-child(3) {
+  transform: rotate(-21deg) translateX(36px) scale(1.02) !important;
+}
+
+.side-skills[data-active="2"] .sskill-card:nth-child(4) {
+  transform: rotate(7deg) translateX(0);
+}
+
+/* Card 3 (AI 3D Modelling) active: stays at 0deg and slides out 36px, Cards 0-2 push up */
+.side-skills[data-active="3"] .sskill-card:nth-child(1) {
+  transform: rotate(-71deg) translateX(0);
+}
+
+.side-skills[data-active="3"] .sskill-card:nth-child(2) {
+  transform: rotate(-50deg) translateX(0);
+}
+
+.side-skills[data-active="3"] .sskill-card:nth-child(3) {
+  transform: rotate(-29deg) translateX(0);
+}
+
+.side-skills[data-active="3"] .sskill-card:nth-child(4) {
+  transform: rotate(0deg) translateX(36px) scale(1.02) !important;
+}
+
+/* If JavaScript is not running, fallback smooth hover */
+@media (hover: hover) and (pointer: fine) {
+  .side-skills:not([data-js-ready]) .sskill-card:hover {
+    transform: rotate(var(--rot)) translateX(26px);
+    box-shadow: 6px 6px 0 #000;
+    z-index: 25;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sskill-card {
+    width: 230px;
+    height: 48px;
+    padding: 0 14px 0 34px;
+  }
+
+  .sskill-name {
+    font-size: 0.82rem;
+  }
+
+  .sskill-note {
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .side-skills {
+    bottom: -10px;
+    right: 14px;
+    transform: scale(0.85);
+    transform-origin: bottom right;
+  }
+}
+
+@media (max-width: 480px) {
+  .side-skills {
+    bottom: -10px;
+    right: 8px;
+    transform: scale(0.75);
+    transform-origin: bottom right;
+  }
+}
+
 
 /* ─── CONTACT ───────────────────────────────────────────────────── */
 #contact {
