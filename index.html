@@ -16,7 +16,19 @@
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+  <!-- Preload critical stylesheet -->
+  <link rel="preload" href="style.css?v=8" as="style" />
   <link rel="stylesheet" href="style.css?v=8" />
+
+  <!-- Non-blocking Google Fonts with swap display -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" />
+  </noscript>
 </head>
 
 <body>
@@ -902,10 +914,10 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="3d-model.js"></script>
-  <script src="main.js?v=9"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script defer src="3d-model.js"></script>
+  <script defer src="main.js?v=9"></script>
 </body>
 
 </html>
