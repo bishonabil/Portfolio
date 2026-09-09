@@ -101,21 +101,21 @@
   updateClock();
   setInterval(updateClock, 30000);
 
-  function updateNav() {
-    const scrollY = window.scrollY;
+  // Active nav highlighting via IntersectionObserver (zero layout thrashing, 0 forced reflows)
+  if ('IntersectionObserver' in window && sections.length && navLinks.length) {
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
 
-    let current = '';
-    sections.forEach(sec => {
-      if (scrollY >= sec.offsetTop - 120) current = sec.id;
-    });
-
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
+    sections.forEach(sec => navObserver.observe(sec));
   }
-
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
 
   /* ── Mobile Nav ────────────────────────────────────────────────── */
   const hamburger = document.getElementById('navHamburger');
@@ -202,21 +202,10 @@
     activateAllSkillBars();
   }
 
-  // 3. Viewport proximity check for instant loads, refreshes & fast scrolling
-  function checkSkillsInView() {
-    if (!skillsSection) return;
-    const rect = skillsSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight + 120 && rect.bottom > -80) {
-      activateAllSkillBars();
-    }
+  // 3. Fallback viewport check (run once on idle to prevent scroll thrashing)
+  if (!('IntersectionObserver' in window) && skillsSection) {
+    activateAllSkillBars();
   }
-
-  checkSkillsInView();
-  window.addEventListener('scroll', checkSkillsInView, { passive: true });
-  window.addEventListener('hashchange', checkSkillsInView);
-  window.addEventListener('load', checkSkillsInView);
-  setTimeout(checkSkillsInView, 150);
-  setTimeout(checkSkillsInView, 500);
 
   /* ── Smooth scroll for anchor links ───────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -320,16 +309,23 @@
   const pcards = document.querySelectorAll('.pcard');
 
   if (progressCurrent && pcards.length) {
+    let progressTicking = false;
     function updateProjectProgress() {
-      const threshold = window.innerHeight * 0.5;
-      let active = 1;
-      pcards.forEach((card, index) => {
-        const rect = card.getBoundingClientRect();
-        if (rect.top <= threshold) {
-          active = index + 1;
-        }
-      });
-      progressCurrent.textContent = active.toString().padStart(2, '0');
+      if (!progressTicking) {
+        requestAnimationFrame(() => {
+          const threshold = window.innerHeight * 0.5;
+          let active = 1;
+          pcards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            if (rect.top <= threshold) {
+              active = index + 1;
+            }
+          });
+          progressCurrent.textContent = active.toString().padStart(2, '0');
+          progressTicking = false;
+        });
+        progressTicking = true;
+      }
     }
 
     window.addEventListener('scroll', updateProjectProgress, { passive: true });

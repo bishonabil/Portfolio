@@ -23,11 +23,11 @@
   <link rel="preload" href="style.css?v=8" as="style" />
   <link rel="stylesheet" href="style.css?v=8" />
 
-  <!-- Non-blocking Google Fonts with swap display -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" media="print" onload="this.media='all'" />
+  <!-- Non-blocking Google Fonts with swap display (optimized to essential weights) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
   </noscript>
 </head>
 
@@ -66,6 +66,7 @@
     <a href="#contact" class="mobile-nav-link">Contact</a>
   </div>
 
+  <main id="main-content">
   <!-- ─── HERO ───────────────────────────────────────────────────── -->
   <section id="hero" aria-label="Introduction">
     <div class="hero-grid-lines" aria-hidden="true"></div>
@@ -281,7 +282,7 @@
                 <span class="pframe-url">Cosmo5.com</span>
               </div>
               <div class="pcard-frame-content">
-                <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" />
+                <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="800" height="396" decoding="async" />
               </div>
             </div>
           </div>
@@ -324,7 +325,7 @@
                 <span class="pframe-url">makerfairecairo.com</span>
               </div>
               <div class="pcard-frame-content">
-                <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" />
+                <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" width="800" height="386" decoding="async" />
               </div>
             </div>
           </div>
@@ -366,7 +367,7 @@
                 <span class="pframe-url">guiltfree.sa</span>
               </div>
               <div class="pcard-frame-content">
-                <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" />
+                <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="800" height="386" decoding="async" />
               </div>
             </div>
           </div>
@@ -658,7 +659,7 @@
         <div class="about-image-wrap reveal">
 
           <div class="about-image-container">
-            <img src="Assets/memememe.webp" alt="me" class="about-contract-img" loading="lazy" />
+            <img src="Assets/memememe.webp" alt="Bishoy Nabil portrait" class="about-contract-img" loading="lazy" width="720" height="720" decoding="async" />
           </div>
           <div class="about-image-frame" aria-hidden="true"></div>
 
@@ -889,6 +890,7 @@
       </form>
     </div>
   </section>
+  </main>
 
   <!-- ─── FOOTER ────────────────────────────────────────────────── -->
   <footer role="contentinfo">

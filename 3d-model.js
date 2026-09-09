@@ -4,6 +4,10 @@
   const container = document.getElementById('hero-3d-model');
   if (!container) return;
 
+  // Cache initial dimensions to avoid forced layout thrashing
+  const initialWidth = container.clientWidth || 300;
+  const initialHeight = container.clientHeight || 400;
+
   // ── Scene Setup ──────────────────────────────────────────────────
   const scene = new THREE.Scene();
 
@@ -18,13 +22,13 @@
   scene.add(dirLight2);
 
   // ── Camera ───────────────────────────────────────────────────────
-  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(45, initialWidth / initialHeight, 0.1, 100);
   camera.position.z = 5;
 
   // ── Renderer ─────────────────────────────────────────────────────
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  renderer.setSize(initialWidth, initialHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
   renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
@@ -39,9 +43,10 @@
   let windowHalfX = window.innerWidth / 2;
   let windowHalfY = window.innerHeight / 2;
 
-  // ── Load Model ───────────────────────────────────────────────────
-  const loader = new THREE.GLTFLoader();
-  loader.load('Assets/Boxy%20Snail%20V1.2.glb', (gltf) => {
+  // ── Load Model (Deferred to idle/paint to keep main thread and LCP fast) ─
+  function loadModel() {
+    const loader = new THREE.GLTFLoader();
+    loader.load('Assets/Boxy%20Snail%20V1.2.glb', (gltf) => {
     const model = gltf.scene;
 
     // Automatically scale and center the model
@@ -94,9 +99,17 @@
       // Play once on load
       playAnimation();
     }
-  }, undefined, (error) => {
-    console.error('Error loading 3D model:', error);
-  });
+    }, undefined, (error) => {
+      console.error('Error loading 3D model:', error);
+    });
+  }
+
+  // Defer heavy 3D model loading until after initial paint
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => loadModel(), { timeout: 1200 });
+  } else {
+    setTimeout(loadModel, 150);
+  }
 
   function playAnimation() {
     if (waveAction) {
@@ -249,8 +262,14 @@
 
   // ── Animation Loop ───────────────────────────────────────────────
   const clock = new THREE.Clock();
+  let isVisible = true;
+  let isAnimating = false;
 
   function animate() {
+    if (!isVisible) {
+      isAnimating = false;
+      return;
+    }
     requestAnimationFrame(animate);
 
     const delta = clock.getDelta();
@@ -267,21 +286,41 @@
     renderer.render(scene, camera);
   }
 
-  animate();
-
-  // ── Resize Handler ───────────────────────────────────────────────
-  function onResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-
-    if (container && container.clientWidth > 0 && container.clientHeight > 0) {
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
-    }
+  // Pause render loop when container is offscreen to save main thread CPU/GPU
+  if ('IntersectionObserver' in window) {
+    const visibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !isAnimating) {
+          isAnimating = true;
+          clock.getDelta(); // reset delta to prevent animation jumping
+          requestAnimationFrame(animate);
+        }
+      });
+    }, { threshold: 0.05 });
+    visibilityObserver.observe(container);
   }
 
-  window.addEventListener('resize', onResize);
+  isAnimating = true;
+  animate();
+
+  // ── Resize Handler (Debounced to avoid layout thrashing) ───────────
+  let resizeTimer;
+  function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      windowHalfX = window.innerWidth / 2;
+      windowHalfY = window.innerHeight / 2;
+
+      if (container && container.clientWidth > 0 && container.clientHeight > 0) {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      }
+    }, 60);
+  }
+
+  window.addEventListener('resize', onResize, { passive: true });
 
   if (window.ResizeObserver && container) {
     const resizeObserver = new ResizeObserver(() => {
