@@ -60,16 +60,16 @@
     const camera = new THREE.PerspectiveCamera(45, initialWidth / initialHeight, 0.1, 100);
     camera.position.z = 5;
 
-    // ── Renderer (Optimized for Mobile) ──────────────────────────────
+    // ── Renderer (Retina High-Definition with Antialiasing) ──────────
     const renderer = new THREE.WebGLRenderer({
       alpha: true,
-      antialias: !isMobile, // Disable MSAA on mobile for massive GPU fill-rate boost
+      antialias: true, // Always enable antialiasing for crisp, smooth edges
       powerPreference: 'high-performance',
-      precision: isMobile ? 'mediump' : 'highp'
+      precision: 'highp'
     });
     renderer.setSize(initialWidth, initialHeight);
-    // Force DPR = 1.0 on mobile to cut pixel workload by up to 9x, 1.5 on desktop
-    renderer.setPixelRatio(isMobile ? 1.0 : Math.min(window.devicePixelRatio, 1.5));
+    // Use true device pixel ratio up to 2.0 (Retina crispness without blur)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2.0));
     renderer.outputEncoding = THREE.sRGBEncoding;
     container.appendChild(renderer.domElement);
 
@@ -148,29 +148,19 @@
       }, { passive: true });
     }
 
-    // ── Animation Loop (Scroll-aware & FPS throttled on mobile) ───────
+    // ── Animation Loop (Scroll-aware) ────────────────────────────────
     const clock = new THREE.Clock();
     let isVisible = true;
     let isAnimating = false;
     let isScrolling = false;
     let scrollEndTimer = null;
-    let lastFrameTime = 0;
-    const targetFPS = isMobile ? 30 : 60;
-    const frameInterval = 1000 / targetFPS;
 
-    function animate(timestamp) {
+    function animate() {
       if (!isVisible || isScrolling) {
         isAnimating = false;
         return;
       }
       requestAnimationFrame(animate);
-
-      // Cap at 30 FPS on mobile to halve GPU load and eliminate thermal throttling
-      if (isMobile && timestamp) {
-        const elapsed = timestamp - lastFrameTime;
-        if (elapsed < frameInterval) return;
-        lastFrameTime = timestamp - (elapsed % frameInterval);
-      }
 
       const delta = clock.getDelta();
       if (mixer) {
