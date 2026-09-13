@@ -48,6 +48,7 @@
       <li><a href="#skills" id="nav-skills">Skills</a></li>
       <li><a href="#about" id="nav-about">About</a></li>
       <li><a href="#contact" id="nav-contact">Contact</a></li>
+      <li><a href="#" id="nav-all-projects" class="nav-all-projects" aria-haspopup="true" aria-expanded="false">All Projects</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-time" id="navTime" aria-label="Current time">00:00</div>
@@ -67,6 +68,7 @@
     <a href="#skills" class="mobile-nav-link">Skills</a>
     <a href="#about" class="mobile-nav-link">About</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#" class="mobile-nav-link mobile-nav-link--accent" id="mobile-all-projects">All Projects ↗</a>
   </div>
 
   <main id="main-content">
@@ -236,7 +238,15 @@
       <div class="section-label reveal">
         <span>02</span><span>Selected Work</span>
       </div>
-      <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
+      <div class="projects-heading-row">
+        <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
+        <button class="see-all-btn" id="seeAllProjectsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="projectsDrawer">
+          <span>See All Work</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Sticky progress indicator -->
@@ -918,6 +928,198 @@
       </a>
     </div>
   </footer>
+
+  <!-- ─── ALL PROJECTS STICKY TAB + DRAWER ────────────────────── -->
+
+  <!-- Sticky-note pull tab (right edge of viewport) -->
+  <button class="projects-tab" id="projectsTab" aria-label="Open all projects" aria-haspopup="true" aria-expanded="false" aria-controls="projectsDrawer">
+    <span class="projects-tab-label">All Projects</span>
+    <svg class="projects-tab-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </svg>
+  </button>
+
+  <!-- Full-screen slide-in drawer -->
+  <div class="projects-drawer" id="projectsDrawer" role="dialog" aria-modal="true" aria-label="All projects" hidden>
+    <!-- Close pull-back tab on left edge of drawer -->
+    <button class="drawer-back-tab" id="drawerBackTab" aria-label="Close projects drawer">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M12 7H2M6 11L2 7l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+      </svg>
+      <span class="drawer-back-label">Back</span>
+    </button>
+
+    <!-- Drawer header -->
+    <div class="drawer-header">
+      <div class="drawer-header-left">
+        <span class="drawer-eyebrow">02 / Archive</span>
+        <h2 class="drawer-title">ALL WORK</h2>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Bento/masonry grid -->
+    <div class="drawer-grid" id="drawerGrid">
+
+      <!-- Featured card 01: Cosmo5 -->
+      <article class="dcard dcard--wide" style="--dcard-accent: #00FFAB;">
+        <div class="dcard-inner">
+          <div class="dcard-meta">
+            <span class="dcard-num">01</span>
+            <span class="dcard-tag">CMS / Full-Stack</span>
+          </div>
+          <h3 class="dcard-title">Cosmo5</h3>
+          <p class="dcard-desc">Rebuilt from a static setup into a flexible WordPress system powering marketing campaigns across 18 countries.</p>
+          <div class="dcard-tech">
+            <span class="dtag">PHP</span>
+            <span class="dtag">JS</span>
+            <span class="dtag">CSS</span>
+            <span class="dtag dtag--hl">Headless WordPress</span>
+          </div>
+          <div class="dcard-actions">
+            <a href="https://Cosmo5.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">Cosmo5.com ↗</a>
+          </div>
+        </div>
+        <div class="dcard-visual">
+          <div class="dcard-frame">
+            <div class="dcard-frame-chrome">
+              <span class="dfframe-dot" style="background:#FF5F57"></span>
+              <span class="dfframe-dot" style="background:#FEBC2E"></span>
+              <span class="dfframe-dot" style="background:#28C840"></span>
+              <span class="dframe-url">Cosmo5.com</span>
+            </div>
+            <div class="dcard-frame-img">
+              <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Featured card 02: Maker Faire Cairo -->
+      <article class="dcard" style="--dcard-accent: #B57BFF;">
+        <div class="dcard-inner">
+          <div class="dcard-meta">
+            <span class="dcard-num">02</span>
+            <span class="dcard-tag">Events / E-Commerce</span>
+          </div>
+          <h3 class="dcard-title">Maker Faire Cairo</h3>
+          <p class="dcard-desc">Full ticketing experience — logins, workshop schedules, instructor bios, paid passes, and traffic-resilient infrastructure.</p>
+          <div class="dcard-tech">
+            <span class="dtag">WordPress</span>
+            <span class="dtag dtag--hl">Elementor</span>
+            <span class="dtag">WooCommerce</span>
+          </div>
+          <div class="dcard-actions">
+            <a href="#contact" class="dcard-btn">Ask Me ↗</a>
+          </div>
+        </div>
+        <div class="dcard-visual">
+          <div class="dcard-frame">
+            <div class="dcard-frame-chrome">
+              <span class="dfframe-dot" style="background:#FF5F57"></span>
+              <span class="dfframe-dot" style="background:#FEBC2E"></span>
+              <span class="dfframe-dot" style="background:#28C840"></span>
+              <span class="dframe-url">makerfairecairo.com</span>
+            </div>
+            <div class="dcard-frame-img">
+              <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Featured card 03: Guilt-Free -->
+      <article class="dcard" style="--dcard-accent: #00FFAB;">
+        <div class="dcard-inner">
+          <div class="dcard-meta">
+            <span class="dcard-num">03</span>
+            <span class="dcard-tag">E-Commerce / RTL</span>
+          </div>
+          <h3 class="dcard-title">Guilt-Free</h3>
+          <p class="dcard-desc">Full WordPress store for a Saudi keto bakery — product filtering, ratings, cart, and a seamless bilingual RTL layout.</p>
+          <div class="dcard-tech">
+            <span class="dtag">WordPress</span>
+            <span class="dtag dtag--hl">Elementor</span>
+            <span class="dtag">CSS</span>
+          </div>
+          <div class="dcard-actions">
+            <a href="#contact" class="dcard-btn">Ask Me ↗</a>
+          </div>
+        </div>
+        <div class="dcard-visual">
+          <div class="dcard-frame">
+            <div class="dcard-frame-chrome">
+              <span class="dfframe-dot" style="background:#FF5F57"></span>
+              <span class="dfframe-dot" style="background:#FEBC2E"></span>
+              <span class="dfframe-dot" style="background:#28C840"></span>
+              <span class="dframe-url">guiltfree.sa</span>
+            </div>
+            <div class="dcard-frame-img">
+              <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 04: Something's Cooking -->
+      <article class="dcard dcard--cooking" style="--dcard-accent: #FFE500;">
+        <div class="dcard-inner">
+          <div class="dcard-meta">
+            <span class="dcard-num">04</span>
+            <span class="dcard-tag">In Progress</span>
+          </div>
+          <h3 class="dcard-title">Something's Cooking...</h3>
+          <p class="dcard-desc">Still under wraps. Can't share details yet, but this one's shaping up to be a favorite.</p>
+          <div class="brutal-tape-mini" aria-hidden="true"></div>
+          <div class="dcard-tech">
+            <span class="dtag">WordPress</span>
+            <span class="dtag dtag--hl">Elementor</span>
+            <span class="dtag">CSS</span>
+          </div>
+          <div class="dcard-actions">
+            <a href="#contact" class="dcard-btn">Get in Touch ↗</a>
+          </div>
+        </div>
+        <div class="dcard-visual dcard-visual--classified">
+          <div class="classified-badge">CLASSIFIED</div>
+        </div>
+      </article>
+
+      <!-- Placeholder: add more projects below this line -->
+      <!-- Example slot A -->
+      <article class="dcard dcard--new-slot" style="--dcard-accent: #FFE500;">
+        <div class="dcard-inner">
+          <div class="dcard-meta">
+            <span class="dcard-num">05</span>
+            <span class="dcard-tag">Your Category</span>
+          </div>
+          <h3 class="dcard-title">Your Next Project</h3>
+          <p class="dcard-desc">Replace this card with your next project. The grid will reflow automatically.</p>
+          <div class="dcard-tech">
+            <span class="dtag">Tech</span>
+            <span class="dtag dtag--hl">Stack</span>
+          </div>
+          <div class="dcard-actions">
+            <a href="#contact" class="dcard-btn">Contact ↗</a>
+          </div>
+        </div>
+        <div class="dcard-visual dcard-visual--placeholder">
+          <span class="placeholder-label">Coming Soon</span>
+        </div>
+      </article>
+
+    </div><!-- /drawer-grid -->
+
+    <!-- Drawer footer -->
+    <div class="drawer-footer">
+      <span class="drawer-footer-text">More projects in progress — check back soon.</span>
+      <a href="#contact" class="dcard-btn drawer-contact-btn" id="drawerContactBtn">Work Together ↗</a>
+    </div>
+  </div><!-- /projects-drawer -->
 
   <script defer src="3d-model.js"></script>
   <script defer src="main.js?v=9"></script>

@@ -1,4 +1,4 @@
-/* ─────────────────────────────────────────────────────────────────
+﻿/* ─────────────────────────────────────────────────────────────────
    main.js — Bishoy Nabil Portfolio
    ─────────────────────────────────────────────────────────────── */
 
@@ -210,7 +210,10 @@
   /* ── Smooth scroll for anchor links ───────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
-      const id = anchor.getAttribute('href').slice(1);
+      const href = anchor.getAttribute('href');
+      // Skip bare "#" links (used for drawer triggers — handled separately)
+      if (href === '#') return;
+      const id = href.slice(1);
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
@@ -410,23 +413,19 @@
     });
 
     // When pointer leaves the widget, wait 240ms buffer before closing.
-    // If pointer enters another blade during this grace window, timer is cancelled.
+    // When pointer leaves the widget, wait 240ms buffer before closing.
     const handleWidgetLeave = () => {
       if (!isLocked) {
         clearTimeout(leaveTimer);
         leaveTimer = setTimeout(() => {
           if (isLocked) return;
           const isStillHovered = sideSkills.matches(':hover') || cards.some(c => c.matches(':hover'));
-          if (!isStillHovered) {
-            setActiveBlade(-1);
-          }
+          if (!isStillHovered) setActiveBlade(-1);
         }, 240);
       }
     };
 
-    const handleWidgetEnter = () => {
-      clearTimeout(leaveTimer);
-    };
+    const handleWidgetEnter = () => { clearTimeout(leaveTimer); };
 
     sideSkills.addEventListener('mouseleave', handleWidgetLeave);
     sideSkills.addEventListener('pointerleave', handleWidgetLeave);
@@ -441,6 +440,147 @@
       }
     });
   }
+
+  /* ── Projects Drawer ──────────────────────────────────────────── */
+  (function () {
+    const drawer        = document.getElementById('projectsDrawer');
+    const tab           = document.getElementById('projectsTab');
+    const closeBtn      = document.getElementById('drawerClose');
+    const backTab       = document.getElementById('drawerBackTab');
+    const seeAllBtn     = document.getElementById('seeAllProjectsBtn');
+    const navAllBtn     = document.getElementById('nav-all-projects');
+    const mobileAllBtn  = document.getElementById('mobile-all-projects');
+    const drawerContact = document.getElementById('drawerContactBtn');
+
+    if (!drawer || !tab) return;
+
+    let closeTimer = null;
+    let previouslyFocused = null;
+
+    function isOpen() {
+      return drawer.classList.contains('is-open');
+    }
+
+    function openDrawer() {
+      if (isOpen()) return;
+      clearTimeout(closeTimer);
+
+      previouslyFocused = document.activeElement;
+
+      // Remove closing state if mid-animation
+      drawer.classList.remove('is-closing');
+
+      // Remove the HTML hidden attribute if present (initial page state)
+      drawer.removeAttribute('hidden');
+
+      // Two rAFs: ensure element is rendered before adding .is-open so transition fires
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          drawer.classList.add('is-open');
+        });
+      });
+
+      document.body.classList.add('drawer-open');
+
+      // Show back-tab with a slight delay (arrives after panel)
+      if (backTab) {
+        backTab.style.transitionDelay = '0.45s';
+        backTab.classList.add('visible');
+        setTimeout(() => { if (backTab) backTab.style.transitionDelay = ''; }, 900);
+      }
+
+      // Dismiss the sticky pull-tab
+      tab.classList.add('tab-hidden');
+
+      // Update ARIA
+      [tab, seeAllBtn, navAllBtn, mobileAllBtn].forEach(el => {
+        if (el) el.setAttribute('aria-expanded', 'true');
+      });
+
+      // Focus first interactive element in drawer after panel finishes sliding in
+      setTimeout(() => {
+        const firstFocusable = drawer.querySelector('button:not([disabled]), [href]');
+        if (firstFocusable) firstFocusable.focus();
+      }, 320);
+    }
+
+    function closeDrawer() {
+      if (!isOpen()) return;
+
+      drawer.classList.remove('is-open');
+      drawer.classList.add('is-closing');
+      document.body.classList.remove('drawer-open');
+
+      // Hide back-tab immediately
+      if (backTab) backTab.classList.remove('visible');
+
+      // Restore sticky pull-tab
+      tab.classList.remove('tab-hidden');
+
+      // Update ARIA
+      [tab, seeAllBtn, navAllBtn, mobileAllBtn].forEach(el => {
+        if (el) el.setAttribute('aria-expanded', 'false');
+      });
+
+      // After close transition completes, clean up
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        drawer.classList.remove('is-closing');
+        drawer.scrollTop = 0;
+      }, 380);
+
+      // Return focus to the element that opened the drawer
+      if (previouslyFocused && previouslyFocused.focus) {
+        previouslyFocused.focus();
+      }
+    }
+
+    // Openers
+    [tab, seeAllBtn].forEach(el => {
+      if (el) el.addEventListener('click', (e) => { e.stopPropagation(); openDrawer(); });
+    });
+
+    // Nav link openers — prevent default anchor jump, open drawer instead
+    [navAllBtn, mobileAllBtn].forEach(el => {
+      if (el) el.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openDrawer();
+        if (typeof closeMobileNav === 'function') closeMobileNav();
+      });
+    });
+
+    // Closers: X button + back-tab
+    [closeBtn, backTab].forEach(el => {
+      if (el) el.addEventListener('click', closeDrawer);
+    });
+
+    // Contact CTA inside drawer navigates out — close first
+    if (drawerContact) {
+      drawerContact.addEventListener('click', () => closeDrawer());
+    }
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) closeDrawer();
+    });
+
+    // Focus trap
+    drawer.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(drawer.querySelectorAll(
+        'button:not([disabled]), [href], input, textarea, select, [tabindex]:not([tabindex="-1"])'
+      ));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last  = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+      }
+    });
+  })();
 
   /* ── Cleanup on page unload ───────────────────────────────────── */
   window.addEventListener('unload', () => { cancelAnimationFrame(rafId); });

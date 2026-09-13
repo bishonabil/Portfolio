@@ -46,14 +46,17 @@
     // ── Scene Setup ──────────────────────────────────────────────────
     const scene = new THREE.Scene();
 
-    // ── Lighting ─────────────────────────────────────────────────────
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.0);
-    scene.add(ambientLight);
+    // ── Lighting (Sculpted shadows & rich ambient occlusion) ───────
+    // Hemisphere light simulates sky-to-ground contrast for natural ambient occlusion in crevices
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x181820, 0.8);
+    scene.add(hemiLight);
+
     const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
-    dirLight.position.set(10, 10, 10);
+    dirLight.position.set(8, 12, 10);
     scene.add(dirLight);
-    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
-    dirLight2.position.set(-10, 5, -10);
+
+    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.35);
+    dirLight2.position.set(-8, 3, -8);
     scene.add(dirLight2);
 
     // ── Camera ───────────────────────────────────────────────────────
@@ -86,15 +89,24 @@
 
     // ── Load Model ───────────────────────────────────────────────────
     const loader = new THREE.GLTFLoader();
-    loader.load('Assets/Boxy%20Snail%20V1.2.glb', (gltf) => {
+    loader.load('Assets/Cute%20snail%20glossy.glb', (gltf) => {
       const model = gltf.scene;
+
+      // Tune material: reduce glossiness (increase roughness slightly) and remove metalness
+      model.traverse((child) => {
+        if (child.isMesh && child.material) {
+          child.material.metalness = 0.2;
+          child.material.roughness = 0.6;
+          child.material.needsUpdate = true;
+        }
+      });
 
       // Automatically scale and center the model
       const box = new THREE.Box3().setFromObject(model);
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
 
-      const targetSize = 0.3;
+      const targetSize = 3;
       const scale = targetSize / maxDim;
 
       const centeredGroup = new THREE.Group();
