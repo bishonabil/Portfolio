@@ -26,11 +26,14 @@
   }
 
   function ensureThreeLoaded() {
-    if (window.THREE && window.THREE.GLTFLoader) {
+    if (window.THREE && window.THREE.GLTFLoader && window.THREE.DRACOLoader) {
       return Promise.resolve();
     }
     return loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
-      .then(() => loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js'));
+      .then(() => Promise.all([
+        loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js'),
+        loadScript('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js')
+      ]));
   }
 
   // ── 3D Engine Setup ──────────────────────────────────────────────
@@ -89,6 +92,11 @@
 
     // ── Load Model ───────────────────────────────────────────────────
     const loader = new THREE.GLTFLoader();
+    if (window.THREE.DRACOLoader) {
+      const dracoLoader = new THREE.DRACOLoader();
+      dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.4.3/');
+      loader.setDRACOLoader(dracoLoader);
+    }
     loader.load('Assets/Cute%20snail%20glossy.glb', (gltf) => {
       const model = gltf.scene;
 
@@ -96,7 +104,7 @@
       model.traverse((child) => {
         if (child.isMesh && child.material) {
           child.material.metalness = 0.2;
-          child.material.roughness = 0.6;
+          child.material.roughness = 0.4;
           child.material.needsUpdate = true;
         }
       });
@@ -106,7 +114,7 @@
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
 
-      const targetSize = 3;
+      const targetSize = 0.3;
       const scale = targetSize / maxDim;
 
       const centeredGroup = new THREE.Group();
