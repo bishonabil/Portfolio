@@ -448,6 +448,7 @@
     const closeBtn      = document.getElementById('drawerClose');
     const backTab       = document.getElementById('drawerBackTab');
     const seeAllBtn     = document.getElementById('seeAllProjectsBtn');
+    const seeAllBottomBtn = document.getElementById('seeAllProjectsBottomBtn');
     const navAllBtn     = document.getElementById('nav-all-projects');
     const mobileAllBtn  = document.getElementById('mobile-all-projects');
     const drawerContact = document.getElementById('drawerContactBtn');
@@ -493,7 +494,7 @@
       tab.classList.add('tab-hidden');
 
       // Update ARIA
-      [tab, seeAllBtn, navAllBtn, mobileAllBtn].forEach(el => {
+      [tab, seeAllBtn, seeAllBottomBtn, navAllBtn, mobileAllBtn].forEach(el => {
         if (el) el.setAttribute('aria-expanded', 'true');
       });
 
@@ -518,7 +519,7 @@
       tab.classList.remove('tab-hidden');
 
       // Update ARIA
-      [tab, seeAllBtn, navAllBtn, mobileAllBtn].forEach(el => {
+      [tab, seeAllBtn, seeAllBottomBtn, navAllBtn, mobileAllBtn].forEach(el => {
         if (el) el.setAttribute('aria-expanded', 'false');
       });
 
@@ -536,7 +537,7 @@
     }
 
     // Openers
-    [tab, seeAllBtn].forEach(el => {
+    [tab, seeAllBtn, seeAllBottomBtn].forEach(el => {
       if (el) el.addEventListener('click', (e) => { e.stopPropagation(); openDrawer(); });
     });
 
