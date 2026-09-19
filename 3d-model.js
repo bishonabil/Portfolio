@@ -51,14 +51,14 @@
 
     // ── Lighting (Sculpted shadows & rich ambient occlusion) ───────
     // Hemisphere light simulates sky-to-ground contrast for natural ambient occlusion in crevices
-    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x181820, 0.8);
+    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x181820, 1.2);
     scene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1.1);
     dirLight.position.set(8, 12, 10);
     scene.add(dirLight);
 
-    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.35);
+    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.5);
     dirLight2.position.set(-8, 3, -8);
     scene.add(dirLight2);
 

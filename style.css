@@ -2904,8 +2904,11 @@ body.cursor-hover .cursor-ring {
   inset: 0;
   z-index: 500;
   background: var(--clr-bg);
-  overflow-y: auto;
-  overflow-x: hidden;
+
+  /* Flex column: header is pinned, body scrolls */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* scroll lives in .drawer-body, not here */
 
   /* Start off-screen right */
   transform: translateX(100%);
@@ -2919,10 +2922,6 @@ body.cursor-hover .cursor-ring {
     visibility 0s linear 0.6s;
 
   will-change: transform;
-
-  scrollbar-width: thin;
-  scrollbar-color: var(--clr-accent) var(--clr-bg);
-  padding: 0 0 4rem;
 }
 
 /* OPEN STATE — driven by .is-open class (not hidden attr) */
@@ -2964,11 +2963,16 @@ body.cursor-hover .cursor-ring {
   animation: cardStampIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.projects-drawer.is-open .dcard:nth-child(1) { animation-delay: 0.22s; }
-.projects-drawer.is-open .dcard:nth-child(2) { animation-delay: 0.30s; }
-.projects-drawer.is-open .dcard:nth-child(3) { animation-delay: 0.36s; }
-.projects-drawer.is-open .dcard:nth-child(4) { animation-delay: 0.42s; }
-.projects-drawer.is-open .dcard:nth-child(5) { animation-delay: 0.46s; }
+.projects-drawer.is-open .dcard:nth-child(1) { animation-delay: 0.16s; }
+.projects-drawer.is-open .dcard:nth-child(2) { animation-delay: 0.20s; }
+.projects-drawer.is-open .dcard:nth-child(3) { animation-delay: 0.24s; }
+.projects-drawer.is-open .dcard:nth-child(4) { animation-delay: 0.28s; }
+.projects-drawer.is-open .dcard:nth-child(5) { animation-delay: 0.32s; }
+.projects-drawer.is-open .dcard:nth-child(6) { animation-delay: 0.36s; }
+.projects-drawer.is-open .dcard:nth-child(7) { animation-delay: 0.40s; }
+.projects-drawer.is-open .dcard:nth-child(8) { animation-delay: 0.44s; }
+.projects-drawer.is-open .dcard:nth-child(9) { animation-delay: 0.48s; }
+.projects-drawer.is-open .dcard:nth-child(10) { animation-delay: 0.52s; }
 
 @keyframes cardStampIn {
   0% {
@@ -3128,35 +3132,34 @@ body.cursor-hover .cursor-ring {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   BENTO / MASONRY GRID
+   BENTO / MASONRY GRID (DIRECTION A: ART-DIRECTED BENTO)
    ═══════════════════════════════════════════════════════════════════ */
 
+/* Mobile-first: 1-column responsive stack */
 .drawer-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
-  gap: 0;
-  padding: 2.5rem clamp(1.5rem, 5vw, 5rem) 2rem clamp(3.5rem, 7vw, 7rem);
+  gap: 16px;
+  padding: 1.5rem 1.2rem 3.5rem 1.2rem;
   border-bottom: var(--border-thin);
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* Wide card spans 2 columns */
-.dcard--wide {
-  grid-column: span 2;
-}
-
-/* ── Individual drawer card ── */
+/* ── Individual drawer card base ── */
 .dcard {
   border: var(--border-thick);
   background: var(--clr-bg-2);
   box-shadow: 4px 4px 0 var(--dcard-accent, var(--clr-border));
-  margin: 0 -1px -1px 0; /* collapse borders */
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.22s ease, transform 0.22s ease, z-index 0s;
   cursor: default;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .dcard:hover {
@@ -3165,95 +3168,202 @@ body.cursor-hover .cursor-ring {
   z-index: 2;
 }
 
-/* Wide card is horizontal (inner + visual side by side) */
-.dcard--wide {
-  flex-direction: row;
-  min-height: 260px;
-}
+/* ═══════════════════════════════════════════════════════════════════
+   DESKTOP BENTO GRID (Screens >= 861px)
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 861px) {
+  .drawer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 2.5rem clamp(1.5rem, 5vw, 5rem) 2rem clamp(3.5rem, 7vw, 7rem);
+  }
 
-.dcard--wide .dcard-inner {
-  flex: 1 1 42%;
-  border-right: var(--border-thin);
-}
+  /* 01. Flagship wide card: spans 2 columns in row 1 (horizontal layout) */
+  .dcard.dcard--wide {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    flex-direction: row;
+    min-height: 280px;
+  }
 
-.dcard--wide .dcard-visual {
-  flex: 1 1 58%;
-  min-height: 220px;
+  .dcard.dcard--wide .dcard-inner {
+    flex: 1 1 44%;
+    border-right: var(--border-thin);
+    border-bottom: none;
+  }
+
+  .dcard.dcard--wide .dcard-visual {
+    flex: 1 1 56%;
+    min-height: 240px;
+    border-top: none;
+  }
+
+  /* 02. Tall card: sits in col 3, spanning row 1 and row 2 */
+  .dcard.dcard--tall {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dcard.dcard--tall .dcard-inner {
+    flex: 0 0 auto;
+  }
+
+  .dcard.dcard--tall .dcard-visual {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    min-height: 260px;
+  }
+
+  .dcard.dcard--tall .dcard-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dcard.dcard--tall .dcard-frame-img {
+    flex: 1 1 auto;
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 220px;
+  }
+
+  .dcard.dcard--tall .dcard-frame-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  /* 09. Something's Cooking: spans 2 columns in row 4 next to Total Spine */
+  .dcard.dcard--cooking {
+    grid-column: span 2;
+    flex-direction: row;
+  }
+
+  .dcard.dcard--cooking .dcard-inner {
+    flex: 1 1 48%;
+    border-right: var(--border-thin);
+    border-bottom: none;
+  }
+
+  .dcard.dcard--cooking .dcard-visual {
+    flex: 1 1 52%;
+    border-top: none;
+    min-height: 200px;
+  }
+
+  /* 10. Collaboration Banner: spans all 3 columns */
+  .dcard--banner {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dcard--banner .dcard-inner {
+    flex: 1 1 65%;
+    padding: clamp(1.4rem, 2.5vw, 2rem) clamp(1.6rem, 3vw, 2.5rem);
+  }
+
+  .dcard-banner-side {
+    flex: 0 0 auto;
+    align-items: flex-end;
+    padding: 1.4rem clamp(1.6rem, 3vw, 2.5rem);
+    width: auto;
+  }
+
+  .dcard-btn--hero {
+    width: auto;
+  }
 }
 
 /* ── Card inner content ── */
 .dcard-inner {
-  padding: clamp(1.2rem, 2.5vw, 2rem);
+  padding: clamp(1.6rem, 2.5vw, 2.2rem);
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
+/* ── Meta row: compressed into a single small line ── */
 .dcard-meta {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .dcard-num {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
   color: var(--dcard-accent, var(--clr-accent));
+  letter-spacing: 0.12em;
   line-height: 1;
-  min-width: 26px;
+  opacity: 0.8;
 }
 
 .dcard-tag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--clr-text-dim);
   border: 1px solid #333;
-  padding: 2px 8px;
+  padding: 1px 6px;
 }
 
+/* ── Title: now the dominant element ── */
 .dcard-title {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
   line-height: 1;
   color: var(--clr-text);
   width: auto;
+  letter-spacing: 0.02em;
 }
 
 .dcard-desc {
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--clr-text-dim);
   line-height: 1.6;
   flex-grow: 1;
 }
 
+/* ── Tech tags: tighter, secondary role ── */
 .dcard-tech {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
 .dtag {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 3px 8px;
-  border: 1.5px solid var(--clr-border);
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border: 1px solid var(--clr-border);
   color: var(--clr-text-dim);
   background: transparent;
+  opacity: 0.85;
 }
 
 .dtag--hl {
   border-color: var(--dcard-accent, var(--clr-accent));
   color: var(--dcard-accent, var(--clr-accent));
+  opacity: 1;
 }
 
 .dcard-actions {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .dcard-btn {
@@ -3313,13 +3423,20 @@ body.cursor-hover .cursor-ring {
   transform: translate(-2px, -2px);
 }
 
+/* Chrome bar: on wide and tall featured cards */
 .dcard-frame-chrome {
-  display: flex;
+  display: none; /* hidden on narrow cards by default */
   align-items: center;
   gap: 5px;
   padding: 6px 10px;
   background: #1a1a1a;
   border-bottom: 1px solid #2a2a2a;
+}
+
+/* Re-enable chrome on wide and tall cards */
+.dcard--wide .dcard-frame-chrome,
+.dcard--tall .dcard-frame-chrome {
+  display: flex;
 }
 
 .dfframe-dot {
@@ -3401,20 +3518,98 @@ body.cursor-hover .cursor-ring {
   pointer-events: none;
 }
 
-/* ── Placeholder / coming-soon card ── */
-.dcard--new-slot .dcard-visual--placeholder {
-  background: var(--clr-bg);
-  border-top: var(--border-thin);
-  border-left: 3px dashed #333;
-  min-height: 160px;
+/* ── 10. Bento Banner Card (Collaboration Open Slot) ── */
+.dcard--banner {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--clr-bg-2);
+  border: 2px dashed var(--clr-accent);
+  box-shadow: 4px 4px 0 var(--clr-accent);
+  padding: 0;
+  min-height: 120px;
 }
 
-.placeholder-label {
+.dcard--banner:hover {
+  box-shadow: 8px 8px 0 var(--clr-accent);
+  transform: translate(-2px, -2px);
+}
+
+.dcard--banner .dcard-inner {
+  flex: 1 1 65%;
+  border-right: none;
+  padding: clamp(1.4rem, 2.5vw, 2rem) clamp(1.6rem, 3vw, 2.5rem);
+  gap: 0.5rem;
+}
+
+.dcard--banner .dcard-title {
+  color: var(--clr-accent);
+  font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+  margin: 0;
+}
+
+.dcard--banner .dcard-desc {
+  max-width: 65ch;
+  font-size: 0.88rem;
+  color: var(--clr-text-dim);
+  margin: 0;
+}
+
+.dcard-banner-side {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.4rem clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.banner-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--clr-accent);
   text-transform: uppercase;
-  color: #333;
+}
+
+.status-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--clr-accent);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px var(--clr-accent);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.dcard-btn--hero {
+  background: var(--clr-accent);
+  color: #000;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  font-size: 0.8rem;
+  padding: 10px 22px;
+  font-weight: 800;
+}
+
+.dcard-btn--hero:hover {
+  background: #fff;
+  border-color: #000;
+  color: #000;
+  box-shadow: 6px 6px 0 #000;
+  transform: translate(-2px, -2px);
 }
 
 /* ── Drawer footer ── */
@@ -3452,58 +3647,37 @@ body.drawer-open {
   overflow: hidden;
 }
 
+/* ── Drawer scrollable body ── */
+.drawer-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-accent) var(--clr-bg);
+  /* padding-bottom keeps last card clear of viewport edge */
+  padding-bottom: 4rem;
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    DRAWER RESPONSIVE
    ═══════════════════════════════════════════════════════════════════ */
 
-@media (max-width: 1024px) {
+@media (max-width: 860px) {
   .drawer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding-left: clamp(1.5rem, 4vw, 3rem);
+    padding: 1.2rem 1rem 3.5rem 1rem;
+    gap: 14px;
   }
 
   .drawer-header {
-    padding-left: clamp(2rem, 5vw, 4rem);
-  }
-
-  .drawer-footer {
-    padding-left: clamp(2rem, 5vw, 4rem);
-  }
-
-  .drawer-back-tab {
-    /* On smaller screens, hide back tab — X button is enough */
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .drawer-grid {
-    grid-template-columns: 1fr;
-    padding: 1.5rem 1.2rem 1.5rem 1.2rem;
-    gap: 0;
-  }
-
-  .dcard--wide {
-    grid-column: span 1;
-    flex-direction: column;
-  }
-
-  .dcard--wide .dcard-inner {
-    border-right: none;
-    border-bottom: var(--border-thin);
-  }
-
-  .dcard--wide .dcard-visual {
-    min-height: 180px;
-  }
-
-  .drawer-header {
-    padding: 2rem 1.2rem 1.5rem 1.2rem;
-    position: relative; /* unstick on mobile */
+    padding: 1rem 1.2rem;
   }
 
   .drawer-footer {
     padding: 1.5rem 1.2rem;
+  }
+
+  .drawer-back-tab {
+    display: none;
   }
 
   .projects-tab {

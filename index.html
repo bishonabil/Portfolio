@@ -23,14 +23,18 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
   <!-- Preload critical stylesheet -->
-  <link rel="preload" href="style.css?v=8" as="style" />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="preload" href="style.css?v=12" as="style" />
+  <link rel="stylesheet" href="style.css?v=12" />
 
   <!-- Non-blocking Google Fonts with swap display (optimized to essential weights) -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" media="print" onload="this.media='all'" />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap"
+    media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;700;800&family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Caveat:wght@700&display=swap" />
   </noscript>
 </head>
 
@@ -48,7 +52,8 @@
       <li><a href="#skills" id="nav-skills">Skills</a></li>
       <li><a href="#about" id="nav-about">About</a></li>
       <li><a href="#contact" id="nav-contact">Contact</a></li>
-      <li><a href="#" id="nav-all-projects" class="nav-all-projects" aria-haspopup="true" aria-expanded="false">All Projects</a></li>
+      <li><a href="#" id="nav-all-projects" class="nav-all-projects" aria-haspopup="true" aria-expanded="false">All
+          Projects</a></li>
     </ul>
     <div class="nav-right">
       <div class="nav-time" id="navTime" aria-label="Current time">00:00</div>
@@ -72,837 +77,847 @@
   </div>
 
   <main id="main-content">
-  <!-- ─── HERO ───────────────────────────────────────────────────── -->
-  <section id="hero" aria-label="Introduction">
-    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <!-- ─── HERO ───────────────────────────────────────────────────── -->
+    <section id="hero" aria-label="Introduction">
+      <div class="hero-grid-lines" aria-hidden="true"></div>
 
-    <!-- ── Decorative scribbles ── -->
-    <div class="hero-scribbles" aria-hidden="true">
-      <!-- 5-pointed star outline, bottom-left -->
-      <svg class="scribble scribble--star-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-        stroke-linejoin="round">
-        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
-      </svg>
-      <!-- Circle outline, mid-right -->
-      <svg class="scribble scribble--circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10" />
-      </svg>
-      <!-- Diagonal slash, left side -->
-      <svg class="scribble scribble--slash" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="2"
-        stroke-linecap="round">
-        <line x1="0" y1="8" x2="24" y2="0" />
-      </svg>
-      <!-- 4-pointed sparkle, top-right area -->
-      <svg class="scribble scribble--sparkle" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z" />
-      </svg>
-      <!-- Small filled square, upper-left zone -->
-      <svg class="scribble scribble--square" viewBox="0 0 10 10" fill="currentColor">
-        <rect x="0" y="0" width="10" height="10" />
-      </svg>
-      <!-- Tiny ring, lower-right -->
-      <svg class="scribble scribble--ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="8" />
-      </svg>
-      <!-- Wavy squiggle, right column area -->
-      <svg class="scribble scribble--wave" viewBox="0 0 60 12" fill="none" stroke="currentColor" stroke-width="1.8"
-        stroke-linecap="round">
-        <path d="M0 6 Q10 0 20 6 Q30 12 40 6 Q50 0 60 6" />
-      </svg>
-    </div>
+      <!-- ── Decorative scribbles ── -->
+      <div class="hero-scribbles" aria-hidden="true">
+        <!-- 5-pointed star outline, bottom-left -->
+        <svg class="scribble scribble--star-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linejoin="round">
+          <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+        </svg>
+        <!-- Circle outline, mid-right -->
+        <svg class="scribble scribble--circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+        <!-- Diagonal slash, left side -->
+        <svg class="scribble scribble--slash" viewBox="0 0 24 8" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <line x1="0" y1="8" x2="24" y2="0" />
+        </svg>
+        <!-- 4-pointed sparkle, top-right area -->
+        <svg class="scribble scribble--sparkle" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z" />
+        </svg>
+        <!-- Small filled square, upper-left zone -->
+        <svg class="scribble scribble--square" viewBox="0 0 10 10" fill="currentColor">
+          <rect x="0" y="0" width="10" height="10" />
+        </svg>
+        <!-- Tiny ring, lower-right -->
+        <svg class="scribble scribble--ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="8" />
+        </svg>
+        <!-- Wavy squiggle, right column area -->
+        <svg class="scribble scribble--wave" viewBox="0 0 60 12" fill="none" stroke="currentColor" stroke-width="1.8"
+          stroke-linecap="round">
+          <path d="M0 6 Q10 0 20 6 Q30 12 40 6 Q50 0 60 6" />
+        </svg>
+      </div>
 
-    <!-- Floating "Hire Me" pill -->
-    <a href="#contact" class="hero-hire-pill" aria-label="Contact Bishoy">
-      HIRE ME ↗
-    </a>
+      <!-- Floating "Hire Me" pill -->
+      <a href="#contact" class="hero-hire-pill" aria-label="Contact Bishoy">
+        HIRE ME ↗
+      </a>
 
-    <div class="hero-inner">
+      <div class="hero-inner">
 
-      <!-- ── LEFT COLUMN ── -->
-      <div class="hero-col hero-col--left">
+        <!-- ── LEFT COLUMN ── -->
+        <div class="hero-col hero-col--left">
 
-        <!-- Status badge -->
-        <div class="hero-status reveal">
-          <span class="hero-dot" aria-hidden="true"></span>
-          CMS Developer &bull; Open to Work
-        </div>
+          <!-- Status badge -->
+          <div class="hero-status reveal">
+            <span class="hero-dot" aria-hidden="true"></span>
+            CMS Developer &bull; Open to Work
+          </div>
 
-        <!-- Name: BISHOY solid white / NABIL yellow with dark stroke -->
-        <h1 class="hero-name reveal reveal-delay-1">
-          BISHOY
-          <span class="stroke-text">NABIL</span>
-        </h1>
+          <!-- Name: BISHOY solid white / NABIL yellow with dark stroke -->
+          <h1 class="hero-name reveal reveal-delay-1">
+            BISHOY
+            <span class="stroke-text">NABIL</span>
+          </h1>
 
-        <!-- Description with inline keyword marks -->
-        <p class="hero-desc reveal reveal-delay-2">
-          I build <mark class="hero-mark">CMS-driven</mark> web experiences
-          &mdash; from <mark class="hero-mark--outline">headless architectures</mark>
-          to full-stack delivery. Obsessive about craft.
-        </p>
+          <!-- Description with inline keyword marks -->
+          <p class="hero-desc reveal reveal-delay-2">
+            I build <mark class="hero-mark">CMS-driven</mark> web experiences
+            &mdash; from <mark class="hero-mark--outline">headless architectures</mark>
+            to full-stack delivery. Obsessive about craft.
+          </p>
 
-      </div><!-- /hero-col--left -->
+        </div><!-- /hero-col--left -->
 
-      <!-- ── RIGHT COLUMN ── 3D model will be placed here (center) -->
-      <div class="hero-col hero-col--right">
+        <!-- ── RIGHT COLUMN ── 3D model will be placed here (center) -->
+        <div class="hero-col hero-col--right">
 
-        <!-- Reserved for 3D model — do not fill this space -->
-        <div id="hero-3d-model"
-          style="width: 100%; height: 100%; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
-          <!-- Greeting counter popup -->
-          <div id="snail-greeting-popup" class="snail-greeting-popup" aria-live="polite" aria-label="Greeting counter">
-            <span class="greeting-wave" aria-hidden="true">👋</span>
-            <div class="greeting-text">
-              <span class="greeting-label">Greeted this month</span>
-              <span class="greeting-count" id="greetingCount">0</span>
+          <!-- Reserved for 3D model — do not fill this space -->
+          <div id="hero-3d-model"
+            style="width: 100%; height: 100%; position: relative; min-height: 400px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <!-- Greeting counter popup -->
+            <div id="snail-greeting-popup" class="snail-greeting-popup" aria-live="polite"
+              aria-label="Greeting counter">
+              <span class="greeting-wave" aria-hidden="true">👋</span>
+              <div class="greeting-text">
+                <span class="greeting-label">Greeted this month</span>
+                <span class="greeting-count" id="greetingCount">0</span>
+              </div>
+            </div>
+
+            <!-- Handwritten scribbly "Greet me" callout pointing to the snail -->
+            <div class="snail-greet-scribble" aria-hidden="true">
+              <span class="snail-scribble-text">Greet me</span>
+              <svg class="snail-scribble-arrow" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Hand-drawn curved arrow swooping up and left towards the snail -->
+                <path d="M 40 32 C 30 32, 16 28, 12 10" stroke="#ff2222" stroke-width="2.6" stroke-linecap="round"
+                  fill="none" />
+                <path d="M 6 18 C 9 13, 12 8, 12 6 C 14 10, 18 15, 23 18" stroke="#ff2222" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
             </div>
           </div>
 
-          <!-- Handwritten scribbly "Greet me" callout pointing to the snail -->
-          <div class="snail-greet-scribble" aria-hidden="true">
-            <span class="snail-scribble-text">Greet me</span>
-            <svg class="snail-scribble-arrow" viewBox="0 0 50 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Hand-drawn curved arrow swooping up and left towards the snail -->
-              <path d="M 40 32 C 30 32, 16 28, 12 10" stroke="#ff2222" stroke-width="2.6" stroke-linecap="round"
-                fill="none" />
-              <path d="M 6 18 C 9 13, 12 8, 12 6 C 14 10, 18 15, 23 18" stroke="#ff2222" stroke-width="2.6"
-                stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            </svg>
+          <!-- Social buttons pinned to bottom of this column -->
+          <div class="hero-socials reveal reveal-delay-3">
+            <a href="https://wa.me/201065116196" target="_blank" rel="noopener noreferrer" class="hero-social-btn"
+              id="hero-whatsapp">WHATSAPP ↗</a>
+            <a href="https://www.linkedin.com/in/bishoy-nabil-1aa474320/" target="_blank" rel="noopener noreferrer"
+              class="hero-social-btn" id="hero-linkedin">LINKEDIN ↗</a>
+            <a href="mailto:bishonabil457@gmail.com" class="hero-social-btn" id="hero-email">EMAIL ↗</a>
+          </div>
+
+        </div><!-- /hero-col--right -->
+
+        <!-- ── STATS ROW — spans full width at the bottom ── -->
+        <div class="hero-stats reveal reveal-delay-4">
+          <div class="hero-stat-card">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-num">20+</div>
+            <div class="stat-label">Projects Shipped</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-num">CMS</div>
+            <div class="stat-label">Specialist</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-num">Open</div>
+            <div class="stat-label">to Freelance</div>
           </div>
         </div>
 
-        <!-- Social buttons pinned to bottom of this column -->
-        <div class="hero-socials reveal reveal-delay-3">
-          <a href="https://wa.me/201065116196" target="_blank" rel="noopener noreferrer" class="hero-social-btn"
-            id="hero-whatsapp">WHATSAPP ↗</a>
-          <a href="https://www.linkedin.com/in/bishoy-nabil-1aa474320/" target="_blank" rel="noopener noreferrer"
-            class="hero-social-btn" id="hero-linkedin">LINKEDIN ↗</a>
-          <a href="mailto:bishonabil457@gmail.com" class="hero-social-btn" id="hero-email">EMAIL ↗</a>
-        </div>
+      </div><!-- /hero-inner -->
 
-      </div><!-- /hero-col--right -->
-
-      <!-- ── STATS ROW — spans full width at the bottom ── -->
-      <div class="hero-stats reveal reveal-delay-4">
-        <div class="hero-stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="stat-num">20+</div>
-          <div class="stat-label">Projects Shipped</div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="stat-num">CMS</div>
-          <div class="stat-label">Specialist</div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="stat-num">Open</div>
-          <div class="stat-label">to Freelance</div>
-        </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <div class="hero-scroll-line"></div>
+        <span>Scroll to explore</span>
       </div>
+    </section>
 
-    </div><!-- /hero-inner -->
-
-    <div class="hero-scroll" aria-hidden="true">
-      <div class="hero-scroll-line"></div>
-      <span>Scroll to explore</span>
-    </div>
-  </section>
-
-  <!-- ─── MARQUEE ────────────────────────────────────────────────── -->
-  <div class="marquee-strip" aria-hidden="true" role="presentation">
-    <div class="marquee-track">
-      <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
-      <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
-    </div>
-  </div>
-
-  <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
-  <section id="projects" class="section projects-section" aria-label="Projects">
-    <div class="projects-section-header">
-      <div class="section-label reveal">
-        <span>02</span><span>Selected Work</span>
-      </div>
-      <div class="projects-heading-row">
-        <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
-        <button class="see-all-btn" id="seeAllProjectsBtn" aria-haspopup="true" aria-expanded="false" aria-controls="projectsDrawer">
-          <span>See All Work</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
-          </svg>
-        </button>
+    <!-- ─── MARQUEE ────────────────────────────────────────────────── -->
+    <div class="marquee-strip" aria-hidden="true" role="presentation">
+      <div class="marquee-track">
+        <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item">CMS Architecture <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Full-Stack Development <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Headless WordPress <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">React &amp; Next.js <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">API Integration <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Performance Optimization <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Custom Plugin Dev <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Database Design <span class="marquee-sep">✦</span></span>
       </div>
     </div>
 
-    <!-- Sticky progress indicator -->
-    <div class="projects-progress" aria-hidden="true" id="projectsProgress">
-      <span class="progress-current" id="progressCurrent">01</span>
-      <span class="progress-sep"> / </span>
-      <span class="progress-total">04</span>
-    </div>
-
-    <!-- Stacked scrollable cards -->
-    <div class="projects-stack" id="projectsStack">
-
-      <!-- Card 01 -->
-      <article class="pcard" id="pcard-1" data-index="1" aria-label="Project: Cosmo5" style="--card-accent:#00FFAB;">
-        <div class="pcard-header">
-          <div class="pcard-num">
-            <span class="pcard-num-box">01</span>
-            <h3 class="pcard-title">Cosmo5</h3>
-          </div>
-          <span class="pcard-tagline">Flexible WordPress System</span>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-left">
-            <p class="pcard-desc">
-              Cosmo5 runs marketing campaigns across 18 countries, so their site needed to move fast — literally. I
-              rebuilt it from a static, hard-to-touch setup into a flexible WordPress system where the team can spin up
-              new pages and rearrange sections themselves.
-            </p>
-            <div class="pcard-tech">
-              <span class="ptag">PHP</span>
-              <span class="ptag">JS</span>
-              <span class="ptag">CSS</span>
-              <span class="ptag ptag--hl">Headless Wordpress</span>
-            </div>
-            <div class="pcard-actions">
-              <a href="https://Cosmo5.com" target="_blank" rel="noopener noreferrer"
-                class="pcard-btn pcard-btn--primary" id="pcard-1-details">Cosmo5.com ↗</a>
-            </div>
-          </div>
-          <div class="pcard-right">
-            <div class="pcard-frame">
-              <div class="pcard-frame-chrome">
-                <span class="pframe-dot" style="background:#FF5F57"></span>
-                <span class="pframe-dot" style="background:#FEBC2E"></span>
-                <span class="pframe-dot" style="background:#28C840"></span>
-                <span class="pframe-url">Cosmo5.com</span>
-              </div>
-              <div class="pcard-frame-content">
-                <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="800" height="396" decoding="async" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 02 -->
-      <article class="pcard" id="pcard-2" data-index="2" aria-label="Project: Maker Faire Cairo"
-        style="--card-accent:#B57BFF;">
-        <div class="pcard-header">
-          <div class="pcard-num">
-            <span class="pcard-num-box">02</span>
-            <h3 class="pcard-title">Maker Faire Cairo</h3>
-          </div>
-          <span class="pcard-tagline">Full Ticketing Experience</span>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-left">
-            <p class="pcard-desc">
-              Maker Faire Cairo needed more than a website — it needed to handle a crowd. I built the full ticketing
-              experience: logins, profiles, workshop schedules, instructor bios, and paid passes, all wrapped in a
-              platform that stayed smooth even when traffic spiked.
-            </p>
-            <div class="pcard-tech">
-              <span class="ptag">Wordpress</span>
-              <span class="ptag ptag--hl">elementor</span>
-              <span class="ptag">woocommerce</span>
-              <span class="ptag">Css</span>
-            </div>
-            <div class="pcard-actions">
-              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-2-details">Ask Me ↗</a>
-            </div>
-          </div>
-          <div class="pcard-right">
-            <div class="pcard-frame">
-              <div class="pcard-frame-chrome">
-                <span class="pframe-dot" style="background:#FF5F57"></span>
-                <span class="pframe-dot" style="background:#FEBC2E"></span>
-                <span class="pframe-dot" style="background:#28C840"></span>
-                <span class="pframe-url">makerfairecairo.com</span>
-              </div>
-              <div class="pcard-frame-content">
-                <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" width="800" height="386" decoding="async" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 03 -->
-      <article class="pcard" id="pcard-3" data-index="3" aria-label="Project: Guilt-Free"
-        style="--card-accent:#00FFAB;">
-        <div class="pcard-header">
-          <div class="pcard-num">
-            <span class="pcard-num-box">03</span>
-            <h3 class="pcard-title">Guilt-Free</h3>
-          </div>
-          <span class="pcard-tagline">Saudi Bakery Brand</span>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-left">
-            <p class="pcard-desc">
-              Guilt Free is a Saudi bakery brand selling sugar-free, keto-friendly desserts, from cheesecakes to
-              cookies. I built their full WordPress store with product filtering, ratings, cart, and a bilingual RTL
-              layout, so browsing and ordering feels just as smooth in Arabic as it looks.
-            </p>
-            <div class="pcard-tech">
-              <span class="ptag">Wordpress</span>
-              <span class="ptag ptag--hl">Elementor</span>
-              <span class="ptag">Css</span>
-            </div>
-            <div class="pcard-actions">
-              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-3-details">Ask Me ↗</a>
-            </div>
-          </div>
-          <div class="pcard-right">
-            <div class="pcard-frame">
-              <div class="pcard-frame-chrome">
-                <span class="pframe-dot" style="background:#FF5F57"></span>
-                <span class="pframe-dot" style="background:#FEBC2E"></span>
-                <span class="pframe-dot" style="background:#28C840"></span>
-                <span class="pframe-url">guiltfree.sa</span>
-              </div>
-              <div class="pcard-frame-content">
-                <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="800" height="386" decoding="async" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 04 -->
-      <article class="pcard" id="pcard-4" data-index="4" aria-label="Project: Something's Brewing..."
-        style="--card-accent:#FFE500;">
-        <div class="pcard-header">
-          <div class="pcard-num">
-            <span class="pcard-num-box">04</span>
-            <h3 class="pcard-title">Something's Cooking...</h3>
-          </div>
-          <span class="pcard-tagline">In the works</span>
-        </div>
-        <div class="pcard-body">
-          <div class="pcard-left">
-            <p class="pcard-desc">
-              Still cooking in the background. Can't share details yet, but this one's shaping up to be a favorite.
-            </p>
-            <!-- Angled Neo-brutalist Construction Tape Strip (No Words) -->
-            <div class="brutal-tape-overlay-strip" aria-hidden="true"></div>
-
-            <div class="pcard-tech">
-              <span class="ptag">Wordpress</span>
-              <span class="ptag ptag--hl">Elementor</span>
-              <span class="ptag">Css</span>
-            </div>
-            <div class="pcard-actions">
-              <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-4-details">Get in Touch ↗</a>
-            </div>
-          </div>
-          <div class="pcard-right">
-            <div class="pcard-frame brutal-pcard-frame">
-              <div class="pcard-frame-chrome">
-                <span class="pframe-dot" style="background:#FF5F57"></span>
-                <span class="pframe-dot" style="background:#FEBC2E"></span>
-                <span class="pframe-dot" style="background:#28C840"></span>
-                <span class="pframe-url">classified-staging.local</span>
-              </div>
-              <div class="pcard-frame-content pcard-frame-content--svg brutal-frame-canvas">
-                <!-- Neo-Brutalist Construction SVG Scene -->
-                <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="brutal-crane-svg"
-                  aria-hidden="true">
-                  <!-- Sharp grid lines -->
-                  <defs>
-                    <pattern id="brutal-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <circle cx="2" cy="2" r="1.2" fill="#333333" />
-                    </pattern>
-                    <pattern id="brutal-stripes" width="24" height="24" patternTransform="rotate(45 0 0)"
-                      patternUnits="userSpaceOnUse">
-                      <line x1="0" y1="0" x2="0" y2="24" stroke="#FFE500" stroke-width="10" />
-                      <line x1="12" y1="0" x2="12" y2="24" stroke="#000000" stroke-width="10" />
-                    </pattern>
-                  </defs>
-
-                  <rect width="100%" height="100%" fill="#111111" />
-                  <rect width="100%" height="100%" fill="url(#brutal-dots)" />
-
-                  <!-- Top Hazard Warning Border -->
-                  <rect x="0" y="0" width="480" height="12" fill="url(#brutal-stripes)" stroke="#FFE500"
-                    stroke-width="1" />
-                  <rect x="0" y="268" width="480" height="12" fill="url(#brutal-stripes)" stroke="#FFE500"
-                    stroke-width="1" />
-
-                  <!-- Blueprint Wireframe Box 1 with Thick Neo-Brutalist Border & Shadow -->
-                  <g class="crane-cable-rig">
-                    <!-- Crane Tower & Cable Hook Hanging the element -->
-                    <line x1="240" y1="0" x2="240" y2="65" stroke="#FFE500" stroke-width="3" stroke-dasharray="6 3"
-                      class="crane-cable" />
-                    <!-- Pulley wheel -->
-                    <circle cx="240" cy="65" r="7" fill="#000000" stroke="#FFE500" stroke-width="2.5" />
-                    <circle cx="240" cy="65" r="2.5" fill="#FFE500" />
-                    <!-- Hook -->
-                    <path d="M 240 72 C 240 82 250 82 250 76" fill="none" stroke="#FFE500" stroke-width="3"
-                      stroke-linecap="round" />
-
-                    <!-- The Swinging / Hovering Component Under Assembly -->
-                    <g class="brutal-swing-module">
-                      <!-- Offset Drop Shadow Box -->
-                      <rect x="135" y="85" width="220" height="110" fill="#FFE500" />
-                      <!-- Main Component Container -->
-                      <rect x="130" y="80" width="220" height="110" fill="#000000" stroke="#FFFFFF" stroke-width="3" />
-
-                      <!-- Header row inside component -->
-                      <rect x="130" y="80" width="220" height="28" fill="#1e1e1e" stroke="#FFFFFF" stroke-width="2" />
-                      <text x="142" y="98" font-family="'Courier Prime', monospace" font-size="11" font-weight="700"
-                        fill="#FFE500" letter-spacing="1">PROJECT.CONFIDENTIAL</text>
-
-                      <!-- Cross braces & blueprint draft elements -->
-                      <line x1="145" y1="120" x2="240" y2="120" stroke="#ffffff" stroke-width="4" />
-                      <line x1="145" y1="135" x2="335" y2="135" stroke="#444444" stroke-width="3" />
-                      <line x1="145" y1="148" x2="280" y2="148" stroke="#444444" stroke-width="3" />
-
-                      <!-- Big Brutal Stamp: [CLASSIFIED] -->
-                      <g class="brutal-stamp-group" transform="rotate(-6 240 155)">
-                        <rect x="180" y="145" width="130" height="28" fill="#FFE500" stroke="#000000"
-                          stroke-width="2.5" />
-                        <text x="245" y="164" font-family="'Bebas Neue', sans-serif" font-size="20" fill="#000000"
-                          letter-spacing="2" text-anchor="middle">COOKING NOW</text>
-                      </g>
-                    </g>
-                  </g>
-
-                  <!-- Bottom Scaffold Stage / Pedestal -->
-                  <g class="brutal-ground-scaffold">
-                    <!-- Construction Barrier Left -->
-                    <rect x="35" y="195" width="70" height="42" fill="#1a1a1a" stroke="#ffffff" stroke-width="2" />
-                    <rect x="35" y="200" width="70" height="12" fill="url(#brutal-stripes)" />
-                    <line x1="45" y1="237" x2="45" y2="255" stroke="#ffffff" stroke-width="3" />
-                    <line x1="95" y1="237" x2="95" y2="255" stroke="#ffffff" stroke-width="3" />
-
-                    <!-- Construction Barrier Right -->
-                    <rect x="375" y="195" width="70" height="42" fill="#1a1a1a" stroke="#ffffff" stroke-width="2" />
-                    <rect x="375" y="200" width="70" height="12" fill="url(#brutal-stripes)" />
-                    <line x1="385" y1="237" x2="385" y2="255" stroke="#ffffff" stroke-width="3" />
-                    <line x1="435" y1="237" x2="435" y2="255" stroke="#ffffff" stroke-width="3" />
-
-                    <!-- Bottom Warning Footnote -->
-                    <text x="240" y="245" font-family="'Courier Prime', monospace" font-size="11" font-weight="700"
-                      fill="#888888" text-anchor="middle" letter-spacing="1">ESTIMATED DROP: VERY SOON</text>
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-    </div><!-- /projects-stack -->
-  </section>
-
-  <!-- ─── SKILLS ────────────────────────────────────────────────── -->
-  <section id="skills" class="section" aria-label="Skills">
-    <div class="section-label reveal">
-      <span>03</span><span>Toolkit</span>
-    </div>
-    <h2 class="section-heading reveal reveal-delay-1" style="margin-bottom:3rem;">SKILLS</h2>
-
-    <div class="skills-grid reveal reveal-delay-2">
-
-      <!-- Group 1: CMS & E-Commerce -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="skill-group-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M9 9h6M9 12h6M9 15h4" />
-            </svg>
-          </div>
-          <span class="skill-group-name">CMS &amp; E-Com</span>
-        </div>
-        <div class="skill-list">
-          <div class="skill-item">
-            <span class="skill-name">WordPress</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:0; --skill-scale:0.95; --skill-level:95%" data-level="95"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Elementor</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:1; --skill-scale:0.92; --skill-level:92%" data-level="92"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Gutenberg</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:2; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Shopify</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:3; --skill-scale:0.85; --skill-level:85%" data-level="85"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Replo</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:4; --skill-scale:0.85; --skill-level:85%" data-level="85"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group 2: Frontend & Mobile -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="skill-group-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-          </div>
-          <span class="skill-group-name">Frontend &amp; App</span>
-        </div>
-        <div class="skill-list">
-          <div class="skill-item">
-            <span class="skill-name">JavaScript (ES6+)</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:5; --skill-scale:0.92; --skill-level:92%" data-level="92"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">HTML5 / Semantic</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:6; --skill-scale:0.96; --skill-level:96%" data-level="96"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">CSS3 / Responsive</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:7; --skill-scale:0.94; --skill-level:94%" data-level="94"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Ionic Framework</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:8; --skill-scale:0.82; --skill-level:82%" data-level="82"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Cross-Platform UI</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:9; --skill-scale:0.84; --skill-level:84%" data-level="84"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group 3: Backend & Dev Tools -->
-      <div class="skill-group">
-        <div class="skill-group-header">
-          <div class="skill-group-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="5" rx="9" ry="3" />
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-            </svg>
-          </div>
-          <span class="skill-group-name">Backend &amp; Tools</span>
-        </div>
-        <div class="skill-list">
-          <div class="skill-item">
-            <span class="skill-name">PHP</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:10; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">API Integration</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:11; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">REST / Webhooks</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:12; --skill-scale:0.86; --skill-level:86%" data-level="86"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Git &amp; GitHub</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:13; --skill-scale:0.88; --skill-level:88%" data-level="88"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">VS Code Workflow</span>
-            <div class="skill-bar-wrap">
-              <div class="skill-bar" style="--bar-i:14; --skill-scale:0.95; --skill-level:95%" data-level="95"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
-  <section id="about" class="section" aria-label="About Bishoy Nabil">
-    <div class="about-grid">
-      <div>
-        <div class="about-image-wrap reveal">
-
-          <div class="about-image-container">
-            <img src="Assets/memememe.webp" alt="Bishoy Nabil portrait" class="about-contract-img" loading="lazy" width="720" height="720" decoding="async" />
-          </div>
-          <div class="about-image-frame" aria-hidden="true"></div>
-
-          <!-- Scribble note pointing to the swiss knife -->
-          <div class="scribble-annotation scribble-knife" aria-hidden="true">
-            <span class="scribble-text">my swiss knife</span>
-            <svg class="scribble-arrow scribble-arrow-knife" viewBox="0 0 65 65" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <!-- Hand-drawn curved arrow: sweeps down and hooks sharp left towards the blades -->
-              <path d="M 46 6 C 52 24, 48 44, 22 48" stroke="#ff2222" stroke-width="2.8" stroke-linecap="round"
-                fill="none" />
-              <path d="M 32 40 C 26 44, 20 46, 14 49 C 18 53, 22 57, 26 62" stroke="#ff2222" stroke-width="2.8"
-                stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            </svg>
-          </div>
-
-          <!-- ── Side-Skills Swiss Knife ────────────────────────── -->
-          <div class="side-skills" id="sideSkills" aria-label="Other creative skills" role="region">
-            <div class="side-skills-fan" id="sideSkillsFan">
-              <!-- Card 0: Voice Over -->
-              <div class="sskill-card" role="button" tabindex="0" id="sskill-vo" data-index="0"
-                style="--clr:#FFA502; --rot:-63deg;" aria-label="Voice Over: VO at home, basically.">
-                <span class="sskill-hole" aria-hidden="true"></span>
-                <span class="sskill-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                    <line x1="12" y1="19" x2="12" y2="23" />
-                    <line x1="8" y1="23" x2="16" y2="23" />
-                  </svg>
-                </span>
-                <div class="sskill-label">
-                  <span class="sskill-name">Voice Over</span>
-                  <span class="sskill-note">VO at home, basically.</span>
-                </div>
-              </div>
-              <!-- Card 1: UI/UX -->
-              <div class="sskill-card" role="button" tabindex="0" id="sskill-uiux" data-index="1"
-                style="--clr:#00D2B4; --rot:-42deg;" aria-label="UI/UX: Mostly messing around, elegantly.">
-                <span class="sskill-hole" aria-hidden="true"></span>
-                <span class="sskill-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M3 9h18" />
-                    <path d="M9 21V9" />
-                  </svg>
-                </span>
-                <div class="sskill-label">
-                  <span class="sskill-name">UI/UX</span>
-                  <span class="sskill-note">Mostly messing around, elegantly.</span>
-                </div>
-              </div>
-              <!-- Card 2: Drinking Tea -->
-              <div class="sskill-card" role="button" tabindex="0" id="sskill-tea" data-index="2"
-                style="--clr:#A855F7; --rot:-21deg;" aria-label="Drinking Tea: Purveyor of fine leaf water.">
-                <span class="sskill-hole" aria-hidden="true"></span>
-                <span class="sskill-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                    <line x1="6" y1="1" x2="6" y2="4" />
-                    <line x1="10" y1="1" x2="10" y2="4" />
-                    <line x1="14" y1="1" x2="14" y2="4" />
-                  </svg>
-                </span>
-                <div class="sskill-label">
-                  <span class="sskill-name">Drinking Tea</span>
-                  <span class="sskill-note">Purveyor of fine leaf water.</span>
-                </div>
-              </div>
-              <!-- Card 3: Video Editing -->
-              <div class="sskill-card" role="button" tabindex="0" id="sskill-video" data-index="3"
-                style="--clr:#FF4757; --rot:0deg;" aria-label="Video Editing: Somewhat decent, Trust">
-                <span class="sskill-hole" aria-hidden="true"></span>
-                <span class="sskill-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <polygon points="23 7 16 12 23 17 23 7" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" />
-                  </svg>
-                </span>
-                <div class="sskill-label">
-                  <span class="sskill-name">Video Editing</span>
-                  <span class="sskill-note">Somewhat decent, Trust</span>
-                </div>
-              </div>
-            </div><!-- /side-skills-fan -->
-            <!-- The metal rivet bolt -->
-            <div class="side-skills-rivet" aria-hidden="true"></div>
-          </div><!-- /side-skills -->
-        </div><!-- /about-image-wrap -->
-      </div><!-- /grid col 1 -->
-
-      <div class="about-content">
+    <!-- ─── PROJECTS ──────────────────────────────────────────────── -->
+    <section id="projects" class="section projects-section" aria-label="Projects">
+      <div class="projects-section-header">
         <div class="section-label reveal">
-          <span>04</span><span>The Human</span>
+          <span>02</span><span>Selected Work</span>
         </div>
-        <h2 class="section-heading reveal reveal-delay-1">ABOUT<br />ME</h2>
-
-        <p class="about-text reveal reveal-delay-2">
-          As a Web Developer <strong>specializing in CMS</strong>, what I really care about is the end result, how the
-          site
-          feels, not
-          just how it works. I believe the user should genuinely enjoy what they're interacting with, visually pleased,
-          not just functionally served.
-        </p>
-        <p class="about-text reveal reveal-delay-2">
-          I always try to deliver work I'd be comfortable putting my name on, not just work that technically checks the
-          box. I refuse to treat my work as a task list, if I see a better way to do it, I'll say so.
-        </p>
-        <p class="about-text reveal reveal-delay-3">
-          What excites me most is projects with a personality. Something that doesn't just follow the market, but has
-          its own identity, even if that identity is playful or a little unpolished by "professional" standards.
-          Personality speaks louder than perfection, and I'd rather build <mark>something people remember than
-            something that just blends in.</mark>
-        </p>
-
-        <div class="about-stats reveal reveal-delay-3">
-          <div class="about-stat">
-            <div class="about-stat-num">3+</div>
-            <div class="about-stat-label">Years experience</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num">20+</div>
-            <div class="about-stat-label">Projects shipped</div>
-          </div>
-          <div class="about-stat">
-            <div class="about-stat-num">∞</div>
-            <div class="about-stat-label">Tea cups consumed</div>
-          </div>
-        </div>
-
-        <div class="reveal reveal-delay-4">
-          <a href="#contact" class="btn btn--primary" id="about-cta">Let's Work Together
+        <div class="projects-heading-row">
+          <h2 class="section-heading reveal reveal-delay-1">PROJECTS</h2>
+          <button class="see-all-btn" id="seeAllProjectsBtn" aria-haspopup="true" aria-expanded="false"
+            aria-controls="projectsDrawer">
+            <span>See All Work</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── CONTACT ───────────────────────────────────────────────── -->
-  <section id="contact" class="section" aria-label="Contact Bishoy Nabil">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <div class="section-label reveal">
-          <span>05</span><span>Contact</span>
-        </div>
-        <h2 class="section-heading reveal reveal-delay-1">LET'S<br />BUILD<br />TOGETHER</h2>
-        <p class="reveal reveal-delay-2">
-          Have a project in mind, a role to fill, or just want to talk shop? I'm open to freelance projects, full-time
-          opportunities, and interesting conversations.
-        </p>
-
-        <div class="contact-links reveal reveal-delay-3">
-          <a href="mailto:bishonabil457@gmail.com" class="contact-link-item" id="contact-email"
-            aria-label="Email Bishoy">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            bishonabil457@gmail.com
-          </a>
-          <a href="https://wa.me/201065116196" target="_blank" rel="noopener noreferrer" class="contact-link-item"
-            id="contact-whatsapp" aria-label="Bishoy on WhatsApp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-            </svg>
-            +20 106 511 6196 (WhatsApp)
-          </a>
-          <a href="https://www.linkedin.com/in/bishoy-nabil-1aa474320/" target="_blank" rel="noopener noreferrer"
-            class="contact-link-item" id="contact-linkedin" aria-label="Bishoy on LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            linkedin.com/in/bishoy-nabil
-          </a>
-        </div>
-      </div>
-
-      <form class="contact-form reveal reveal-delay-2" id="contactForm" action="https://formspree.io/f/xljewdzw"
-        method="POST" novalidate aria-label="Contact form">
-        <div class="form-group">
-          <label for="contact-name">Your Name</label>
-          <input type="text" id="contact-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
-        </div>
-        <div class="form-group">
-          <label for="contact-email-input">Email Address</label>
-          <input type="email" id="contact-email-input" name="email" placeholder="jane@company.com" autocomplete="email"
-            required />
-        </div>
-        <div class="form-group">
-          <label for="contact-subject">Subject</label>
-          <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry / Job opportunity" />
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" name="message" rows="5"
-            placeholder="Tell me about your project, timeline, and budget…" required></textarea>
-        </div>
-        <div class="form-submit-row">
-          <span class="form-note">I typically reply within 24h</span>
-          <button type="submit" class="btn btn--primary" id="contact-submit">
-            Send Message
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M14.5 1.5L7 9M14.5 1.5H10M14.5 1.5V6" stroke="currentColor" stroke-width="1.8"
-                stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M6 3H2.5C1.7 3 1 3.7 1 4.5v9c0 .8.7 1.5 1.5 1.5h9c.8 0 1.5-.7 1.5-1.5V10" stroke="currentColor"
-                stroke-width="1.8" stroke-linecap="round" />
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square" />
             </svg>
           </button>
         </div>
-        <div id="form-feedback" role="alert" aria-live="polite"
-          style="display:none; font-family:'Courier Prime',monospace; font-size:0.82rem; padding:12px 16px; border:2px solid; margin-top:0.5rem;">
+      </div>
+
+      <!-- Sticky progress indicator -->
+      <div class="projects-progress" aria-hidden="true" id="projectsProgress">
+        <span class="progress-current" id="progressCurrent">01</span>
+        <span class="progress-sep"> / </span>
+        <span class="progress-total">04</span>
+      </div>
+
+      <!-- Stacked scrollable cards -->
+      <div class="projects-stack" id="projectsStack">
+
+        <!-- Card 01 -->
+        <article class="pcard" id="pcard-1" data-index="1" aria-label="Project: Cosmo5" style="--card-accent:#00FFAB;">
+          <div class="pcard-header">
+            <div class="pcard-num">
+              <span class="pcard-num-box">01</span>
+              <h3 class="pcard-title">Cosmo5</h3>
+            </div>
+            <span class="pcard-tagline">Flexible WordPress System</span>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-left">
+              <p class="pcard-desc">
+                Cosmo5 runs marketing campaigns across 18 countries, so their site needed to move fast — literally. I
+                rebuilt it from a static, hard-to-touch setup into a flexible WordPress system where the team can spin
+                up
+                new pages and rearrange sections themselves.
+              </p>
+              <div class="pcard-tech">
+                <span class="ptag">PHP</span>
+                <span class="ptag">JS</span>
+                <span class="ptag">CSS</span>
+                <span class="ptag ptag--hl">Headless Wordpress</span>
+              </div>
+              <div class="pcard-actions">
+                <a href="https://Cosmo5.com" target="_blank" rel="noopener noreferrer"
+                  class="pcard-btn pcard-btn--primary" id="pcard-1-details">Cosmo5.com ↗</a>
+              </div>
+            </div>
+            <div class="pcard-right">
+              <div class="pcard-frame">
+                <div class="pcard-frame-chrome">
+                  <span class="pframe-dot" style="background:#FF5F57"></span>
+                  <span class="pframe-dot" style="background:#FEBC2E"></span>
+                  <span class="pframe-dot" style="background:#28C840"></span>
+                  <span class="pframe-url">Cosmo5.com</span>
+                </div>
+                <div class="pcard-frame-content">
+                  <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="800" height="396"
+                    decoding="async" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 02 -->
+        <article class="pcard" id="pcard-2" data-index="2" aria-label="Project: Maker Faire Cairo"
+          style="--card-accent:#B57BFF;">
+          <div class="pcard-header">
+            <div class="pcard-num">
+              <span class="pcard-num-box">02</span>
+              <h3 class="pcard-title">Maker Faire Cairo</h3>
+            </div>
+            <span class="pcard-tagline">Full Ticketing Experience</span>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-left">
+              <p class="pcard-desc">
+                Maker Faire Cairo needed more than a website — it needed to handle a crowd. I built the full ticketing
+                experience: logins, profiles, workshop schedules, instructor bios, and paid passes, all wrapped in a
+                platform that stayed smooth even when traffic spiked.
+              </p>
+              <div class="pcard-tech">
+                <span class="ptag">Wordpress</span>
+                <span class="ptag ptag--hl">elementor</span>
+                <span class="ptag">woocommerce</span>
+                <span class="ptag">Css</span>
+              </div>
+              <div class="pcard-actions">
+                <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-2-details">Ask Me ↗</a>
+              </div>
+            </div>
+            <div class="pcard-right">
+              <div class="pcard-frame">
+                <div class="pcard-frame-chrome">
+                  <span class="pframe-dot" style="background:#FF5F57"></span>
+                  <span class="pframe-dot" style="background:#FEBC2E"></span>
+                  <span class="pframe-dot" style="background:#28C840"></span>
+                  <span class="pframe-url">makerfairecairo.com</span>
+                </div>
+                <div class="pcard-frame-content">
+                  <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy"
+                    width="800" height="386" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 03 -->
+        <article class="pcard" id="pcard-3" data-index="3" aria-label="Project: Guilt-Free"
+          style="--card-accent:#00FFAB;">
+          <div class="pcard-header">
+            <div class="pcard-num">
+              <span class="pcard-num-box">03</span>
+              <h3 class="pcard-title">Guilt-Free</h3>
+            </div>
+            <span class="pcard-tagline">Saudi Bakery Brand</span>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-left">
+              <p class="pcard-desc">
+                Guilt Free is a Saudi bakery brand selling sugar-free, keto-friendly desserts, from cheesecakes to
+                cookies. I built their full WordPress store with product filtering, ratings, cart, and a bilingual RTL
+                layout, so browsing and ordering feels just as smooth in Arabic as it looks.
+              </p>
+              <div class="pcard-tech">
+                <span class="ptag">Wordpress</span>
+                <span class="ptag ptag--hl">Elementor</span>
+                <span class="ptag">Css</span>
+              </div>
+              <div class="pcard-actions">
+                <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-3-details">Ask Me ↗</a>
+              </div>
+            </div>
+            <div class="pcard-right">
+              <div class="pcard-frame">
+                <div class="pcard-frame-chrome">
+                  <span class="pframe-dot" style="background:#FF5F57"></span>
+                  <span class="pframe-dot" style="background:#FEBC2E"></span>
+                  <span class="pframe-dot" style="background:#28C840"></span>
+                  <span class="pframe-url">guiltfree.sa</span>
+                </div>
+                <div class="pcard-frame-content">
+                  <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="800"
+                    height="386" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 04 -->
+        <article class="pcard" id="pcard-4" data-index="4" aria-label="Project: Something's Brewing..."
+          style="--card-accent:#FFE500;">
+          <div class="pcard-header">
+            <div class="pcard-num">
+              <span class="pcard-num-box">04</span>
+              <h3 class="pcard-title">Something's Cooking...</h3>
+            </div>
+            <span class="pcard-tagline">In the works</span>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-left">
+              <p class="pcard-desc">
+                Still cooking in the background. Can't share details yet, but this one's shaping up to be a favorite.
+              </p>
+              <!-- Angled Neo-brutalist Construction Tape Strip (No Words) -->
+              <div class="brutal-tape-overlay-strip" aria-hidden="true"></div>
+
+              <div class="pcard-tech">
+                <span class="ptag">Wordpress</span>
+                <span class="ptag ptag--hl">Elementor</span>
+                <span class="ptag">Css</span>
+              </div>
+              <div class="pcard-actions">
+                <a href="#contact" class="pcard-btn pcard-btn--primary" id="pcard-4-details">Get in Touch ↗</a>
+              </div>
+            </div>
+            <div class="pcard-right">
+              <div class="pcard-frame brutal-pcard-frame">
+                <div class="pcard-frame-chrome">
+                  <span class="pframe-dot" style="background:#FF5F57"></span>
+                  <span class="pframe-dot" style="background:#FEBC2E"></span>
+                  <span class="pframe-dot" style="background:#28C840"></span>
+                  <span class="pframe-url">classified-staging.local</span>
+                </div>
+                <div class="pcard-frame-content pcard-frame-content--svg brutal-frame-canvas">
+                  <!-- Neo-Brutalist Construction SVG Scene -->
+                  <svg viewBox="0 0 480 280" xmlns="http://www.w3.org/2000/svg" class="brutal-crane-svg"
+                    aria-hidden="true">
+                    <!-- Sharp grid lines -->
+                    <defs>
+                      <pattern id="brutal-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.2" fill="#333333" />
+                      </pattern>
+                      <pattern id="brutal-stripes" width="24" height="24" patternTransform="rotate(45 0 0)"
+                        patternUnits="userSpaceOnUse">
+                        <line x1="0" y1="0" x2="0" y2="24" stroke="#FFE500" stroke-width="10" />
+                        <line x1="12" y1="0" x2="12" y2="24" stroke="#000000" stroke-width="10" />
+                      </pattern>
+                    </defs>
+
+                    <rect width="100%" height="100%" fill="#111111" />
+                    <rect width="100%" height="100%" fill="url(#brutal-dots)" />
+
+                    <!-- Top Hazard Warning Border -->
+                    <rect x="0" y="0" width="480" height="12" fill="url(#brutal-stripes)" stroke="#FFE500"
+                      stroke-width="1" />
+                    <rect x="0" y="268" width="480" height="12" fill="url(#brutal-stripes)" stroke="#FFE500"
+                      stroke-width="1" />
+
+                    <!-- Blueprint Wireframe Box 1 with Thick Neo-Brutalist Border & Shadow -->
+                    <g class="crane-cable-rig">
+                      <!-- Crane Tower & Cable Hook Hanging the element -->
+                      <line x1="240" y1="0" x2="240" y2="65" stroke="#FFE500" stroke-width="3" stroke-dasharray="6 3"
+                        class="crane-cable" />
+                      <!-- Pulley wheel -->
+                      <circle cx="240" cy="65" r="7" fill="#000000" stroke="#FFE500" stroke-width="2.5" />
+                      <circle cx="240" cy="65" r="2.5" fill="#FFE500" />
+                      <!-- Hook -->
+                      <path d="M 240 72 C 240 82 250 82 250 76" fill="none" stroke="#FFE500" stroke-width="3"
+                        stroke-linecap="round" />
+
+                      <!-- The Swinging / Hovering Component Under Assembly -->
+                      <g class="brutal-swing-module">
+                        <!-- Offset Drop Shadow Box -->
+                        <rect x="135" y="85" width="220" height="110" fill="#FFE500" />
+                        <!-- Main Component Container -->
+                        <rect x="130" y="80" width="220" height="110" fill="#000000" stroke="#FFFFFF"
+                          stroke-width="3" />
+
+                        <!-- Header row inside component -->
+                        <rect x="130" y="80" width="220" height="28" fill="#1e1e1e" stroke="#FFFFFF" stroke-width="2" />
+                        <text x="142" y="98" font-family="'Courier Prime', monospace" font-size="11" font-weight="700"
+                          fill="#FFE500" letter-spacing="1">PROJECT.CONFIDENTIAL</text>
+
+                        <!-- Cross braces & blueprint draft elements -->
+                        <line x1="145" y1="120" x2="240" y2="120" stroke="#ffffff" stroke-width="4" />
+                        <line x1="145" y1="135" x2="335" y2="135" stroke="#444444" stroke-width="3" />
+                        <line x1="145" y1="148" x2="280" y2="148" stroke="#444444" stroke-width="3" />
+
+                        <!-- Big Brutal Stamp: [CLASSIFIED] -->
+                        <g class="brutal-stamp-group" transform="rotate(-6 240 155)">
+                          <rect x="180" y="145" width="130" height="28" fill="#FFE500" stroke="#000000"
+                            stroke-width="2.5" />
+                          <text x="245" y="164" font-family="'Bebas Neue', sans-serif" font-size="20" fill="#000000"
+                            letter-spacing="2" text-anchor="middle">COOKING NOW</text>
+                        </g>
+                      </g>
+                    </g>
+
+                    <!-- Bottom Scaffold Stage / Pedestal -->
+                    <g class="brutal-ground-scaffold">
+                      <!-- Construction Barrier Left -->
+                      <rect x="35" y="195" width="70" height="42" fill="#1a1a1a" stroke="#ffffff" stroke-width="2" />
+                      <rect x="35" y="200" width="70" height="12" fill="url(#brutal-stripes)" />
+                      <line x1="45" y1="237" x2="45" y2="255" stroke="#ffffff" stroke-width="3" />
+                      <line x1="95" y1="237" x2="95" y2="255" stroke="#ffffff" stroke-width="3" />
+
+                      <!-- Construction Barrier Right -->
+                      <rect x="375" y="195" width="70" height="42" fill="#1a1a1a" stroke="#ffffff" stroke-width="2" />
+                      <rect x="375" y="200" width="70" height="12" fill="url(#brutal-stripes)" />
+                      <line x1="385" y1="237" x2="385" y2="255" stroke="#ffffff" stroke-width="3" />
+                      <line x1="435" y1="237" x2="435" y2="255" stroke="#ffffff" stroke-width="3" />
+
+                      <!-- Bottom Warning Footnote -->
+                      <text x="240" y="245" font-family="'Courier Prime', monospace" font-size="11" font-weight="700"
+                        fill="#888888" text-anchor="middle" letter-spacing="1">ESTIMATED DROP: VERY SOON</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /projects-stack -->
+    </section>
+
+    <!-- ─── SKILLS ────────────────────────────────────────────────── -->
+    <section id="skills" class="section" aria-label="Skills">
+      <div class="section-label reveal">
+        <span>03</span><span>Toolkit</span>
+      </div>
+      <h2 class="section-heading reveal reveal-delay-1" style="margin-bottom:3rem;">SKILLS</h2>
+
+      <div class="skills-grid reveal reveal-delay-2">
+
+        <!-- Group 1: CMS & E-Commerce -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 9h6M9 12h6M9 15h4" />
+              </svg>
+            </div>
+            <span class="skill-group-name">CMS &amp; E-Com</span>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">WordPress</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:0; --skill-scale:0.95; --skill-level:95%" data-level="95"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Elementor</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:1; --skill-scale:0.92; --skill-level:92%" data-level="92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Gutenberg</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:2; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Shopify</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:3; --skill-scale:0.85; --skill-level:85%" data-level="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Replo</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:4; --skill-scale:0.85; --skill-level:85%" data-level="85"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
-  </section>
+
+        <!-- Group 2: Frontend & Mobile -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </div>
+            <span class="skill-group-name">Frontend &amp; App</span>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">JavaScript (ES6+)</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:5; --skill-scale:0.92; --skill-level:92%" data-level="92"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">HTML5 / Semantic</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:6; --skill-scale:0.96; --skill-level:96%" data-level="96"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">CSS3 / Responsive</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:7; --skill-scale:0.94; --skill-level:94%" data-level="94"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Ionic Framework</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:8; --skill-scale:0.82; --skill-level:82%" data-level="82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Cross-Platform UI</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:9; --skill-scale:0.84; --skill-level:84%" data-level="84"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 3: Backend & Dev Tools -->
+        <div class="skill-group">
+          <div class="skill-group-header">
+            <div class="skill-group-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3" />
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+              </svg>
+            </div>
+            <span class="skill-group-name">Backend &amp; Tools</span>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <span class="skill-name">PHP</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:10; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">API Integration</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:11; --skill-scale:0.90; --skill-level:90%" data-level="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">REST / Webhooks</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:12; --skill-scale:0.86; --skill-level:86%" data-level="86"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Git &amp; GitHub</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:13; --skill-scale:0.88; --skill-level:88%" data-level="88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">VS Code Workflow</span>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar" style="--bar-i:14; --skill-scale:0.95; --skill-level:95%" data-level="95"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+    <section id="about" class="section" aria-label="About Bishoy Nabil">
+      <div class="about-grid">
+        <div>
+          <div class="about-image-wrap reveal">
+
+            <div class="about-image-container">
+              <img src="Assets/memememe.webp" alt="Bishoy Nabil portrait" class="about-contract-img" loading="lazy"
+                width="720" height="720" decoding="async" />
+            </div>
+            <div class="about-image-frame" aria-hidden="true"></div>
+
+            <!-- Scribble note pointing to the swiss knife -->
+            <div class="scribble-annotation scribble-knife" aria-hidden="true">
+              <span class="scribble-text">my swiss knife</span>
+              <svg class="scribble-arrow scribble-arrow-knife" viewBox="0 0 65 65" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <!-- Hand-drawn curved arrow: sweeps down and hooks sharp left towards the blades -->
+                <path d="M 46 6 C 52 24, 48 44, 22 48" stroke="#ff2222" stroke-width="2.8" stroke-linecap="round"
+                  fill="none" />
+                <path d="M 32 40 C 26 44, 20 46, 14 49 C 18 53, 22 57, 26 62" stroke="#ff2222" stroke-width="2.8"
+                  stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </svg>
+            </div>
+
+            <!-- ── Side-Skills Swiss Knife ────────────────────────── -->
+            <div class="side-skills" id="sideSkills" aria-label="Other creative skills" role="region">
+              <div class="side-skills-fan" id="sideSkillsFan">
+                <!-- Card 0: Voice Over -->
+                <div class="sskill-card" role="button" tabindex="0" id="sskill-vo" data-index="0"
+                  style="--clr:#FFA502; --rot:-63deg;" aria-label="Voice Over: VO at home, basically.">
+                  <span class="sskill-hole" aria-hidden="true"></span>
+                  <span class="sskill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                      <line x1="12" y1="19" x2="12" y2="23" />
+                      <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                  </span>
+                  <div class="sskill-label">
+                    <span class="sskill-name">Voice Over</span>
+                    <span class="sskill-note">VO at home, basically.</span>
+                  </div>
+                </div>
+                <!-- Card 1: UI/UX -->
+                <div class="sskill-card" role="button" tabindex="0" id="sskill-uiux" data-index="1"
+                  style="--clr:#00D2B4; --rot:-42deg;" aria-label="UI/UX: Mostly messing around, elegantly.">
+                  <span class="sskill-hole" aria-hidden="true"></span>
+                  <span class="sskill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <path d="M3 9h18" />
+                      <path d="M9 21V9" />
+                    </svg>
+                  </span>
+                  <div class="sskill-label">
+                    <span class="sskill-name">UI/UX</span>
+                    <span class="sskill-note">Mostly messing around, elegantly.</span>
+                  </div>
+                </div>
+                <!-- Card 2: Drinking Tea -->
+                <div class="sskill-card" role="button" tabindex="0" id="sskill-tea" data-index="2"
+                  style="--clr:#A855F7; --rot:-21deg;" aria-label="Drinking Tea: Purveyor of fine leaf water.">
+                  <span class="sskill-hole" aria-hidden="true"></span>
+                  <span class="sskill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                      <line x1="6" y1="1" x2="6" y2="4" />
+                      <line x1="10" y1="1" x2="10" y2="4" />
+                      <line x1="14" y1="1" x2="14" y2="4" />
+                    </svg>
+                  </span>
+                  <div class="sskill-label">
+                    <span class="sskill-name">Drinking Tea</span>
+                    <span class="sskill-note">Purveyor of fine leaf water.</span>
+                  </div>
+                </div>
+                <!-- Card 3: Video Editing -->
+                <div class="sskill-card" role="button" tabindex="0" id="sskill-video" data-index="3"
+                  style="--clr:#FF4757; --rot:0deg;" aria-label="Video Editing: Somewhat decent, Trust">
+                  <span class="sskill-hole" aria-hidden="true"></span>
+                  <span class="sskill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polygon points="23 7 16 12 23 17 23 7" />
+                      <rect x="1" y="5" width="15" height="14" rx="2" />
+                    </svg>
+                  </span>
+                  <div class="sskill-label">
+                    <span class="sskill-name">Video Editing</span>
+                    <span class="sskill-note">Somewhat decent, Trust</span>
+                  </div>
+                </div>
+              </div><!-- /side-skills-fan -->
+              <!-- The metal rivet bolt -->
+              <div class="side-skills-rivet" aria-hidden="true"></div>
+            </div><!-- /side-skills -->
+          </div><!-- /about-image-wrap -->
+        </div><!-- /grid col 1 -->
+
+        <div class="about-content">
+          <div class="section-label reveal">
+            <span>04</span><span>The Human</span>
+          </div>
+          <h2 class="section-heading reveal reveal-delay-1">ABOUT<br />ME</h2>
+
+          <p class="about-text reveal reveal-delay-2">
+            As a Web Developer <strong>specializing in CMS</strong>, what I really care about is the end result, how the
+            site
+            feels, not
+            just how it works. I believe the user should genuinely enjoy what they're interacting with, visually
+            pleased,
+            not just functionally served.
+          </p>
+          <p class="about-text reveal reveal-delay-2">
+            I always try to deliver work I'd be comfortable putting my name on, not just work that technically checks
+            the
+            box. I refuse to treat my work as a task list, if I see a better way to do it, I'll say so.
+          </p>
+          <p class="about-text reveal reveal-delay-3">
+            What excites me most is projects with a personality. Something that doesn't just follow the market, but has
+            its own identity, even if that identity is playful or a little unpolished by "professional" standards.
+            Personality speaks louder than perfection, and I'd rather build <mark>something people remember than
+              something that just blends in.</mark>
+          </p>
+
+          <div class="about-stats reveal reveal-delay-3">
+            <div class="about-stat">
+              <div class="about-stat-num">3+</div>
+              <div class="about-stat-label">Years experience</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">20+</div>
+              <div class="about-stat-label">Projects shipped</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">∞</div>
+              <div class="about-stat-label">Tea cups consumed</div>
+            </div>
+          </div>
+
+          <div class="reveal reveal-delay-4">
+            <a href="#contact" class="btn btn--primary" id="about-cta">Let's Work Together
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ───────────────────────────────────────────────── -->
+    <section id="contact" class="section" aria-label="Contact Bishoy Nabil">
+      <div class="contact-inner">
+        <div class="contact-left">
+          <div class="section-label reveal">
+            <span>05</span><span>Contact</span>
+          </div>
+          <h2 class="section-heading reveal reveal-delay-1">LET'S<br />BUILD<br />TOGETHER</h2>
+          <p class="reveal reveal-delay-2">
+            Have a project in mind, a role to fill, or just want to talk shop? I'm open to freelance projects, full-time
+            opportunities, and interesting conversations.
+          </p>
+
+          <div class="contact-links reveal reveal-delay-3">
+            <a href="mailto:bishonabil457@gmail.com" class="contact-link-item" id="contact-email"
+              aria-label="Email Bishoy">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              bishonabil457@gmail.com
+            </a>
+            <a href="https://wa.me/201065116196" target="_blank" rel="noopener noreferrer" class="contact-link-item"
+              id="contact-whatsapp" aria-label="Bishoy on WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              +20 106 511 6196 (WhatsApp)
+            </a>
+            <a href="https://www.linkedin.com/in/bishoy-nabil-1aa474320/" target="_blank" rel="noopener noreferrer"
+              class="contact-link-item" id="contact-linkedin" aria-label="Bishoy on LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              linkedin.com/in/bishoy-nabil
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-2" id="contactForm" action="https://formspree.io/f/xljewdzw"
+          method="POST" novalidate aria-label="Contact form">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Jane Smith" autocomplete="name" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-email-input">Email Address</label>
+            <input type="email" id="contact-email-input" name="email" placeholder="jane@company.com"
+              autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Subject</label>
+            <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry / Job opportunity" />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5"
+              placeholder="Tell me about your project, timeline, and budget…" required></textarea>
+          </div>
+          <div class="form-submit-row">
+            <span class="form-note">I typically reply within 24h</span>
+            <button type="submit" class="btn btn--primary" id="contact-submit">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M14.5 1.5L7 9M14.5 1.5H10M14.5 1.5V6" stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 3H2.5C1.7 3 1 3.7 1 4.5v9c0 .8.7 1.5 1.5 1.5h9c.8 0 1.5-.7 1.5-1.5V10" stroke="currentColor"
+                  stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </button>
+          </div>
+          <div id="form-feedback" role="alert" aria-live="polite"
+            style="display:none; font-family:'Courier Prime',monospace; font-size:0.82rem; padding:12px 16px; border:2px solid; margin-top:0.5rem;">
+          </div>
+        </form>
+      </div>
+    </section>
   </main>
 
   <!-- ─── FOOTER ────────────────────────────────────────────────── -->
@@ -932,10 +947,11 @@
   <!-- ─── ALL PROJECTS STICKY TAB + DRAWER ────────────────────── -->
 
   <!-- Sticky-note pull tab (right edge of viewport) -->
-  <button class="projects-tab" id="projectsTab" aria-label="Open all projects" aria-haspopup="true" aria-expanded="false" aria-controls="projectsDrawer">
+  <button class="projects-tab" id="projectsTab" aria-label="Open all projects" aria-haspopup="true"
+    aria-expanded="false" aria-controls="projectsDrawer">
     <span class="projects-tab-label">All Projects</span>
     <svg class="projects-tab-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="square" />
     </svg>
   </button>
 
@@ -944,7 +960,7 @@
     <!-- Close pull-back tab on left edge of drawer -->
     <button class="drawer-back-tab" id="drawerBackTab" aria-label="Close projects drawer">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-        <path d="M12 7H2M6 11L2 7l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+        <path d="M12 7H2M6 11L2 7l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="square" />
       </svg>
       <span class="drawer-back-label">Back</span>
     </button>
@@ -957,168 +973,339 @@
       </div>
       <button class="drawer-close" id="drawerClose" aria-label="Close">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+          <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" />
         </svg>
       </button>
     </div>
 
-    <!-- Bento/masonry grid -->
-    <div class="drawer-grid" id="drawerGrid">
+    <!-- Scrollable body — header stays outside this so it never scrolls away -->
+    <div class="drawer-body">
+      <!-- Bento/masonry grid -->
+      <div class="drawer-grid" id="drawerGrid">
 
-      <!-- Featured card 01: Cosmo5 -->
-      <article class="dcard dcard--wide" style="--dcard-accent: #00FFAB;">
-        <div class="dcard-inner">
-          <div class="dcard-meta">
-            <span class="dcard-num">01</span>
-            <span class="dcard-tag">CMS / Full-Stack</span>
-          </div>
-          <h3 class="dcard-title">Cosmo5</h3>
-          <p class="dcard-desc">Rebuilt from a static setup into a flexible WordPress system powering marketing campaigns across 18 countries.</p>
-          <div class="dcard-tech">
-            <span class="dtag">PHP</span>
-            <span class="dtag">JS</span>
-            <span class="dtag">CSS</span>
-            <span class="dtag dtag--hl">Headless WordPress</span>
-          </div>
-          <div class="dcard-actions">
-            <a href="https://Cosmo5.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">Cosmo5.com ↗</a>
-          </div>
-        </div>
-        <div class="dcard-visual">
-          <div class="dcard-frame">
-            <div class="dcard-frame-chrome">
-              <span class="dfframe-dot" style="background:#FF5F57"></span>
-              <span class="dfframe-dot" style="background:#FEBC2E"></span>
-              <span class="dfframe-dot" style="background:#28C840"></span>
-              <span class="dframe-url">Cosmo5.com</span>
+        <!-- 01. Cosmo5 (Flagship Feature) -->
+        <article class="dcard dcard--wide" style="--dcard-accent: #00FFAB;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">01</span>
+              <span class="dcard-tag">CMS / Full-Stack</span>
             </div>
-            <div class="dcard-frame-img">
-              <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+            <h3 class="dcard-title">Cosmo5</h3>
+            <p class="dcard-desc">Rebuilt from a static setup into a flexible WordPress system powering marketing campaigns across 18 countries.</p>
+            <div class="dcard-tech">
+              <span class="dtag">PHP</span>
+              <span class="dtag">JS</span>
+              <span class="dtag">CSS</span>
+              <span class="dtag dtag--hl">Headless WordPress</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="https://Cosmo5.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">Cosmo5.com ↗</a>
             </div>
           </div>
-        </div>
-      </article>
-
-      <!-- Featured card 02: Maker Faire Cairo -->
-      <article class="dcard" style="--dcard-accent: #B57BFF;">
-        <div class="dcard-inner">
-          <div class="dcard-meta">
-            <span class="dcard-num">02</span>
-            <span class="dcard-tag">Events / E-Commerce</span>
-          </div>
-          <h3 class="dcard-title">Maker Faire Cairo</h3>
-          <p class="dcard-desc">Full ticketing experience — logins, workshop schedules, instructor bios, paid passes, and traffic-resilient infrastructure.</p>
-          <div class="dcard-tech">
-            <span class="dtag">WordPress</span>
-            <span class="dtag dtag--hl">Elementor</span>
-            <span class="dtag">WooCommerce</span>
-          </div>
-          <div class="dcard-actions">
-            <a href="#contact" class="dcard-btn">Ask Me ↗</a>
-          </div>
-        </div>
-        <div class="dcard-visual">
-          <div class="dcard-frame">
-            <div class="dcard-frame-chrome">
-              <span class="dfframe-dot" style="background:#FF5F57"></span>
-              <span class="dfframe-dot" style="background:#FEBC2E"></span>
-              <span class="dfframe-dot" style="background:#28C840"></span>
-              <span class="dframe-url">makerfairecairo.com</span>
-            </div>
-            <div class="dcard-frame-img">
-              <img src="Assets/maker-faire-cairo.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">Cosmo5.com</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/Cosmo5.webp" alt="Cosmo5 project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Featured card 03: Guilt-Free -->
-      <article class="dcard" style="--dcard-accent: #00FFAB;">
-        <div class="dcard-inner">
-          <div class="dcard-meta">
-            <span class="dcard-num">03</span>
-            <span class="dcard-tag">E-Commerce / RTL</span>
-          </div>
-          <h3 class="dcard-title">Guilt-Free</h3>
-          <p class="dcard-desc">Full WordPress store for a Saudi keto bakery — product filtering, ratings, cart, and a seamless bilingual RTL layout.</p>
-          <div class="dcard-tech">
-            <span class="dtag">WordPress</span>
-            <span class="dtag dtag--hl">Elementor</span>
-            <span class="dtag">CSS</span>
-          </div>
-          <div class="dcard-actions">
-            <a href="#contact" class="dcard-btn">Ask Me ↗</a>
-          </div>
-        </div>
-        <div class="dcard-visual">
-          <div class="dcard-frame">
-            <div class="dcard-frame-chrome">
-              <span class="dfframe-dot" style="background:#FF5F57"></span>
-              <span class="dfframe-dot" style="background:#FEBC2E"></span>
-              <span class="dfframe-dot" style="background:#28C840"></span>
-              <span class="dframe-url">guiltfree.sa</span>
+        <!-- 02. Maker Faire Cairo (Tall Feature) -->
+        <article class="dcard dcard--tall" style="--dcard-accent: #B57BFF;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">02</span>
+              <span class="dcard-tag">Events / E-Commerce</span>
             </div>
-            <div class="dcard-frame-img">
-              <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+            <h3 class="dcard-title">Maker Faire Cairo</h3>
+            <p class="dcard-desc">Full ticketing experience — logins, workshop schedules, instructor bios, paid passes, and traffic-resilient infrastructure.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">Elementor</span>
+              <span class="dtag">WooCommerce</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="#contact" class="dcard-btn">Ask Me ↗</a>
             </div>
           </div>
-        </div>
-      </article>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">makerfairecairo.com</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/maker-faire-cairo34.webp" alt="Maker Faire Cairo project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
 
-      <!-- Card 04: Something's Cooking -->
-      <article class="dcard dcard--cooking" style="--dcard-accent: #FFE500;">
-        <div class="dcard-inner">
-          <div class="dcard-meta">
-            <span class="dcard-num">04</span>
-            <span class="dcard-tag">In Progress</span>
+        <!-- 03. Super Smokes -->
+        <article class="dcard" style="--dcard-accent: #FF5722;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">03</span>
+              <span class="dcard-tag">E-Commerce / Retail</span>
+            </div>
+            <h3 class="dcard-title">Super Smokes</h3>
+            <p class="dcard-desc">Full e-commerce platform for online ordering of tobacco &amp; vape products with age verification and two A/B-tested landing pages optimized for conversion.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">WooCommerce</span>
+              <span class="dtag">Elementor</span>
+              <span class="dtag">Custom CSS</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="https://supersmokes.ca" target="_blank" rel="noopener noreferrer" class="dcard-btn">supersmokes.ca ↗</a>
+            </div>
           </div>
-          <h3 class="dcard-title">Something's Cooking...</h3>
-          <p class="dcard-desc">Still under wraps. Can't share details yet, but this one's shaping up to be a favorite.</p>
-          <div class="brutal-tape-mini" aria-hidden="true"></div>
-          <div class="dcard-tech">
-            <span class="dtag">WordPress</span>
-            <span class="dtag dtag--hl">Elementor</span>
-            <span class="dtag">CSS</span>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">supersmokes.ca</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/super smokes.webp" alt="Super Smokes project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
           </div>
-          <div class="dcard-actions">
-            <a href="#contact" class="dcard-btn">Get in Touch ↗</a>
-          </div>
-        </div>
-        <div class="dcard-visual dcard-visual--classified">
-          <div class="classified-badge">CLASSIFIED</div>
-        </div>
-      </article>
+        </article>
 
-      <!-- Placeholder: add more projects below this line -->
-      <!-- Example slot A -->
-      <article class="dcard dcard--new-slot" style="--dcard-accent: #FFE500;">
-        <div class="dcard-inner">
-          <div class="dcard-meta">
-            <span class="dcard-num">05</span>
-            <span class="dcard-tag">Your Category</span>
+        <!-- 04. KB Scientific -->
+        <article class="dcard" style="--dcard-accent: #00D2D3;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">04</span>
+              <span class="dcard-tag">B2B Catalog / Lab Equipment</span>
+            </div>
+            <h3 class="dcard-title">KB Scientific</h3>
+            <p class="dcard-desc">WordPress product catalog for a scientific lab equipment company with a custom request-a-quote workflow, technical spec matrix, and dynamic consumables indexing.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">Elementor</span>
+              <span class="dtag">ACF</span>
+              <span class="dtag">Custom CSS</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="https://kbscinst.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">kbscinst.com ↗</a>
+            </div>
           </div>
-          <h3 class="dcard-title">Your Next Project</h3>
-          <p class="dcard-desc">Replace this card with your next project. The grid will reflow automatically.</p>
-          <div class="dcard-tech">
-            <span class="dtag">Tech</span>
-            <span class="dtag dtag--hl">Stack</span>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">kbscinst.com</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/kbs.webp" alt="KB Scientific project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
           </div>
-          <div class="dcard-actions">
-            <a href="#contact" class="dcard-btn">Contact ↗</a>
-          </div>
-        </div>
-        <div class="dcard-visual dcard-visual--placeholder">
-          <span class="placeholder-label">Coming Soon</span>
-        </div>
-      </article>
+        </article>
 
-    </div><!-- /drawer-grid -->
+        <!-- 05. Andersen Egypt -->
+        <article class="dcard" style="--dcard-accent: #E056FD;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">05</span>
+              <span class="dcard-tag">Legal Services / Corporate</span>
+            </div>
+            <h3 class="dcard-title">Andersen Egypt</h3>
+            <p class="dcard-desc">Refactored site architecture for the international law firm: audited dozens of messy ad-hoc inline styles and consolidated them into a strict, standardized H1–H6 design token scale.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag">Elementor</span>
+              <span class="dtag dtag--hl">CSS Architecture</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="https://eg.andersen.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">eg.andersen.com ↗</a>
+            </div>
+          </div>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">eg.andersen.com</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/andersen.webp" alt="Andersen Egypt project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <!-- Drawer footer -->
-    <div class="drawer-footer">
-      <span class="drawer-footer-text">More projects in progress — check back soon.</span>
-      <a href="#contact" class="dcard-btn drawer-contact-btn" id="drawerContactBtn">Work Together ↗</a>
-    </div>
+        <!-- 06. Guilt-Free -->
+        <article class="dcard" style="--dcard-accent: #00FFAB;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">06</span>
+              <span class="dcard-tag">E-Commerce / RTL</span>
+            </div>
+            <h3 class="dcard-title">Guilt-Free</h3>
+            <p class="dcard-desc">Full WordPress store for a Saudi keto bakery — product filtering, ratings, cart, and a seamless bilingual RTL layout.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">Elementor</span>
+              <span class="dtag">CSS</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="#contact" class="dcard-btn">Ask Me ↗</a>
+            </div>
+          </div>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">guiltfree.sa</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/guiltfree.webp" alt="Guilt Free project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 07. Jordan Harvest -->
+        <article class="dcard" style="--dcard-accent: #FFA502;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">07</span>
+              <span class="dcard-tag">E-Commerce / Food &amp; Beverage</span>
+            </div>
+            <h3 class="dcard-title">Jordan Harvest</h3>
+            <p class="dcard-desc">Art-directed WooCommerce store for a premium dates brand with custom illustrations and an Amazon-style interactive hover zoom for product inspection.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">WooCommerce</span>
+              <span class="dtag">Elementor</span>
+              <span class="dtag">ACF</span>
+              <span class="dtag">JavaScript</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="#contact" class="dcard-btn">Ask Me ↗</a>
+            </div>
+          </div>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">jordanharvest.com (Staging)</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/jordan harvest.webp" alt="Jordan Harvest project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 08. Total Spine & Wellness -->
+        <article class="dcard" style="--dcard-accent: #48DBFB;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">08</span>
+              <span class="dcard-tag">Healthcare / Medical Practice</span>
+            </div>
+            <h3 class="dcard-title">Total Spine &amp; Wellness</h3>
+            <p class="dcard-desc">Informative patient portal for a Florida spine surgery practice, presenting treatments, conditions treated, physician credentials, and verified patient testimonials.</p>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">Elementor</span>
+              <span class="dtag">Custom CSS</span>
+              <span class="dtag">JavaScript</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="https://totalspinewellness.com" target="_blank" rel="noopener noreferrer" class="dcard-btn">totalspinewellness.com ↗</a>
+            </div>
+          </div>
+          <div class="dcard-visual">
+            <div class="dcard-frame">
+              <div class="dcard-frame-chrome">
+                <span class="dfframe-dot" style="background:#FF5F57"></span>
+                <span class="dfframe-dot" style="background:#FEBC2E"></span>
+                <span class="dfframe-dot" style="background:#28C840"></span>
+                <span class="dframe-url">totalspinewellness.com</span>
+              </div>
+              <div class="dcard-frame-img">
+                <img src="Assets/total spine.webp" alt="Total Spine &amp; Wellness project screenshot" loading="lazy" width="600" height="300" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 09. Something's Cooking -->
+        <article class="dcard dcard--cooking" style="--dcard-accent: #FFE500;">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">09</span>
+              <span class="dcard-tag">In Progress</span>
+            </div>
+            <h3 class="dcard-title">Something's Cooking...</h3>
+            <p class="dcard-desc">Still under wraps. Can't share details yet, but this one's shaping up to be a favorite.</p>
+            <div class="brutal-tape-mini" aria-hidden="true"></div>
+            <div class="dcard-tech">
+              <span class="dtag">WordPress</span>
+              <span class="dtag dtag--hl">Elementor</span>
+              <span class="dtag">CSS</span>
+            </div>
+            <div class="dcard-actions">
+              <a href="#contact" class="dcard-btn">Get in Touch ↗</a>
+            </div>
+          </div>
+          <div class="dcard-visual dcard-visual--classified">
+            <div class="classified-badge">CLASSIFIED</div>
+          </div>
+        </article>
+
+        <!-- 10. CTA slot: next collaboration bento banner -->
+        <article class="dcard dcard--new-slot dcard--banner" style="--dcard-accent: #FFE500;"
+          aria-label="Open project slot — work with Bishoy">
+          <div class="dcard-inner">
+            <div class="dcard-meta">
+              <span class="dcard-num">10</span>
+              <span class="dcard-tag">Open Slot</span>
+            </div>
+            <h3 class="dcard-title">Next Project — Yours?</h3>
+            <p class="dcard-desc">This slot is intentionally reserved. If you have a platform that needs high-scale CMS
+              architecture or full-stack engineering, let's ship it.</p>
+          </div>
+          <div class="dcard-banner-side">
+            <div class="banner-status-tag">
+              <span class="status-pulse-dot"></span>
+              <span>AVAILABLE FOR WORK</span>
+            </div>
+            <a href="#contact" class="dcard-btn dcard-btn--hero">Start a Project ↗</a>
+          </div>
+        </article>
+
+      </div><!-- /drawer-grid -->
+
+      <!-- Drawer footer -->
+      <div class="drawer-footer">
+        <span class="drawer-footer-text">More projects in progress — check back soon.</span>
+        <a href="#contact" class="dcard-btn drawer-contact-btn" id="drawerContactBtn">Work Together ↗</a>
+      </div><!-- /drawer-footer -->
+    </div><!-- /drawer-body -->
   </div><!-- /projects-drawer -->
 
   <script defer src="3d-model.js"></script>

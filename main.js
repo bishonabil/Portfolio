@@ -1,4 +1,4 @@
-﻿/* ─────────────────────────────────────────────────────────────────
+/* ─────────────────────────────────────────────────────────────────
    main.js — Bishoy Nabil Portfolio
    ─────────────────────────────────────────────────────────────── */
 
@@ -555,10 +555,11 @@
       if (el) el.addEventListener('click', closeDrawer);
     });
 
-    // Contact CTA inside drawer navigates out — close first
-    if (drawerContact) {
-      drawerContact.addEventListener('click', () => closeDrawer());
-    }
+    // Contact CTA links inside drawer navigate out — close first
+    const contactLinks = drawer.querySelectorAll('a[href="#contact"]');
+    contactLinks.forEach(link => {
+      link.addEventListener('click', () => closeDrawer());
+    });
 
     // Escape key
     document.addEventListener('keydown', (e) => {
