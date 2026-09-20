@@ -114,7 +114,9 @@
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
 
-      const targetSize = 0.3;
+      // Target smaller scale on tablets/iPads:
+      const isTablet = window.innerWidth >= 768 && window.innerWidth <= 1366;
+      const targetSize = isTablet ? 0.20 : 0.3;
       const scale = targetSize / maxDim;
 
       const centeredGroup = new THREE.Group();

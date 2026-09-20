@@ -17,7 +17,7 @@
   --clr-accent-2: #950606;
   --clr-accent-3: #00FFAB;
   --clr-text: #f0f0f0;
-  --clr-text-dim: #888888;
+  --clr-text-dim: #ffffff;
   --shadow-brutal: 5px 5px 0px #ffffff;
   --shadow-brutal-accent: 5px 5px 0px var(--clr-accent);
   --shadow-brutal-red: 5px 5px 0px var(--clr-accent-2);
@@ -2212,6 +2212,40 @@ img {
 }
 
 /* ── Responsive ── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .about-image-wrap {
+    margin-top: 5rem;
+  }
+
+  .side-skills {
+    top: -8px;
+    left: -8px;
+    bottom: auto;
+    right: auto;
+    transform: scale(0.85);
+    transform-origin: 0 0;
+  }
+
+  .scribble-knife {
+    top: -125px;
+    right: 180px;
+    bottom: auto;
+    left: auto;
+    transform: rotate(0deg);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .scribble-arrow-knife {
+    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    margin-right: 24px;
+    transform: rotate(18deg);
+  }
+}
+
 @media (max-width: 1024px) {
   .sskill-card {
     width: 230px;
@@ -2549,7 +2583,7 @@ body.cursor-hover .cursor-ring {
 }
 
 /* ─── Responsive ────────────────────────────────────────────────── */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
   .nav-links {
     display: none;
   }
@@ -3425,7 +3459,7 @@ body.cursor-hover .cursor-ring {
 
 .dcard-desc {
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--clr-text-dim);
   line-height: 1.6;
   flex-grow: 1;
@@ -3648,7 +3682,7 @@ body.cursor-hover .cursor-ring {
 
 .dcard--banner .dcard-desc {
   max-width: 65ch;
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--clr-text-dim);
   margin: 0;
 }
@@ -3768,6 +3802,10 @@ body.drawer-open {
    ═══════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 860px) {
+  article.dcard.dcard--new-slot.dcard--banner {
+    flex-direction: column;
+  }
+
   .drawer-grid {
     padding: 1.2rem 1rem 3.5rem 1rem;
     gap: 14px;
